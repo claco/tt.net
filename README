@@ -1,0 +1,9 @@
+Welcome to my bizarre attempt to use Template Toolkit templates with .NET. My ultimate goal is to turn this into a ViewEngine for ASP.NET MVC
+
+Rather than writing my own parser/lexer, I'm attempting to use ANTLR as the Parser/Lexer grammer which outputs an AST. The AST is then translated into C# using StringBuilder as part of ANTLR itself. The resulting source is compiled and run.
+
+I chose to use Lexer/Parser->AST->Template assuming that once the grammar is written, we can use the parser to ouput VB.NET or any other language using the appropriate templates.
+
+I'm starting simple (GET/SET) and working may out from there. Something should be easy. Some things fill be harder (FILTER), and some things won't translate at all (PERL blocks).
+
+P.S. I have no clue what I'm doing. Most of this stuff was way over my head when I started, but somehow I have some simple syntac working all the way through the process. :-)
