@@ -1,0 +1,22 @@
+group CSharpGenerator; 
+
+class(statements) ::= <<
+	using System.IO;
+
+	public class x {
+		private TextWriter writer = new StringWriter();
+
+		public string Render() {
+			<statements>
+			return writer.ToString();
+		}
+
+		public string Literal(string value) {
+			return value.Substring(1, value.Length-2);
+		}
+	}
+>>
+
+print(literal) ::= <<
+writer.Write(Literal("<literal>"));<\n>
+>>
