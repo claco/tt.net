@@ -20,4 +20,5 @@ statement
 
 getExpr
 	: ^(GET LITERAL) -> print(literal={$LITERAL.text})
+	| ^(GET ID) -> getVariable(name={$ID.text})
 	;

@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-05-27 20:51:21
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-05-30 12:01:51
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -339,37 +339,106 @@ public partial class CSharpGenerator : TreeParser
     };
 
     // $ANTLR start "getExpr"
-    // TT\\CSharpGenerator.g:21:1: getExpr : ^( GET LITERAL ) -> print(literal=$LITERAL.text);
+    // TT\\CSharpGenerator.g:21:1: getExpr : ( ^( GET LITERAL ) -> print(literal=$LITERAL.text) | ^( GET ID ) -> getVariable(name=$ID.text));
     public CSharpGenerator.getExpr_return getExpr() // throws RecognitionException [1]
     {   
         CSharpGenerator.getExpr_return retval = new CSharpGenerator.getExpr_return();
         retval.Start = input.LT(1);
 
         CommonTree LITERAL2 = null;
+        CommonTree ID3 = null;
 
         try 
     	{
-            // TT\\CSharpGenerator.g:22:2: ( ^( GET LITERAL ) -> print(literal=$LITERAL.text))
-            // TT\\CSharpGenerator.g:22:4: ^( GET LITERAL )
+            // TT\\CSharpGenerator.g:22:2: ( ^( GET LITERAL ) -> print(literal=$LITERAL.text) | ^( GET ID ) -> getVariable(name=$ID.text))
+            int alt2 = 2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0 == GET) )
             {
-            	Match(input,GET,FOLLOW_GET_in_getExpr91); 
+                int LA2_1 = input.LA(2);
 
-            	Match(input, Token.DOWN, null); 
-            	LITERAL2=(CommonTree)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr93); 
+                if ( (LA2_1 == DOWN) )
+                {
+                    int LA2_2 = input.LA(3);
 
-            	Match(input, Token.UP, null); 
+                    if ( (LA2_2 == LITERAL) )
+                    {
+                        alt2 = 1;
+                    }
+                    else if ( (LA2_2 == ID) )
+                    {
+                        alt2 = 2;
+                    }
+                    else 
+                    {
+                        NoViableAltException nvae_d2s2 =
+                            new NoViableAltException("", 2, 2, input);
+
+                        throw nvae_d2s2;
+                    }
+                }
+                else 
+                {
+                    NoViableAltException nvae_d2s1 =
+                        new NoViableAltException("", 2, 1, input);
+
+                    throw nvae_d2s1;
+                }
+            }
+            else 
+            {
+                NoViableAltException nvae_d2s0 =
+                    new NoViableAltException("", 2, 0, input);
+
+                throw nvae_d2s0;
+            }
+            switch (alt2) 
+            {
+                case 1 :
+                    // TT\\CSharpGenerator.g:22:4: ^( GET LITERAL )
+                    {
+                    	Match(input,GET,FOLLOW_GET_in_getExpr91); 
+
+                    	Match(input, Token.DOWN, null); 
+                    	LITERAL2=(CommonTree)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr93); 
+
+                    	Match(input, Token.UP, null); 
 
 
-            	// TEMPLATE REWRITE
-            	// 22:19: -> print(literal=$LITERAL.text)
-            	{
-            	    retval.ST = templateLib.GetInstanceOf("print",
-            	  new STAttrMap().Add("literal", ((LITERAL2 != null) ? LITERAL2.Text : null)));
-            	}
+                    	// TEMPLATE REWRITE
+                    	// 22:19: -> print(literal=$LITERAL.text)
+                    	{
+                    	    retval.ST = templateLib.GetInstanceOf("print",
+                    	  new STAttrMap().Add("literal", ((LITERAL2 != null) ? LITERAL2.Text : null)));
+                    	}
 
+
+                    }
+                    break;
+                case 2 :
+                    // TT\\CSharpGenerator.g:23:4: ^( GET ID )
+                    {
+                    	Match(input,GET,FOLLOW_GET_in_getExpr109); 
+
+                    	Match(input, Token.DOWN, null); 
+                    	ID3=(CommonTree)Match(input,ID,FOLLOW_ID_in_getExpr111); 
+
+                    	Match(input, Token.UP, null); 
+
+
+                    	// TEMPLATE REWRITE
+                    	// 23:14: -> getVariable(name=$ID.text)
+                    	{
+                    	    retval.ST = templateLib.GetInstanceOf("getVariable",
+                    	  new STAttrMap().Add("name", ((ID3 != null) ? ID3.Text : null)));
+                    	}
+
+
+                    }
+                    break;
 
             }
-
         }
         catch (RecognitionException re) 
     	{
@@ -397,6 +466,8 @@ public partial class CSharpGenerator : TreeParser
     public static readonly BitSet FOLLOW_getExpr_in_statement75 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_GET_in_getExpr91 = new BitSet(new ulong[]{0x0000000000000004UL});
     public static readonly BitSet FOLLOW_LITERAL_in_getExpr93 = new BitSet(new ulong[]{0x0000000000000008UL});
+    public static readonly BitSet FOLLOW_GET_in_getExpr109 = new BitSet(new ulong[]{0x0000000000000004UL});
+    public static readonly BitSet FOLLOW_ID_in_getExpr111 = new BitSet(new ulong[]{0x0000000000000008UL});
 
 }
 }

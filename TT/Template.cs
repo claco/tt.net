@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -21,6 +22,11 @@ namespace TT
         }
 
         public string Process(string template)
+        {
+            return this.Process(template, null);
+        }
+
+        public string Process(string template, Dictionary<string, object> variables)
         {
 
 
@@ -58,7 +64,8 @@ namespace TT
             {
                 //assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
                 var o = assembly.CreateInstance("x");
-                var result = o.GetType().InvokeMember("Render", BindingFlags.Instance | BindingFlags.Public | BindingFlags.InvokeMethod, null, o, null);
+                Object[] args = {this.Settings, variables};
+                var result = o.GetType().InvokeMember("Render", BindingFlags.Instance | BindingFlags.Public | BindingFlags.InvokeMethod, null, o, args);
 
                 return result.ToString();
             } 
@@ -90,12 +97,16 @@ namespace TT
                 compilerParams.OutputAssembly = Path.Combine(outputDir, name + ".exe");
             }
 
+
+            compilerParams.ReferencedAssemblies.Add("TT.dll");
             compilerParams.TreatWarningsAsErrors = false;
             compilerParams.CompilerOptions = "/optimize";
             //compilerParams.MainClass = "x";
             compilerParams.GenerateExecutable = false;
+            compilerParams.GenerateInMemory = true;
 
-            CSharpCodeProvider provider = new CSharpCodeProvider();
+            var compilerOptions = new Dictionary<string, string> { { "CompilerVersion", "v3.5" } };
+            CSharpCodeProvider provider = new CSharpCodeProvider(compilerOptions);
             Compiler.CompilerResults results = provider.CompileAssemblyFromSource(compilerParams, code);
 
             if (results.Errors.HasErrors)

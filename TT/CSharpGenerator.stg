@@ -1,22 +1,47 @@
 group CSharpGenerator; 
 
 class(statements) ::= <<
+	using TT;
+	using System;
 	using System.IO;
+	using System.Collections.Generic;
 
 	public class x {
-		private TextWriter writer = new StringWriter();
+		private TextWriter _writer;
+		private TemplateSettings _settings;
+		private Dictionary\<string, object\> _variables;
 
-		public string Render() {
+		public string Render(TemplateSettings settings, Dictionary\<string, object\> variables) {
+			_writer = new StringWriter();
+			_settings = settings;
+			_variables = variables;
+
 			<statements>
-			return writer.ToString();
+			return _writer.ToString();
+		}
+
+		public void Print(string value) {
+			_writer.Write(value);
 		}
 
 		public string Literal(string value) {
 			return value.Substring(1, value.Length-2);
 		}
+		
+		public object GetVariable(string name) {
+			if (name != null && _variables != null && _variables.ContainsKey(name)) {
+				return _variables[name];
+			}
+
+			return null;
+		}
 	}
 >>
 
 print(literal) ::= <<
-writer.Write(Literal("<literal>"));<\n>
+Print(Literal("<literal>"));<\n>
+>>
+
+getVariable(name) ::= <<
+Print(GetVariable("<name>").ToString());
 >>
