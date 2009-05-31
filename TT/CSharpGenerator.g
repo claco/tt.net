@@ -19,6 +19,6 @@ statement
 	;
 
 getExpr
-	: ^(GET LITERAL) -> print(literal={$LITERAL.text})
+	: ^(GET LITERAL) -> print(literal={$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace("\r\n", "\\r\\n")})
 	| ^(GET ID) -> getVariable(name={$ID.text})
 	;

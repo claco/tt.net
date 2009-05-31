@@ -1,0 +1,9 @@
+﻿Dear [% name %],
+
+It has come to our attention that your account is in 
+arrears to the sum of [% debt %].
+
+Please settle your account before [% deadline %] or we 
+will be forced to revoke your Licence to Thrill.
+
+The Management.

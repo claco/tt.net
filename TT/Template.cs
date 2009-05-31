@@ -28,11 +28,19 @@ namespace TT
 
         public string Process(string template, Dictionary<string, object> variables)
         {
-
+            //This is a hack, but it removes the need for a step to separate html from tt
+            //by treating it all as literals
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine(template);
+            template = string.Concat("[%'", template.Replace("[%", "'^^][%").Replace("%]", "%][%'").Replace("'^^]", "'%]"), "'%]");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine(template);
+            Console.WriteLine("--------------------------------------------");
 
 
             //CSharpTarget.stg contains string templates used for targeting C#
-            TextReader stgReader = new StreamReader(File.Open("CSharpGenerator.stg", FileMode.Open));
+            //TextReader stgReader = new StreamReader(File.Open("CSharpGenerator.stg", FileMode.Open));
+            TextReader stgReader = new StreamReader("CSharpGenerator.stg");
             StringTemplateGroup stg = new StringTemplateGroup(stgReader);
 
             //lex

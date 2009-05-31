@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ManualIntroTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="VariableTests.cs" />
@@ -67,6 +68,8 @@
     <None Include="templates\GET.literal.source" />
     <None Include="templates\GET.variable.output" />
     <None Include="templates\GET.variable.source" />
+    <None Include="templates\manual-intro-1.output" />
+    <None Include="templates\manual-intro-1.source" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

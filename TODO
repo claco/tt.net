@@ -1,0 +1,8 @@
+- break CSharpCompiler out of Template
+- added VB.NET stg template/compiler
+- break out Template base class
+- make file-based option (in memory hack now
+- properly name class/file based on template
+- need error handling for compile/tt source line numbers 
+- internalize stg templates as resources and make them static
+- need to cache templates, check for cache/last modified

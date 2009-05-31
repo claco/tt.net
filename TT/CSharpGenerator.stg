@@ -25,7 +25,7 @@ class(statements) ::= <<
 		}
 
 		public string Literal(string value) {
-			return value.Substring(1, value.Length-2);
+			return value;
 		}
 		
 		public object GetVariable(string name) {
@@ -43,5 +43,5 @@ Print(Literal("<literal>"));<\n>
 >>
 
 getVariable(name) ::= <<
-Print(GetVariable("<name>").ToString());
+Print(GetVariable("<name>").ToString());<\n>
 >>
