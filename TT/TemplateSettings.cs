@@ -5,7 +5,7 @@ namespace TT
 {
     public class TemplateSettings
     {
-        protected IDictionary<string, object> Variables { get; private set; }
+        public IDictionary<string, object> Variables { get; private set; }
 
         public TemplateSettings()
         {

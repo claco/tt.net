@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-05-30 22:05:30
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-05-30 22:33:02
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -339,7 +339,7 @@ public partial class CSharpGenerator : TreeParser
     };
 
     // $ANTLR start "getExpr"
-    // TT\\CSharpGenerator.g:21:1: getExpr : ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text));
+    // TT\\CSharpGenerator.g:21:1: getExpr : ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text));
     public CSharpGenerator.getExpr_return getExpr() // throws RecognitionException [1]
     {   
         CSharpGenerator.getExpr_return retval = new CSharpGenerator.getExpr_return();
@@ -350,7 +350,7 @@ public partial class CSharpGenerator : TreeParser
 
         try 
     	{
-            // TT\\CSharpGenerator.g:22:2: ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text))
+            // TT\\CSharpGenerator.g:22:2: ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text))
             int alt2 = 2;
             int LA2_0 = input.LA(1);
 
@@ -407,10 +407,10 @@ public partial class CSharpGenerator : TreeParser
 
 
                     	// TEMPLATE REWRITE
-                    	// 22:19: -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\"))
+                    	// 22:19: -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\"))
                     	{
                     	    retval.ST = templateLib.GetInstanceOf("print",
-                    	  new STAttrMap().Add("literal", LITERAL2.Text.Substring(1, LITERAL2.Text.Length-2).Replace("\r\n", "\\r\\n")));
+                    	  new STAttrMap().Add("literal", LITERAL2.Text.Substring(1, LITERAL2.Text.Length-2).Replace("\r\n", "\\r\\n").Replace("\r", "\\r").Replace("\n", "\\n")));
                     	}
 
 

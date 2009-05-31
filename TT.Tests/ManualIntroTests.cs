@@ -21,5 +21,19 @@ namespace TT.Tests
 
             Expect(result, Is.EqualTo(Output("manual-intro-1")));
         }
+
+        [Test, Category("Unit")]
+        public void DearTheManagementVariableFallback()
+        {
+            var data = new Dictionary<string, object>
+                           {
+                               {"debt", "$100"},
+                               {"deadline", "1/1/2010"}
+                           };
+            Settings.Variables["name"] = "Christopher";
+            var result = Template.Process(Source("manual-intro-1"), data);
+
+            Expect(result, Is.EqualTo(Output("manual-intro-1")));
+        }
     }
 }

@@ -29,9 +29,13 @@ class(statements) ::= <<
 		}
 		
 		public object GetVariable(string name) {
-			if (name != null && _variables != null && _variables.ContainsKey(name)) {
-				return _variables[name];
-			}
+			if (name != null) {
+				if (_variables != null && _variables.ContainsKey(name)) {
+					return _variables[name];
+				} else if (_settings.Variables.ContainsKey(name)) {
+					return _settings.Variables[name];
+				};
+			};
 
 			return null;
 		}

@@ -7,3 +7,8 @@ I chose to use Lexer/Parser->AST->Template assuming that once the grammar is wri
 I'm starting simple (GET/SET) and working may out from there. Something should be easy. Some things fill be harder (FILTER), and some things won't translate at all (PERL blocks).
 
 P.S. I have no clue what I'm doing. Most of this stuff was way over my head when I started, but somehow I have some simple syntac working all the way through the process. :-)
+
+WHAT'S WORKING?
+  - implicit variable get [% variable %]
+  - explicit variable get [% GET variable %]
+  - variable fallback from Process(data) to Settings(variables)
