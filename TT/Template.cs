@@ -29,10 +29,18 @@ namespace TT
         public string Process(string template, Dictionary<string, object> variables)
         {
             //This is a hack, but it removes the need for a step to separate html from tt
-            //by treating it all as literals
+            //by treating it all as literals between tags
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine(template);
             template = string.Concat("[%'", template.Replace("[%", "'^^][%").Replace("%]", "%][%'").Replace("'^^]", "'%]"), "'%]");
+            if (template.Substring(0, 6) == "[%''%]")
+            {
+                template = template.Substring(6, template.Length - 6);
+            }
+            if (template.Substring(template.Length - 6, 6) == "[%''%]")
+            {
+                template = template.Substring(0, template.Length - 6);
+            }
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine(template);
             Console.WriteLine("--------------------------------------------");
