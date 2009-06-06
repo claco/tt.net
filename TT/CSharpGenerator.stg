@@ -47,6 +47,14 @@ class(statements) ::= <<
 				};
 			};
 		}
+		
+		public void SetVariable(string name, int value) {
+			if (name != null) {
+				if (_variables != null) {
+					_variables[name] = value;
+				};
+			};
+		}
 	}
 >>
 
@@ -58,6 +66,10 @@ getVariable(name) ::= <<
 Print(GetVariable("<name>").ToString());<\n>
 >>
 
-setVariable(name, literal) ::= <<
+setLiteralVariable(name, literal) ::= <<
 SetVariable("<name>", "<literal>");
+>>
+
+setNumericVariable(name, number) ::= <<
+SetVariable("<name>", <number>);
 >>

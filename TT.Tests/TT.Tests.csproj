@@ -76,6 +76,8 @@
     <None Include="templates\SET.implied.literal.source" />
     <None Include="templates\SET.literal.output" />
     <None Include="templates\SET.literal.source" />
+    <None Include="templates\SET.number.output" />
+    <None Include="templates\SET.number.source" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

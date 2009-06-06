@@ -56,9 +56,8 @@ STOP	:	'STOP';
 TAGS	:	'TAGS';
 COMMENTS:	'COMMENTS';
 ID	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_')*;
-DIGIT	:	('0'..'9');
-NUMBER	:	DIGIT+;
-DECIMAL	:	DIGIT '.' DIGIT;
+NUMBER	:	('0'..'9')+;
+DECIMAL	:	NUMBER '.' NUMBER;
 ADD	:	'+';
 SUB	:	'-';
 MULT	:	'*';
@@ -91,4 +90,5 @@ getExpr
 
 setExpr
 	: 'SET'? ID ASSIGN LITERAL -> ^(SET ID LITERAL)
+	| 'SET'? ID ASSIGN NUMBER  -> ^(SET ID NUMBER)
 	;

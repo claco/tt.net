@@ -52,5 +52,15 @@ namespace TT.Tests
 
             Expect(result, Is.EqualTo(Output("SET.implied.literal")));
         }
+
+        [Test, Category("Unit")]
+        public void SetNumberVariable()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("SET.number"), data);
+
+            Expect(result, Is.EqualTo(Output("SET.number")));
+            Expect(data["variable"], Is.EqualTo(5));
+        }
     }
 }
