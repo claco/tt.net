@@ -64,12 +64,18 @@
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="templates\GET.implied.variable.output" />
+    <None Include="templates\GET.implied.variable.source" />
     <None Include="templates\GET.literal.output" />
     <None Include="templates\GET.literal.source" />
     <None Include="templates\GET.variable.output" />
     <None Include="templates\GET.variable.source" />
     <None Include="templates\manual-intro-1.output" />
     <None Include="templates\manual-intro-1.source" />
+    <None Include="templates\SET.implied.literal.output" />
+    <None Include="templates\SET.implied.literal.source" />
+    <None Include="templates\SET.literal.output" />
+    <None Include="templates\SET.literal.source" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

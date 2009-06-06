@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-05-30 22:33:02
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-06-06 11:23:06
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -27,6 +27,7 @@ public partial class CSharpGenerator : TreeParser
 		"<DOWN>", 
 		"<UP>", 
 		"GET", 
+		"SET", 
 		"PRINT", 
 		"DOCUMENT", 
 		"WS", 
@@ -36,7 +37,6 @@ public partial class CSharpGenerator : TreeParser
 		"SQUOTE", 
 		"ILITERAL", 
 		"LITERAL", 
-		"SET", 
 		"CALL", 
 		"DEFAULT", 
 		"INSERT", 
@@ -78,7 +78,8 @@ public partial class CSharpGenerator : TreeParser
 		"ASSIGN", 
 		"EQUAL", 
 		"CHAR", 
-		"'GET'"
+		"'GET'", 
+		"'SET'"
     };
 
     public const int WHILE = 23;
@@ -89,14 +90,15 @@ public partial class CSharpGenerator : TreeParser
     public const int ID = 45;
     public const int EOF = -1;
     public const int IF = 24;
-    public const int TSTART = 8;
+    public const int TSTART = 9;
     public const int T__56 = 56;
     public const int FINAL = 38;
-    public const int TSTOP = 9;
-    public const int QUOTE = 10;
+    public const int T__57 = 57;
+    public const int TSTOP = 10;
+    public const int QUOTE = 11;
     public const int INSERT = 17;
     public const int COMMENTS = 44;
-    public const int DOCUMENT = 6;
+    public const int DOCUMENT = 7;
     public const int EQUAL = 54;
     public const int INCLUDE = 19;
     public const int RETURN = 41;
@@ -105,23 +107,23 @@ public partial class CSharpGenerator : TreeParser
     public const int DIGIT = 46;
     public const int LAST = 40;
     public const int UNLESS = 25;
-    public const int ILITERAL = 12;
+    public const int ILITERAL = 13;
     public const int ADD = 49;
     public const int SWITCH = 28;
     public const int DEFAULT = 16;
     public const int ELSE = 27;
     public const int NUMBER = 47;
     public const int TAGS = 43;
-    public const int SET = 14;
-    public const int LITERAL = 13;
     public const int STOP = 42;
+    public const int LITERAL = 14;
+    public const int SET = 5;
     public const int MULT = 51;
-    public const int SQUOTE = 11;
+    public const int SQUOTE = 12;
     public const int WRAPPER = 20;
-    public const int PRINT = 5;
+    public const int PRINT = 6;
     public const int TRY = 35;
     public const int PERL = 33;
-    public const int WS = 7;
+    public const int WS = 8;
     public const int DECIMAL = 48;
     public const int BLOCK = 21;
     public const int FILTER = 31;
@@ -221,7 +223,7 @@ public partial class CSharpGenerator : TreeParser
             	        int alt1 = 2;
             	        int LA1_0 = input.LA(1);
 
-            	        if ( (LA1_0 == GET) )
+            	        if ( ((LA1_0 >= GET && LA1_0 <= SET)) )
             	        {
             	            alt1 = 1;
             	        }
@@ -288,7 +290,7 @@ public partial class CSharpGenerator : TreeParser
     };
 
     // $ANTLR start "statement"
-    // TT\\CSharpGenerator.g:17:1: statement : getExpr -> {$getExpr.st};
+    // TT\\CSharpGenerator.g:17:1: statement : ( getExpr -> {$getExpr.st} | setExpr -> {$setExpr.st});
     public CSharpGenerator.statement_return statement() // throws RecognitionException [1]
     {   
         CSharpGenerator.statement_return retval = new CSharpGenerator.statement_return();
@@ -296,27 +298,70 @@ public partial class CSharpGenerator : TreeParser
 
         CSharpGenerator.getExpr_return getExpr1 = default(CSharpGenerator.getExpr_return);
 
+        CSharpGenerator.setExpr_return setExpr2 = default(CSharpGenerator.setExpr_return);
+
 
         try 
     	{
-            // TT\\CSharpGenerator.g:18:2: ( getExpr -> {$getExpr.st})
-            // TT\\CSharpGenerator.g:18:4: getExpr
+            // TT\\CSharpGenerator.g:18:2: ( getExpr -> {$getExpr.st} | setExpr -> {$setExpr.st})
+            int alt2 = 2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0 == GET) )
             {
-            	PushFollow(FOLLOW_getExpr_in_statement75);
-            	getExpr1 = getExpr();
-            	state.followingStackPointer--;
+                alt2 = 1;
+            }
+            else if ( (LA2_0 == SET) )
+            {
+                alt2 = 2;
+            }
+            else 
+            {
+                NoViableAltException nvae_d2s0 =
+                    new NoViableAltException("", 2, 0, input);
+
+                throw nvae_d2s0;
+            }
+            switch (alt2) 
+            {
+                case 1 :
+                    // TT\\CSharpGenerator.g:18:4: getExpr
+                    {
+                    	PushFollow(FOLLOW_getExpr_in_statement75);
+                    	getExpr1 = getExpr();
+                    	state.followingStackPointer--;
 
 
 
-            	// TEMPLATE REWRITE
-            	// 18:12: -> {$getExpr.st}
-            	{
-            	    retval.ST = ((getExpr1 != null) ? getExpr1.ST : null);
-            	}
+                    	// TEMPLATE REWRITE
+                    	// 18:12: -> {$getExpr.st}
+                    	{
+                    	    retval.ST = ((getExpr1 != null) ? getExpr1.ST : null);
+                    	}
 
+
+                    }
+                    break;
+                case 2 :
+                    // TT\\CSharpGenerator.g:19:4: setExpr
+                    {
+                    	PushFollow(FOLLOW_setExpr_in_statement84);
+                    	setExpr2 = setExpr();
+                    	state.followingStackPointer--;
+
+
+
+                    	// TEMPLATE REWRITE
+                    	// 19:12: -> {$setExpr.st}
+                    	{
+                    	    retval.ST = ((setExpr2 != null) ? setExpr2.ST : null);
+                    	}
+
+
+                    }
+                    break;
 
             }
-
         }
         catch (RecognitionException re) 
     	{
@@ -339,99 +384,99 @@ public partial class CSharpGenerator : TreeParser
     };
 
     // $ANTLR start "getExpr"
-    // TT\\CSharpGenerator.g:21:1: getExpr : ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text));
+    // TT\\CSharpGenerator.g:22:1: getExpr : ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text));
     public CSharpGenerator.getExpr_return getExpr() // throws RecognitionException [1]
     {   
         CSharpGenerator.getExpr_return retval = new CSharpGenerator.getExpr_return();
         retval.Start = input.LT(1);
 
-        CommonTree LITERAL2 = null;
-        CommonTree ID3 = null;
+        CommonTree LITERAL3 = null;
+        CommonTree ID4 = null;
 
         try 
     	{
-            // TT\\CSharpGenerator.g:22:2: ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text))
-            int alt2 = 2;
-            int LA2_0 = input.LA(1);
+            // TT\\CSharpGenerator.g:23:2: ( ^( GET LITERAL ) -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( GET ID ) -> getVariable(name=$ID.text))
+            int alt3 = 2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA2_0 == GET) )
+            if ( (LA3_0 == GET) )
             {
-                int LA2_1 = input.LA(2);
+                int LA3_1 = input.LA(2);
 
-                if ( (LA2_1 == DOWN) )
+                if ( (LA3_1 == DOWN) )
                 {
-                    int LA2_2 = input.LA(3);
+                    int LA3_2 = input.LA(3);
 
-                    if ( (LA2_2 == LITERAL) )
+                    if ( (LA3_2 == LITERAL) )
                     {
-                        alt2 = 1;
+                        alt3 = 1;
                     }
-                    else if ( (LA2_2 == ID) )
+                    else if ( (LA3_2 == ID) )
                     {
-                        alt2 = 2;
+                        alt3 = 2;
                     }
                     else 
                     {
-                        NoViableAltException nvae_d2s2 =
-                            new NoViableAltException("", 2, 2, input);
+                        NoViableAltException nvae_d3s2 =
+                            new NoViableAltException("", 3, 2, input);
 
-                        throw nvae_d2s2;
+                        throw nvae_d3s2;
                     }
                 }
                 else 
                 {
-                    NoViableAltException nvae_d2s1 =
-                        new NoViableAltException("", 2, 1, input);
+                    NoViableAltException nvae_d3s1 =
+                        new NoViableAltException("", 3, 1, input);
 
-                    throw nvae_d2s1;
+                    throw nvae_d3s1;
                 }
             }
             else 
             {
-                NoViableAltException nvae_d2s0 =
-                    new NoViableAltException("", 2, 0, input);
+                NoViableAltException nvae_d3s0 =
+                    new NoViableAltException("", 3, 0, input);
 
-                throw nvae_d2s0;
+                throw nvae_d3s0;
             }
-            switch (alt2) 
+            switch (alt3) 
             {
                 case 1 :
-                    // TT\\CSharpGenerator.g:22:4: ^( GET LITERAL )
+                    // TT\\CSharpGenerator.g:23:4: ^( GET LITERAL )
                     {
-                    	Match(input,GET,FOLLOW_GET_in_getExpr91); 
+                    	Match(input,GET,FOLLOW_GET_in_getExpr100); 
 
                     	Match(input, Token.DOWN, null); 
-                    	LITERAL2=(CommonTree)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr93); 
+                    	LITERAL3=(CommonTree)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr102); 
 
                     	Match(input, Token.UP, null); 
 
 
                     	// TEMPLATE REWRITE
-                    	// 22:19: -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\"))
+                    	// 23:19: -> print(literal=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\"))
                     	{
                     	    retval.ST = templateLib.GetInstanceOf("print",
-                    	  new STAttrMap().Add("literal", LITERAL2.Text.Substring(1, LITERAL2.Text.Length-2).Replace("\r\n", "\\r\\n").Replace("\r", "\\r").Replace("\n", "\\n")));
+                    	  new STAttrMap().Add("literal", LITERAL3.Text.Substring(1, LITERAL3.Text.Length-2).Replace("\r\n", "\\r\\n").Replace("\r", "\\r").Replace("\n", "\\n")));
                     	}
 
 
                     }
                     break;
                 case 2 :
-                    // TT\\CSharpGenerator.g:23:4: ^( GET ID )
+                    // TT\\CSharpGenerator.g:24:4: ^( GET ID )
                     {
-                    	Match(input,GET,FOLLOW_GET_in_getExpr109); 
+                    	Match(input,GET,FOLLOW_GET_in_getExpr118); 
 
                     	Match(input, Token.DOWN, null); 
-                    	ID3=(CommonTree)Match(input,ID,FOLLOW_ID_in_getExpr111); 
+                    	ID4=(CommonTree)Match(input,ID,FOLLOW_ID_in_getExpr120); 
 
                     	Match(input, Token.UP, null); 
 
 
                     	// TEMPLATE REWRITE
-                    	// 23:14: -> getVariable(name=$ID.text)
+                    	// 24:14: -> getVariable(name=$ID.text)
                     	{
                     	    retval.ST = templateLib.GetInstanceOf("getVariable",
-                    	  new STAttrMap().Add("name", ((ID3 != null) ? ID3.Text : null)));
+                    	  new STAttrMap().Add("name", ((ID4 != null) ? ID4.Text : null)));
                     	}
 
 
@@ -452,6 +497,61 @@ public partial class CSharpGenerator : TreeParser
     }
     // $ANTLR end "getExpr"
 
+    public class setExpr_return : TreeRuleReturnScope
+    {
+        private StringTemplate st;
+        public StringTemplate ST    { get { return st; } set { st = value; } }
+        public override object Template 		{ get { return st; } }
+        public override string ToString() 		{ return (st == null) ? null : st.ToString(); }
+    };
+
+    // $ANTLR start "setExpr"
+    // TT\\CSharpGenerator.g:27:1: setExpr : ^( SET ID LITERAL ) -> setVariable(name=$ID.textliteral=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\"));
+    public CSharpGenerator.setExpr_return setExpr() // throws RecognitionException [1]
+    {   
+        CSharpGenerator.setExpr_return retval = new CSharpGenerator.setExpr_return();
+        retval.Start = input.LT(1);
+
+        CommonTree ID5 = null;
+        CommonTree LITERAL6 = null;
+
+        try 
+    	{
+            // TT\\CSharpGenerator.g:28:2: ( ^( SET ID LITERAL ) -> setVariable(name=$ID.textliteral=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")))
+            // TT\\CSharpGenerator.g:28:4: ^( SET ID LITERAL )
+            {
+            	Match(input,SET,FOLLOW_SET_in_setExpr142); 
+
+            	Match(input, Token.DOWN, null); 
+            	ID5=(CommonTree)Match(input,ID,FOLLOW_ID_in_setExpr144); 
+            	LITERAL6=(CommonTree)Match(input,LITERAL,FOLLOW_LITERAL_in_setExpr146); 
+
+            	Match(input, Token.UP, null); 
+
+
+            	// TEMPLATE REWRITE
+            	// 28:22: -> setVariable(name=$ID.textliteral=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\"))
+            	{
+            	    retval.ST = templateLib.GetInstanceOf("setVariable",
+            	  new STAttrMap().Add("name", ((ID5 != null) ? ID5.Text : null)).Add("literal", LITERAL6.Text.Substring(1, LITERAL6.Text.Length-2).Replace("\r\n", "\\r\\n").Replace("\r", "\\r").Replace("\n", "\\n")));
+            	}
+
+
+            }
+
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+        }
+        finally 
+    	{
+        }
+        return retval;
+    }
+    // $ANTLR end "setExpr"
+
     // Delegated rules
 
 
@@ -462,12 +562,16 @@ public partial class CSharpGenerator : TreeParser
  
 
     public static readonly BitSet FOLLOW_DOCUMENT_in_document49 = new BitSet(new ulong[]{0x0000000000000004UL});
-    public static readonly BitSet FOLLOW_statement_in_document53 = new BitSet(new ulong[]{0x0000000000000018UL});
+    public static readonly BitSet FOLLOW_statement_in_document53 = new BitSet(new ulong[]{0x0000000000000038UL});
     public static readonly BitSet FOLLOW_getExpr_in_statement75 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_GET_in_getExpr91 = new BitSet(new ulong[]{0x0000000000000004UL});
-    public static readonly BitSet FOLLOW_LITERAL_in_getExpr93 = new BitSet(new ulong[]{0x0000000000000008UL});
-    public static readonly BitSet FOLLOW_GET_in_getExpr109 = new BitSet(new ulong[]{0x0000000000000004UL});
-    public static readonly BitSet FOLLOW_ID_in_getExpr111 = new BitSet(new ulong[]{0x0000000000000008UL});
+    public static readonly BitSet FOLLOW_setExpr_in_statement84 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_GET_in_getExpr100 = new BitSet(new ulong[]{0x0000000000000004UL});
+    public static readonly BitSet FOLLOW_LITERAL_in_getExpr102 = new BitSet(new ulong[]{0x0000000000000008UL});
+    public static readonly BitSet FOLLOW_GET_in_getExpr118 = new BitSet(new ulong[]{0x0000000000000004UL});
+    public static readonly BitSet FOLLOW_ID_in_getExpr120 = new BitSet(new ulong[]{0x0000000000000008UL});
+    public static readonly BitSet FOLLOW_SET_in_setExpr142 = new BitSet(new ulong[]{0x0000000000000004UL});
+    public static readonly BitSet FOLLOW_ID_in_setExpr144 = new BitSet(new ulong[]{0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_LITERAL_in_setExpr146 = new BitSet(new ulong[]{0x0000000000000008UL});
 
 }
 }

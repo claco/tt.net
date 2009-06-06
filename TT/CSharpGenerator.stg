@@ -39,6 +39,14 @@ class(statements) ::= <<
 
 			return null;
 		}
+		
+		public void SetVariable(string name, string value) {
+			if (name != null) {
+				if (_variables != null) {
+					_variables[name] = value;
+				};
+			};
+		}
 	}
 >>
 
@@ -48,4 +56,8 @@ Print(Literal("<literal>"));<\n>
 
 getVariable(name) ::= <<
 Print(GetVariable("<name>").ToString());<\n>
+>>
+
+setVariable(name, literal) ::= <<
+SetVariable("<name>", "<literal>");
 >>

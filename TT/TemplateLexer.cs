@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-05-30 22:33:01
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-06 11:23:04
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -24,14 +24,15 @@ public partial class TemplateLexer : Lexer {
     public const int ID = 45;
     public const int EOF = -1;
     public const int IF = 24;
-    public const int TSTART = 8;
+    public const int TSTART = 9;
     public const int T__56 = 56;
     public const int FINAL = 38;
-    public const int TSTOP = 9;
-    public const int QUOTE = 10;
+    public const int T__57 = 57;
+    public const int TSTOP = 10;
+    public const int QUOTE = 11;
     public const int INSERT = 17;
     public const int COMMENTS = 44;
-    public const int DOCUMENT = 6;
+    public const int DOCUMENT = 7;
     public const int EQUAL = 54;
     public const int INCLUDE = 19;
     public const int RETURN = 41;
@@ -40,23 +41,23 @@ public partial class TemplateLexer : Lexer {
     public const int DIGIT = 46;
     public const int LAST = 40;
     public const int UNLESS = 25;
-    public const int ILITERAL = 12;
+    public const int ILITERAL = 13;
     public const int ADD = 49;
     public const int SWITCH = 28;
     public const int DEFAULT = 16;
     public const int ELSE = 27;
     public const int NUMBER = 47;
     public const int TAGS = 43;
-    public const int SET = 14;
-    public const int LITERAL = 13;
     public const int STOP = 42;
+    public const int LITERAL = 14;
+    public const int SET = 5;
     public const int MULT = 51;
-    public const int SQUOTE = 11;
+    public const int SQUOTE = 12;
     public const int WRAPPER = 20;
-    public const int PRINT = 5;
+    public const int PRINT = 6;
     public const int TRY = 35;
     public const int PERL = 33;
-    public const int WS = 7;
+    public const int WS = 8;
     public const int DECIMAL = 48;
     public const int BLOCK = 21;
     public const int FILTER = 31;
@@ -116,6 +117,30 @@ public partial class TemplateLexer : Lexer {
     }
     // $ANTLR end "T__56"
 
+    // $ANTLR start "T__57"
+    public void mT__57() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__57;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // TT\\Template.g:10:7: ( 'SET' )
+            // TT\\Template.g:10:9: 'SET'
+            {
+            	Match("SET"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__57"
+
     // $ANTLR start "TSTART"
     public void mTSTART() // throws RecognitionException [2]
     {
@@ -123,12 +148,12 @@ public partial class TemplateLexer : Lexer {
     		{
             int _type = TSTART;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:20:8: ( '[%' ( WS )? )
-            // TT\\Template.g:20:10: '[%' ( WS )?
+            // TT\\Template.g:21:8: ( '[%' ( WS )? )
+            // TT\\Template.g:21:10: '[%' ( WS )?
             {
             	Match("[%"); 
 
-            	// TT\\Template.g:20:15: ( WS )?
+            	// TT\\Template.g:21:15: ( WS )?
             	int alt1 = 2;
             	int LA1_0 = input.LA(1);
 
@@ -139,7 +164,7 @@ public partial class TemplateLexer : Lexer {
             	switch (alt1) 
             	{
             	    case 1 :
-            	        // TT\\Template.g:20:15: WS
+            	        // TT\\Template.g:21:15: WS
             	        {
             	        	mWS(); 
 
@@ -167,10 +192,10 @@ public partial class TemplateLexer : Lexer {
     		{
             int _type = TSTOP;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:21:7: ( ( WS )? '%]' )
-            // TT\\Template.g:21:9: ( WS )? '%]'
+            // TT\\Template.g:22:7: ( ( WS )? '%]' )
+            // TT\\Template.g:22:9: ( WS )? '%]'
             {
-            	// TT\\Template.g:21:9: ( WS )?
+            	// TT\\Template.g:22:9: ( WS )?
             	int alt2 = 2;
             	int LA2_0 = input.LA(1);
 
@@ -181,7 +206,7 @@ public partial class TemplateLexer : Lexer {
             	switch (alt2) 
             	{
             	    case 1 :
-            	        // TT\\Template.g:21:9: WS
+            	        // TT\\Template.g:22:9: WS
             	        {
             	        	mWS(); 
 
@@ -211,10 +236,10 @@ public partial class TemplateLexer : Lexer {
     		{
             int _type = WS;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:22:4: ( ( '\\r' | '\\n' | '\\t' | ' ' )+ )
-            // TT\\Template.g:22:6: ( '\\r' | '\\n' | '\\t' | ' ' )+
+            // TT\\Template.g:23:4: ( ( '\\r' | '\\n' | '\\t' | ' ' )+ )
+            // TT\\Template.g:23:6: ( '\\r' | '\\n' | '\\t' | ' ' )+
             {
-            	// TT\\Template.g:22:6: ( '\\r' | '\\n' | '\\t' | ' ' )+
+            	// TT\\Template.g:23:6: ( '\\r' | '\\n' | '\\t' | ' ' )+
             	int cnt3 = 0;
             	do 
             	{
@@ -279,8 +304,8 @@ public partial class TemplateLexer : Lexer {
     		{
             int _type = QUOTE;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:23:7: ( '\"' )
-            // TT\\Template.g:23:9: '\"'
+            // TT\\Template.g:24:7: ( '\"' )
+            // TT\\Template.g:24:9: '\"'
             {
             	Match('\"'); 
 
@@ -302,8 +327,8 @@ public partial class TemplateLexer : Lexer {
     		{
             int _type = SQUOTE;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:24:8: ( '\\'' )
-            // TT\\Template.g:24:10: '\\''
+            // TT\\Template.g:25:8: ( '\\'' )
+            // TT\\Template.g:25:10: '\\''
             {
             	Match('\''); 
 
@@ -325,11 +350,11 @@ public partial class TemplateLexer : Lexer {
     		{
             int _type = ILITERAL;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:25:9: ( QUOTE ( . )* QUOTE )
-            // TT\\Template.g:25:11: QUOTE ( . )* QUOTE
+            // TT\\Template.g:26:9: ( QUOTE ( . )* QUOTE )
+            // TT\\Template.g:26:11: QUOTE ( . )* QUOTE
             {
             	mQUOTE(); 
-            	// TT\\Template.g:25:17: ( . )*
+            	// TT\\Template.g:26:17: ( . )*
             	do 
             	{
             	    int alt4 = 2;
@@ -348,7 +373,7 @@ public partial class TemplateLexer : Lexer {
             	    switch (alt4) 
             		{
             			case 1 :
-            			    // TT\\Template.g:25:17: .
+            			    // TT\\Template.g:26:17: .
             			    {
             			    	MatchAny(); 
 
@@ -383,11 +408,11 @@ public partial class TemplateLexer : Lexer {
     		{
             int _type = LITERAL;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:26:9: ( SQUOTE ( . )* SQUOTE )
-            // TT\\Template.g:26:11: SQUOTE ( . )* SQUOTE
+            // TT\\Template.g:27:9: ( SQUOTE ( . )* SQUOTE )
+            // TT\\Template.g:27:11: SQUOTE ( . )* SQUOTE
             {
             	mSQUOTE(); 
-            	// TT\\Template.g:26:18: ( . )*
+            	// TT\\Template.g:27:18: ( . )*
             	do 
             	{
             	    int alt5 = 2;
@@ -406,7 +431,7 @@ public partial class TemplateLexer : Lexer {
             	    switch (alt5) 
             		{
             			case 1 :
-            			    // TT\\Template.g:26:18: .
+            			    // TT\\Template.g:27:18: .
             			    {
             			    	MatchAny(); 
 
@@ -433,30 +458,6 @@ public partial class TemplateLexer : Lexer {
         }
     }
     // $ANTLR end "LITERAL"
-
-    // $ANTLR start "SET"
-    public void mSET() // throws RecognitionException [2]
-    {
-    		try
-    		{
-            int _type = SET;
-    	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // TT\\Template.g:27:5: ( 'SET' )
-            // TT\\Template.g:27:7: 'SET'
-            {
-            	Match("SET"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally 
-    	{
-        }
-    }
-    // $ANTLR end "SET"
 
     // $ANTLR start "CALL"
     public void mCALL() // throws RecognitionException [2]
@@ -1532,7 +1533,7 @@ public partial class TemplateLexer : Lexer {
 
     override public void mTokens() // throws RecognitionException 
     {
-        // TT\\Template.g:1:8: ( T__56 | TSTART | TSTOP | WS | QUOTE | SQUOTE | ILITERAL | LITERAL | SET | CALL | DEFAULT | INSERT | PROCESS | INCLUDE | WRAPPER | BLOCK | FOREACH | WHILE | IF | UNLESS | ELSIF | ELSE | SWITCH | CASE | MACRO | FILTER | USE | PERL | RAWPERL | TRY | THROW | CATCH | FINAL | NEXT | LAST | RETURN | STOP | TAGS | COMMENTS | ID | DIGIT | NUMBER | DECIMAL | ADD | SUB | MULT | DIV | ASSIGN | EQUAL | CHAR )
+        // TT\\Template.g:1:8: ( T__56 | T__57 | TSTART | TSTOP | WS | QUOTE | SQUOTE | ILITERAL | LITERAL | CALL | DEFAULT | INSERT | PROCESS | INCLUDE | WRAPPER | BLOCK | FOREACH | WHILE | IF | UNLESS | ELSIF | ELSE | SWITCH | CASE | MACRO | FILTER | USE | PERL | RAWPERL | TRY | THROW | CATCH | FINAL | NEXT | LAST | RETURN | STOP | TAGS | COMMENTS | ID | DIGIT | NUMBER | DECIMAL | ADD | SUB | MULT | DIV | ASSIGN | EQUAL | CHAR )
         int alt8 = 50;
         alt8 = dfa8.Predict(input);
         switch (alt8) 
@@ -1545,343 +1546,343 @@ public partial class TemplateLexer : Lexer {
                 }
                 break;
             case 2 :
-                // TT\\Template.g:1:16: TSTART
+                // TT\\Template.g:1:16: T__57
+                {
+                	mT__57(); 
+
+                }
+                break;
+            case 3 :
+                // TT\\Template.g:1:22: TSTART
                 {
                 	mTSTART(); 
 
                 }
                 break;
-            case 3 :
-                // TT\\Template.g:1:23: TSTOP
+            case 4 :
+                // TT\\Template.g:1:29: TSTOP
                 {
                 	mTSTOP(); 
 
                 }
                 break;
-            case 4 :
-                // TT\\Template.g:1:29: WS
+            case 5 :
+                // TT\\Template.g:1:35: WS
                 {
                 	mWS(); 
 
                 }
                 break;
-            case 5 :
-                // TT\\Template.g:1:32: QUOTE
+            case 6 :
+                // TT\\Template.g:1:38: QUOTE
                 {
                 	mQUOTE(); 
 
                 }
                 break;
-            case 6 :
-                // TT\\Template.g:1:38: SQUOTE
+            case 7 :
+                // TT\\Template.g:1:44: SQUOTE
                 {
                 	mSQUOTE(); 
 
                 }
                 break;
-            case 7 :
-                // TT\\Template.g:1:45: ILITERAL
+            case 8 :
+                // TT\\Template.g:1:51: ILITERAL
                 {
                 	mILITERAL(); 
 
                 }
                 break;
-            case 8 :
-                // TT\\Template.g:1:54: LITERAL
+            case 9 :
+                // TT\\Template.g:1:60: LITERAL
                 {
                 	mLITERAL(); 
 
                 }
                 break;
-            case 9 :
-                // TT\\Template.g:1:62: SET
-                {
-                	mSET(); 
-
-                }
-                break;
             case 10 :
-                // TT\\Template.g:1:66: CALL
+                // TT\\Template.g:1:68: CALL
                 {
                 	mCALL(); 
 
                 }
                 break;
             case 11 :
-                // TT\\Template.g:1:71: DEFAULT
+                // TT\\Template.g:1:73: DEFAULT
                 {
                 	mDEFAULT(); 
 
                 }
                 break;
             case 12 :
-                // TT\\Template.g:1:79: INSERT
+                // TT\\Template.g:1:81: INSERT
                 {
                 	mINSERT(); 
 
                 }
                 break;
             case 13 :
-                // TT\\Template.g:1:86: PROCESS
+                // TT\\Template.g:1:88: PROCESS
                 {
                 	mPROCESS(); 
 
                 }
                 break;
             case 14 :
-                // TT\\Template.g:1:94: INCLUDE
+                // TT\\Template.g:1:96: INCLUDE
                 {
                 	mINCLUDE(); 
 
                 }
                 break;
             case 15 :
-                // TT\\Template.g:1:102: WRAPPER
+                // TT\\Template.g:1:104: WRAPPER
                 {
                 	mWRAPPER(); 
 
                 }
                 break;
             case 16 :
-                // TT\\Template.g:1:110: BLOCK
+                // TT\\Template.g:1:112: BLOCK
                 {
                 	mBLOCK(); 
 
                 }
                 break;
             case 17 :
-                // TT\\Template.g:1:116: FOREACH
+                // TT\\Template.g:1:118: FOREACH
                 {
                 	mFOREACH(); 
 
                 }
                 break;
             case 18 :
-                // TT\\Template.g:1:124: WHILE
+                // TT\\Template.g:1:126: WHILE
                 {
                 	mWHILE(); 
 
                 }
                 break;
             case 19 :
-                // TT\\Template.g:1:130: IF
+                // TT\\Template.g:1:132: IF
                 {
                 	mIF(); 
 
                 }
                 break;
             case 20 :
-                // TT\\Template.g:1:133: UNLESS
+                // TT\\Template.g:1:135: UNLESS
                 {
                 	mUNLESS(); 
 
                 }
                 break;
             case 21 :
-                // TT\\Template.g:1:140: ELSIF
+                // TT\\Template.g:1:142: ELSIF
                 {
                 	mELSIF(); 
 
                 }
                 break;
             case 22 :
-                // TT\\Template.g:1:146: ELSE
+                // TT\\Template.g:1:148: ELSE
                 {
                 	mELSE(); 
 
                 }
                 break;
             case 23 :
-                // TT\\Template.g:1:151: SWITCH
+                // TT\\Template.g:1:153: SWITCH
                 {
                 	mSWITCH(); 
 
                 }
                 break;
             case 24 :
-                // TT\\Template.g:1:158: CASE
+                // TT\\Template.g:1:160: CASE
                 {
                 	mCASE(); 
 
                 }
                 break;
             case 25 :
-                // TT\\Template.g:1:163: MACRO
+                // TT\\Template.g:1:165: MACRO
                 {
                 	mMACRO(); 
 
                 }
                 break;
             case 26 :
-                // TT\\Template.g:1:169: FILTER
+                // TT\\Template.g:1:171: FILTER
                 {
                 	mFILTER(); 
 
                 }
                 break;
             case 27 :
-                // TT\\Template.g:1:176: USE
+                // TT\\Template.g:1:178: USE
                 {
                 	mUSE(); 
 
                 }
                 break;
             case 28 :
-                // TT\\Template.g:1:180: PERL
+                // TT\\Template.g:1:182: PERL
                 {
                 	mPERL(); 
 
                 }
                 break;
             case 29 :
-                // TT\\Template.g:1:185: RAWPERL
+                // TT\\Template.g:1:187: RAWPERL
                 {
                 	mRAWPERL(); 
 
                 }
                 break;
             case 30 :
-                // TT\\Template.g:1:193: TRY
+                // TT\\Template.g:1:195: TRY
                 {
                 	mTRY(); 
 
                 }
                 break;
             case 31 :
-                // TT\\Template.g:1:197: THROW
+                // TT\\Template.g:1:199: THROW
                 {
                 	mTHROW(); 
 
                 }
                 break;
             case 32 :
-                // TT\\Template.g:1:203: CATCH
+                // TT\\Template.g:1:205: CATCH
                 {
                 	mCATCH(); 
 
                 }
                 break;
             case 33 :
-                // TT\\Template.g:1:209: FINAL
+                // TT\\Template.g:1:211: FINAL
                 {
                 	mFINAL(); 
 
                 }
                 break;
             case 34 :
-                // TT\\Template.g:1:215: NEXT
+                // TT\\Template.g:1:217: NEXT
                 {
                 	mNEXT(); 
 
                 }
                 break;
             case 35 :
-                // TT\\Template.g:1:220: LAST
+                // TT\\Template.g:1:222: LAST
                 {
                 	mLAST(); 
 
                 }
                 break;
             case 36 :
-                // TT\\Template.g:1:225: RETURN
+                // TT\\Template.g:1:227: RETURN
                 {
                 	mRETURN(); 
 
                 }
                 break;
             case 37 :
-                // TT\\Template.g:1:232: STOP
+                // TT\\Template.g:1:234: STOP
                 {
                 	mSTOP(); 
 
                 }
                 break;
             case 38 :
-                // TT\\Template.g:1:237: TAGS
+                // TT\\Template.g:1:239: TAGS
                 {
                 	mTAGS(); 
 
                 }
                 break;
             case 39 :
-                // TT\\Template.g:1:242: COMMENTS
+                // TT\\Template.g:1:244: COMMENTS
                 {
                 	mCOMMENTS(); 
 
                 }
                 break;
             case 40 :
-                // TT\\Template.g:1:251: ID
+                // TT\\Template.g:1:253: ID
                 {
                 	mID(); 
 
                 }
                 break;
             case 41 :
-                // TT\\Template.g:1:254: DIGIT
+                // TT\\Template.g:1:256: DIGIT
                 {
                 	mDIGIT(); 
 
                 }
                 break;
             case 42 :
-                // TT\\Template.g:1:260: NUMBER
+                // TT\\Template.g:1:262: NUMBER
                 {
                 	mNUMBER(); 
 
                 }
                 break;
             case 43 :
-                // TT\\Template.g:1:267: DECIMAL
+                // TT\\Template.g:1:269: DECIMAL
                 {
                 	mDECIMAL(); 
 
                 }
                 break;
             case 44 :
-                // TT\\Template.g:1:275: ADD
+                // TT\\Template.g:1:277: ADD
                 {
                 	mADD(); 
 
                 }
                 break;
             case 45 :
-                // TT\\Template.g:1:279: SUB
+                // TT\\Template.g:1:281: SUB
                 {
                 	mSUB(); 
 
                 }
                 break;
             case 46 :
-                // TT\\Template.g:1:283: MULT
+                // TT\\Template.g:1:285: MULT
                 {
                 	mMULT(); 
 
                 }
                 break;
             case 47 :
-                // TT\\Template.g:1:288: DIV
+                // TT\\Template.g:1:290: DIV
                 {
                 	mDIV(); 
 
                 }
                 break;
             case 48 :
-                // TT\\Template.g:1:292: ASSIGN
+                // TT\\Template.g:1:294: ASSIGN
                 {
                 	mASSIGN(); 
 
                 }
                 break;
             case 49 :
-                // TT\\Template.g:1:299: EQUAL
+                // TT\\Template.g:1:301: EQUAL
                 {
                 	mEQUAL(); 
 
                 }
                 break;
             case 50 :
-                // TT\\Template.g:1:305: CHAR
+                // TT\\Template.g:1:307: CHAR
                 {
                 	mCHAR(); 
 
@@ -1901,26 +1902,26 @@ public partial class TemplateLexer : Lexer {
 	}
 
     const string DFA8_eotS =
-        "\x01\uffff\x01\x1f\x01\x1d\x01\x21\x01\x1d\x01\x24\x01\x26\x0f"+
-        "\x1f\x01\uffff\x01\x42\x04\uffff\x01\x4a\x01\uffff\x01\x1f\x03\uffff"+
-        "\x01\x21\x05\uffff\x07\x1f\x01\x56\x12\x1f\x09\uffff\x01\x6a\x01"+
-        "\x6b\x09\x1f\x01\uffff\x09\x1f\x01\x7e\x04\x1f\x01\u0084\x04\x1f"+
-        "\x02\uffff\x01\x1f\x01\u008a\x01\u008b\x01\u008c\x06\x1f\x01\u0093"+
-        "\x07\x1f\x01\uffff\x01\x1f\x01\u009c\x03\x1f\x01\uffff\x01\x1f\x01"+
-        "\u00a1\x01\u00a2\x01\u00a3\x01\x1f\x03\uffff\x01\u00a5\x05\x1f\x01"+
-        "\uffff\x01\x1f\x01\u00ac\x01\u00ad\x02\x1f\x01\u00b0\x01\x1f\x01"+
-        "\u00b2\x01\uffff\x01\u00b3\x02\x1f\x01\u00b6\x03\uffff\x01\u00b7"+
-        "\x01\uffff\x02\x1f\x01\u00ba\x03\x1f\x02\uffff\x01\x1f\x01\u00bf"+
-        "\x01\uffff\x01\u00c0\x02\uffff\x01\x1f\x01\u00c2\x02\uffff\x01\x1f"+
-        "\x01\u00c4\x01\uffff\x01\u00c5\x01\u00c6\x01\u00c7\x01\u00c8\x02"+
-        "\uffff\x01\u00c9\x01\uffff\x01\u00ca\x07\uffff";
+        "\x01\uffff\x02\x1f\x01\x1d\x01\x24\x01\x1d\x01\x27\x01\x29\x0e"+
+        "\x1f\x01\uffff\x01\x42\x04\uffff\x01\x4a\x01\uffff\x01\x1f\x01\uffff"+
+        "\x03\x1f\x02\uffff\x01\x24\x05\uffff\x04\x1f\x01\x56\x12\x1f\x09"+
+        "\uffff\x01\x6a\x01\x6b\x09\x1f\x01\uffff\x09\x1f\x01\x7e\x04\x1f"+
+        "\x01\u0084\x04\x1f\x02\uffff\x01\x1f\x01\u008a\x01\u008b\x01\u008c"+
+        "\x06\x1f\x01\u0093\x07\x1f\x01\uffff\x01\x1f\x01\u009c\x03\x1f\x01"+
+        "\uffff\x01\x1f\x01\u00a1\x01\u00a2\x01\u00a3\x01\x1f\x03\uffff\x01"+
+        "\u00a5\x05\x1f\x01\uffff\x01\x1f\x01\u00ac\x01\u00ad\x02\x1f\x01"+
+        "\u00b0\x01\x1f\x01\u00b2\x01\uffff\x01\u00b3\x02\x1f\x01\u00b6\x03"+
+        "\uffff\x01\u00b7\x01\uffff\x02\x1f\x01\u00ba\x03\x1f\x02\uffff\x01"+
+        "\x1f\x01\u00bf\x01\uffff\x01\u00c0\x02\uffff\x01\x1f\x01\u00c2\x02"+
+        "\uffff\x01\x1f\x01\u00c4\x01\uffff\x01\u00c5\x01\u00c6\x01\u00c7"+
+        "\x01\u00c8\x02\uffff\x01\u00c9\x01\uffff\x01\u00ca\x07\uffff";
     const string DFA8_eofS =
         "\u00cb\uffff";
     const string DFA8_minS =
-        "\x01\x00\x01\x45\x01\x25\x01\x09\x01\x5d\x02\x00\x01\x45\x01\x41"+
-        "\x01\x45\x01\x46\x01\x45\x01\x48\x01\x4c\x01\x49\x01\x4e\x01\x4c"+
-        "\x03\x41\x01\x45\x01\x41\x01\uffff\x01\x2e\x04\uffff\x01\x3d\x01"+
-        "\uffff\x01\x54\x03\uffff\x01\x09\x05\uffff\x01\x54\x01\x49\x01\x4f"+
+        "\x01\x00\x02\x45\x01\x25\x01\x09\x01\x5d\x02\x00\x01\x41\x01\x45"+
+        "\x01\x46\x01\x45\x01\x48\x01\x4c\x01\x49\x01\x4e\x01\x4c\x03\x41"+
+        "\x01\x45\x01\x41\x01\uffff\x01\x2e\x04\uffff\x01\x3d\x01\uffff\x01"+
+        "\x54\x01\uffff\x01\x54\x01\x49\x01\x4f\x02\uffff\x01\x09\x05\uffff"+
         "\x01\x4c\x01\x4d\x01\x46\x01\x43\x01\x41\x01\x4f\x01\x52\x01\x41"+
         "\x01\x49\x01\x4f\x01\x52\x02\x4c\x01\x45\x01\x53\x01\x43\x01\x57"+
         "\x01\x54\x01\x59\x01\x52\x01\x47\x01\x58\x01\x53\x09\uffff\x02\x41"+
@@ -1938,56 +1939,57 @@ public partial class TemplateLexer : Lexer {
         "\x01\x41\x02\uffff\x01\x4c\x01\x41\x02\uffff\x01\x53\x01\x41\x01"+
         "\uffff\x04\x41\x02\uffff\x01\x41\x01\uffff\x01\x41\x07\uffff";
     const string DFA8_maxS =
-        "\x01\uffff\x01\x45\x02\x25\x01\x5d\x02\uffff\x01\x57\x01\x4f\x01"+
+        "\x01\uffff\x01\x45\x01\x57\x02\x25\x01\x5d\x02\uffff\x01\x4f\x01"+
         "\x45\x01\x4e\x02\x52\x01\x4c\x01\x4f\x01\x53\x01\x4c\x01\x41\x01"+
         "\x45\x01\x52\x01\x45\x01\x41\x01\uffff\x01\x39\x04\uffff\x01\x3d"+
-        "\x01\uffff\x01\x54\x03\uffff\x01\x25\x05\uffff\x01\x54\x01\x49\x01"+
-        "\x4f\x01\x54\x01\x4d\x01\x46\x01\x53\x01\x7a\x01\x4f\x01\x52\x01"+
-        "\x41\x01\x49\x01\x4f\x01\x52\x01\x4e\x01\x4c\x01\x45\x01\x53\x01"+
-        "\x43\x01\x57\x01\x54\x01\x59\x01\x52\x01\x47\x01\x58\x01\x53\x09"+
-        "\uffff\x02\x7a\x01\x54\x01\x50\x01\x4c\x01\x45\x01\x43\x01\x4d\x01"+
-        "\x41\x01\x45\x01\x4c\x01\uffff\x01\x43\x01\x4c\x01\x50\x01\x4c\x01"+
-        "\x43\x01\x45\x01\x54\x01\x41\x01\x45\x01\x7a\x01\x49\x01\x52\x01"+
-        "\x50\x01\x55\x01\x7a\x01\x4f\x01\x53\x02\x54\x02\uffff\x01\x43\x03"+
-        "\x7a\x01\x48\x01\x45\x01\x55\x01\x52\x01\x55\x01\x45\x01\x7a\x01"+
-        "\x50\x01\x45\x01\x4b\x01\x41\x01\x45\x01\x4c\x01\x53\x01\uffff\x01"+
-        "\x46\x01\x7a\x01\x4f\x01\x45\x01\x52\x01\uffff\x01\x57\x03\x7a\x01"+
-        "\x48\x03\uffff\x01\x7a\x01\x4e\x01\x4c\x01\x54\x01\x44\x01\x53\x01"+
-        "\uffff\x01\x45\x02\x7a\x01\x43\x01\x52\x01\x7a\x01\x53\x01\x7a\x01"+
-        "\uffff\x01\x7a\x01\x52\x01\x4e\x01\x7a\x03\uffff\x01\x7a\x01\uffff"+
-        "\x02\x54\x01\x7a\x01\x45\x01\x53\x01\x52\x02\uffff\x01\x48\x01\x7a"+
-        "\x01\uffff\x01\x7a\x02\uffff\x01\x4c\x01\x7a\x02\uffff\x01\x53\x01"+
-        "\x7a\x01\uffff\x04\x7a\x02\uffff\x01\x7a\x01\uffff\x01\x7a\x07\uffff";
+        "\x01\uffff\x01\x54\x01\uffff\x01\x54\x01\x49\x01\x4f\x02\uffff\x01"+
+        "\x25\x05\uffff\x01\x54\x01\x4d\x01\x46\x01\x53\x01\x7a\x01\x4f\x01"+
+        "\x52\x01\x41\x01\x49\x01\x4f\x01\x52\x01\x4e\x01\x4c\x01\x45\x01"+
+        "\x53\x01\x43\x01\x57\x01\x54\x01\x59\x01\x52\x01\x47\x01\x58\x01"+
+        "\x53\x09\uffff\x02\x7a\x01\x54\x01\x50\x01\x4c\x01\x45\x01\x43\x01"+
+        "\x4d\x01\x41\x01\x45\x01\x4c\x01\uffff\x01\x43\x01\x4c\x01\x50\x01"+
+        "\x4c\x01\x43\x01\x45\x01\x54\x01\x41\x01\x45\x01\x7a\x01\x49\x01"+
+        "\x52\x01\x50\x01\x55\x01\x7a\x01\x4f\x01\x53\x02\x54\x02\uffff\x01"+
+        "\x43\x03\x7a\x01\x48\x01\x45\x01\x55\x01\x52\x01\x55\x01\x45\x01"+
+        "\x7a\x01\x50\x01\x45\x01\x4b\x01\x41\x01\x45\x01\x4c\x01\x53\x01"+
+        "\uffff\x01\x46\x01\x7a\x01\x4f\x01\x45\x01\x52\x01\uffff\x01\x57"+
+        "\x03\x7a\x01\x48\x03\uffff\x01\x7a\x01\x4e\x01\x4c\x01\x54\x01\x44"+
+        "\x01\x53\x01\uffff\x01\x45\x02\x7a\x01\x43\x01\x52\x01\x7a\x01\x53"+
+        "\x01\x7a\x01\uffff\x01\x7a\x01\x52\x01\x4e\x01\x7a\x03\uffff\x01"+
+        "\x7a\x01\uffff\x02\x54\x01\x7a\x01\x45\x01\x53\x01\x52\x02\uffff"+
+        "\x01\x48\x01\x7a\x01\uffff\x01\x7a\x02\uffff\x01\x4c\x01\x7a\x02"+
+        "\uffff\x01\x53\x01\x7a\x01\uffff\x04\x7a\x02\uffff\x01\x7a\x01\uffff"+
+        "\x01\x7a\x07\uffff";
     const string DFA8_acceptS =
         "\x16\uffff\x01\x28\x01\uffff\x01\x2c\x01\x2d\x01\x2e\x01\x2f\x01"+
-        "\uffff\x01\x32\x01\uffff\x01\x28\x01\x02\x01\x04\x01\uffff\x01\x03"+
-        "\x01\x05\x01\x07\x01\x06\x01\x08\x1a\uffff\x01\x29\x01\x2a\x01\x2b"+
-        "\x01\x2c\x01\x2d\x01\x2e\x01\x2f\x01\x31\x01\x30\x0b\uffff\x01\x13"+
-        "\x13\uffff\x01\x01\x01\x09\x12\uffff\x01\x1b\x05\uffff\x01\x1e\x05"+
-        "\uffff\x01\x25\x01\x0a\x01\x18\x06\uffff\x01\x1c\x08\uffff\x01\x16"+
-        "\x04\uffff\x01\x26\x01\x22\x01\x23\x01\uffff\x01\x20\x06\uffff\x01"+
-        "\x12\x01\x10\x02\uffff\x01\x21\x01\uffff\x01\x15\x01\x19\x02\uffff"+
-        "\x01\x1f\x01\x17\x02\uffff\x01\x0c\x04\uffff\x01\x1a\x01\x14\x01"+
-        "\uffff\x01\x24\x01\uffff\x01\x0b\x01\x0e\x01\x0d\x01\x0f\x01\x11"+
-        "\x01\x1d\x01\x27";
+        "\uffff\x01\x32\x01\uffff\x01\x28\x03\uffff\x01\x03\x01\x05\x01\uffff"+
+        "\x01\x04\x01\x06\x01\x08\x01\x07\x01\x09\x17\uffff\x01\x29\x01\x2a"+
+        "\x01\x2b\x01\x2c\x01\x2d\x01\x2e\x01\x2f\x01\x31\x01\x30\x0b\uffff"+
+        "\x01\x13\x13\uffff\x01\x01\x01\x02\x12\uffff\x01\x1b\x05\uffff\x01"+
+        "\x1e\x05\uffff\x01\x25\x01\x0a\x01\x18\x06\uffff\x01\x1c\x08\uffff"+
+        "\x01\x16\x04\uffff\x01\x26\x01\x22\x01\x23\x01\uffff\x01\x20\x06"+
+        "\uffff\x01\x12\x01\x10\x02\uffff\x01\x21\x01\uffff\x01\x15\x01\x19"+
+        "\x02\uffff\x01\x1f\x01\x17\x02\uffff\x01\x0c\x04\uffff\x01\x1a\x01"+
+        "\x14\x01\uffff\x01\x24\x01\uffff\x01\x0b\x01\x0e\x01\x0d\x01\x0f"+
+        "\x01\x11\x01\x1d\x01\x27";
     const string DFA8_specialS =
-        "\x01\x00\x04\uffff\x01\x01\x01\x02\u00c4\uffff}>";
+        "\x01\x01\x05\uffff\x01\x00\x01\x02\u00c3\uffff}>";
     static readonly string[] DFA8_transitionS = {
-            "\x09\x1d\x02\x03\x02\x1d\x01\x03\x12\x1d\x01\x03\x01\x1d\x01"+
-            "\x05\x02\x1d\x01\x04\x01\x1d\x01\x06\x02\x1d\x01\x1a\x01\x18"+
+            "\x09\x1d\x02\x04\x02\x1d\x01\x04\x12\x1d\x01\x04\x01\x1d\x01"+
+            "\x06\x02\x1d\x01\x05\x01\x1d\x01\x07\x02\x1d\x01\x1a\x01\x18"+
             "\x01\x1d\x01\x19\x01\x1d\x01\x1b\x0a\x17\x03\x1d\x01\x1c\x03"+
             "\x1d\x01\x16\x01\x0d\x01\x08\x01\x09\x01\x10\x01\x0e\x01\x01"+
             "\x01\x16\x01\x0a\x02\x16\x01\x15\x01\x11\x01\x14\x01\x16\x01"+
-            "\x0b\x01\x16\x01\x12\x01\x07\x01\x13\x01\x0f\x01\x16\x01\x0c"+
-            "\x03\x16\x01\x02\x03\x1d\x01\x16\x01\x1d\x1a\x16\uff85\x1d",
+            "\x0b\x01\x16\x01\x12\x01\x02\x01\x13\x01\x0f\x01\x16\x01\x0c"+
+            "\x03\x16\x01\x03\x03\x1d\x01\x16\x01\x1d\x1a\x16\uff85\x1d",
             "\x01\x1e",
-            "\x01\x20",
-            "\x02\x22\x02\uffff\x01\x22\x12\uffff\x01\x22\x04\uffff\x01"+
-            "\x23",
+            "\x01\x20\x0e\uffff\x01\x22\x02\uffff\x01\x21",
             "\x01\x23",
-            "\x00\x25",
-            "\x00\x27",
-            "\x01\x28\x0e\uffff\x01\x2a\x02\uffff\x01\x29",
+            "\x02\x25\x02\uffff\x01\x25\x12\uffff\x01\x25\x04\uffff\x01"+
+            "\x26",
+            "\x01\x26",
+            "\x00\x28",
+            "\x00\x2a",
             "\x01\x2b\x0d\uffff\x01\x2c",
             "\x01\x2d",
             "\x01\x2f\x07\uffff\x01\x2e",
@@ -2012,18 +2014,18 @@ public partial class TemplateLexer : Lexer {
             "",
             "\x01\x4b",
             "",
-            "",
-            "",
-            "\x02\x22\x02\uffff\x01\x22\x12\uffff\x01\x22\x04\uffff\x01"+
-            "\x23",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\x01\x4c",
             "\x01\x4d",
             "\x01\x4e",
+            "",
+            "",
+            "\x02\x25\x02\uffff\x01\x25\x12\uffff\x01\x25\x04\uffff\x01"+
+            "\x26",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\x01\x4f\x06\uffff\x01\x50\x01\x51",
             "\x01\x52",
             "\x01\x53",
@@ -2212,7 +2214,7 @@ public partial class TemplateLexer : Lexer {
 
         override public string Description
         {
-            get { return "1:1: Tokens : ( T__56 | TSTART | TSTOP | WS | QUOTE | SQUOTE | ILITERAL | LITERAL | SET | CALL | DEFAULT | INSERT | PROCESS | INCLUDE | WRAPPER | BLOCK | FOREACH | WHILE | IF | UNLESS | ELSIF | ELSE | SWITCH | CASE | MACRO | FILTER | USE | PERL | RAWPERL | TRY | THROW | CATCH | FINAL | NEXT | LAST | RETURN | STOP | TAGS | COMMENTS | ID | DIGIT | NUMBER | DECIMAL | ADD | SUB | MULT | DIV | ASSIGN | EQUAL | CHAR );"; }
+            get { return "1:1: Tokens : ( T__56 | T__57 | TSTART | TSTOP | WS | QUOTE | SQUOTE | ILITERAL | LITERAL | CALL | DEFAULT | INSERT | PROCESS | INCLUDE | WRAPPER | BLOCK | FOREACH | WHILE | IF | UNLESS | ELSIF | ELSE | SWITCH | CASE | MACRO | FILTER | USE | PERL | RAWPERL | TRY | THROW | CATCH | FINAL | NEXT | LAST | RETURN | STOP | TAGS | COMMENTS | ID | DIGIT | NUMBER | DECIMAL | ADD | SUB | MULT | DIV | ASSIGN | EQUAL | CHAR );"; }
         }
 
     }
@@ -2225,22 +2227,32 @@ public partial class TemplateLexer : Lexer {
         switch ( s )
         {
                	case 0 : 
+                   	int LA8_6 = input.LA(1);
+
+                   	s = -1;
+                   	if ( ((LA8_6 >= '\u0000' && LA8_6 <= '\uFFFF')) ) { s = 40; }
+
+                   	else s = 39;
+
+                   	if ( s >= 0 ) return s;
+                   	break;
+               	case 1 : 
                    	int LA8_0 = input.LA(1);
 
                    	s = -1;
                    	if ( (LA8_0 == 'G') ) { s = 1; }
 
-                   	else if ( (LA8_0 == '[') ) { s = 2; }
+                   	else if ( (LA8_0 == 'S') ) { s = 2; }
 
-                   	else if ( ((LA8_0 >= '\t' && LA8_0 <= '\n') || LA8_0 == '\r' || LA8_0 == ' ') ) { s = 3; }
+                   	else if ( (LA8_0 == '[') ) { s = 3; }
 
-                   	else if ( (LA8_0 == '%') ) { s = 4; }
+                   	else if ( ((LA8_0 >= '\t' && LA8_0 <= '\n') || LA8_0 == '\r' || LA8_0 == ' ') ) { s = 4; }
 
-                   	else if ( (LA8_0 == '\"') ) { s = 5; }
+                   	else if ( (LA8_0 == '%') ) { s = 5; }
 
-                   	else if ( (LA8_0 == '\'') ) { s = 6; }
+                   	else if ( (LA8_0 == '\"') ) { s = 6; }
 
-                   	else if ( (LA8_0 == 'S') ) { s = 7; }
+                   	else if ( (LA8_0 == '\'') ) { s = 7; }
 
                    	else if ( (LA8_0 == 'C') ) { s = 8; }
 
@@ -2288,23 +2300,13 @@ public partial class TemplateLexer : Lexer {
 
                    	if ( s >= 0 ) return s;
                    	break;
-               	case 1 : 
-                   	int LA8_5 = input.LA(1);
-
-                   	s = -1;
-                   	if ( ((LA8_5 >= '\u0000' && LA8_5 <= '\uFFFF')) ) { s = 37; }
-
-                   	else s = 36;
-
-                   	if ( s >= 0 ) return s;
-                   	break;
                	case 2 : 
-                   	int LA8_6 = input.LA(1);
+                   	int LA8_7 = input.LA(1);
 
                    	s = -1;
-                   	if ( ((LA8_6 >= '\u0000' && LA8_6 <= '\uFFFF')) ) { s = 39; }
+                   	if ( ((LA8_7 >= '\u0000' && LA8_7 <= '\uFFFF')) ) { s = 42; }
 
-                   	else s = 38;
+                   	else s = 41;
 
                    	if ( s >= 0 ) return s;
                    	break;

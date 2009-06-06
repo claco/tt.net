@@ -9,6 +9,7 @@ options
 
 tokens {
 	GET;
+	SET;
 	PRINT;
 	DOCUMENT;
 }
@@ -24,7 +25,6 @@ QUOTE	:	'"';
 SQUOTE	:	'\'';
 ILITERAL:	QUOTE .* QUOTE;
 LITERAL	:	SQUOTE .* SQUOTE;
-SET	:	'SET';
 CALL	:	'CALL';
 DEFAULT	:	'DEFAULT';
 INSERT	:	'INSERT';
@@ -90,5 +90,5 @@ getExpr
 	;
 
 setExpr
-	: SET? ID ASSIGN (ID|LITERAL|ILITERAL|NUMBER|DECIMAL)
+	: 'SET'? ID ASSIGN LITERAL -> ^(SET ID LITERAL)
 	;

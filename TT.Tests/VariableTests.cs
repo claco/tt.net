@@ -24,5 +24,33 @@ namespace TT.Tests
 
             Expect(result, Is.EqualTo(Output("GET.variable")));
         }
+
+        [Test, Category("Unit")]
+        public void ImpliedGetVariable()
+        {
+            var data = new Dictionary<string, object> { { "variable", "Hello World" } };
+            var result = Template.Process(Source("GET.implied.variable"), data);
+
+            Expect(result, Is.EqualTo(Output("GET.implied.variable")));
+        }
+
+        [Test, Category("Unit")]
+        public void SetLiteralVariable()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("SET.literal"), data);
+
+            Expect(result, Is.EqualTo(Output("SET.literal")));
+            Expect(data["variable"], Is.EqualTo("Hello World"));
+        }
+
+        [Test, Category("Unit")]
+        public void ImpliedSetVariable()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("SET.implied.literal"), data);
+
+            Expect(result, Is.EqualTo(Output("SET.implied.literal")));
+        }
     }
 }
