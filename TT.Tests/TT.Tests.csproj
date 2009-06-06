@@ -72,6 +72,8 @@
     <None Include="templates\GET.variable.source" />
     <None Include="templates\manual-intro-1.output" />
     <None Include="templates\manual-intro-1.source" />
+    <None Include="templates\SET.decimal.output" />
+    <None Include="templates\SET.decimal.source" />
     <None Include="templates\SET.implied.literal.output" />
     <None Include="templates\SET.implied.literal.source" />
     <None Include="templates\SET.literal.output" />

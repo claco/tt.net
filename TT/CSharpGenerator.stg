@@ -55,6 +55,14 @@ class(statements) ::= <<
 				};
 			};
 		}
+
+		public void SetVariable(string name, decimal value) {
+			if (name != null) {
+				if (_variables != null) {
+					_variables[name] = value;
+				};
+			};
+		}
 	}
 >>
 
@@ -72,4 +80,8 @@ SetVariable("<name>", "<literal>");
 
 setNumericVariable(name, number) ::= <<
 SetVariable("<name>", <number>);
+>>
+
+setDecimalVariable(name, decimal) ::= <<
+SetVariable("<name>", Convert.ToDecimal(<decimal>));
 >>

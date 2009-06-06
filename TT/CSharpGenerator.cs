@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-06-06 12:00:34
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\CSharpGenerator.g 2009-06-06 12:10:27
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -504,7 +504,7 @@ public partial class CSharpGenerator : TreeParser
     };
 
     // $ANTLR start "setExpr"
-    // TT\\CSharpGenerator.g:27:1: setExpr : ( ^( SET ID LITERAL ) -> setLiteralVariable(name=$ID.Textliteral=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( SET ID NUMBER ) -> setNumericVariable(name=$ID.Textnumber=$NUMBER.Text));
+    // TT\\CSharpGenerator.g:27:1: setExpr : ( ^( SET ID LITERAL ) -> setLiteralVariable(name=$ID.Textliteral=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( SET ID NUMBER ) -> setNumericVariable(name=$ID.Textnumber=$NUMBER.Text) | ^( SET ID DECIMAL ) -> setDecimalVariable(name=$ID.Textdecimal=$DECIMAL.Text));
     public CSharpGenerator.setExpr_return setExpr() // throws RecognitionException [1]
     {   
         CSharpGenerator.setExpr_return retval = new CSharpGenerator.setExpr_return();
@@ -514,11 +514,13 @@ public partial class CSharpGenerator : TreeParser
         CommonTree LITERAL6 = null;
         CommonTree ID7 = null;
         CommonTree NUMBER8 = null;
+        CommonTree ID9 = null;
+        CommonTree DECIMAL10 = null;
 
         try 
     	{
-            // TT\\CSharpGenerator.g:28:2: ( ^( SET ID LITERAL ) -> setLiteralVariable(name=$ID.Textliteral=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( SET ID NUMBER ) -> setNumericVariable(name=$ID.Textnumber=$NUMBER.Text))
-            int alt4 = 2;
+            // TT\\CSharpGenerator.g:28:2: ( ^( SET ID LITERAL ) -> setLiteralVariable(name=$ID.Textliteral=$LITERAL.Text.Substring(1, $LITERAL.Text.Length-2).Replace(\"\\r\\n\", \"\\\\r\\\\n\").Replace(\"\\r\", \"\\\\r\").Replace(\"\\n\", \"\\\\n\")) | ^( SET ID NUMBER ) -> setNumericVariable(name=$ID.Textnumber=$NUMBER.Text) | ^( SET ID DECIMAL ) -> setDecimalVariable(name=$ID.Textdecimal=$DECIMAL.Text))
+            int alt4 = 3;
             int LA4_0 = input.LA(1);
 
             if ( (LA4_0 == SET) )
@@ -531,23 +533,30 @@ public partial class CSharpGenerator : TreeParser
 
                     if ( (LA4_2 == ID) )
                     {
-                        int LA4_3 = input.LA(4);
-
-                        if ( (LA4_3 == LITERAL) )
+                        switch ( input.LA(4) ) 
                         {
+                        case LITERAL:
+                        	{
                             alt4 = 1;
-                        }
-                        else if ( (LA4_3 == NUMBER) )
-                        {
+                            }
+                            break;
+                        case NUMBER:
+                        	{
                             alt4 = 2;
-                        }
-                        else 
-                        {
-                            NoViableAltException nvae_d4s3 =
-                                new NoViableAltException("", 4, 3, input);
+                            }
+                            break;
+                        case DECIMAL:
+                        	{
+                            alt4 = 3;
+                            }
+                            break;
+                        	default:
+                        	    NoViableAltException nvae_d4s3 =
+                        	        new NoViableAltException("", 4, 3, input);
 
-                            throw nvae_d4s3;
+                        	    throw nvae_d4s3;
                         }
+
                     }
                     else 
                     {
@@ -618,6 +627,28 @@ public partial class CSharpGenerator : TreeParser
 
                     }
                     break;
+                case 3 :
+                    // TT\\CSharpGenerator.g:30:4: ^( SET ID DECIMAL )
+                    {
+                    	Match(input,SET,FOLLOW_SET_in_setExpr193); 
+
+                    	Match(input, Token.DOWN, null); 
+                    	ID9=(CommonTree)Match(input,ID,FOLLOW_ID_in_setExpr195); 
+                    	DECIMAL10=(CommonTree)Match(input,DECIMAL,FOLLOW_DECIMAL_in_setExpr197); 
+
+                    	Match(input, Token.UP, null); 
+
+
+                    	// TEMPLATE REWRITE
+                    	// 30:22: -> setDecimalVariable(name=$ID.Textdecimal=$DECIMAL.Text)
+                    	{
+                    	    retval.ST = templateLib.GetInstanceOf("setDecimalVariable",
+                    	  new STAttrMap().Add("name", ID9.Text).Add("decimal", DECIMAL10.Text));
+                    	}
+
+
+                    }
+                    break;
 
             }
         }
@@ -656,6 +687,9 @@ public partial class CSharpGenerator : TreeParser
     public static readonly BitSet FOLLOW_SET_in_setExpr167 = new BitSet(new ulong[]{0x0000000000000004UL});
     public static readonly BitSet FOLLOW_ID_in_setExpr169 = new BitSet(new ulong[]{0x0000400000000000UL});
     public static readonly BitSet FOLLOW_NUMBER_in_setExpr171 = new BitSet(new ulong[]{0x0000000000000008UL});
+    public static readonly BitSet FOLLOW_SET_in_setExpr193 = new BitSet(new ulong[]{0x0000000000000004UL});
+    public static readonly BitSet FOLLOW_ID_in_setExpr195 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_DECIMAL_in_setExpr197 = new BitSet(new ulong[]{0x0000000000000008UL});
 
 }
 }

@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-06 12:00:33
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-06 12:10:25
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -776,7 +776,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "setExpr"
-    // TT\\Template.g:91:1: setExpr : ( ( 'SET' )? ID ASSIGN LITERAL -> ^( SET ID LITERAL ) | ( 'SET' )? ID ASSIGN NUMBER -> ^( SET ID NUMBER ) );
+    // TT\\Template.g:91:1: setExpr : ( ( 'SET' )? ID ASSIGN LITERAL -> ^( SET ID LITERAL ) | ( 'SET' )? ID ASSIGN NUMBER -> ^( SET ID NUMBER ) | ( 'SET' )? ID ASSIGN DECIMAL -> ^( SET ID DECIMAL ) );
     public TemplateParser.setExpr_return setExpr() // throws RecognitionException [1]
     {   
         TemplateParser.setExpr_return retval = new TemplateParser.setExpr_return();
@@ -792,6 +792,10 @@ public partial class TemplateParser : Parser
         IToken ID18 = null;
         IToken ASSIGN19 = null;
         IToken NUMBER20 = null;
+        IToken string_literal21 = null;
+        IToken ID22 = null;
+        IToken ASSIGN23 = null;
+        IToken DECIMAL24 = null;
 
         CommonTree string_literal13_tree=null;
         CommonTree ID14_tree=null;
@@ -801,102 +805,121 @@ public partial class TemplateParser : Parser
         CommonTree ID18_tree=null;
         CommonTree ASSIGN19_tree=null;
         CommonTree NUMBER20_tree=null;
+        CommonTree string_literal21_tree=null;
+        CommonTree ID22_tree=null;
+        CommonTree ASSIGN23_tree=null;
+        CommonTree DECIMAL24_tree=null;
         RewriteRuleTokenStream stream_LITERAL = new RewriteRuleTokenStream(adaptor,"token LITERAL");
         RewriteRuleTokenStream stream_56 = new RewriteRuleTokenStream(adaptor,"token 56");
+        RewriteRuleTokenStream stream_DECIMAL = new RewriteRuleTokenStream(adaptor,"token DECIMAL");
         RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleTokenStream stream_NUMBER = new RewriteRuleTokenStream(adaptor,"token NUMBER");
         RewriteRuleTokenStream stream_ASSIGN = new RewriteRuleTokenStream(adaptor,"token ASSIGN");
 
         try 
     	{
-            // TT\\Template.g:92:2: ( ( 'SET' )? ID ASSIGN LITERAL -> ^( SET ID LITERAL ) | ( 'SET' )? ID ASSIGN NUMBER -> ^( SET ID NUMBER ) )
-            int alt9 = 2;
-            int LA9_0 = input.LA(1);
+            // TT\\Template.g:92:2: ( ( 'SET' )? ID ASSIGN LITERAL -> ^( SET ID LITERAL ) | ( 'SET' )? ID ASSIGN NUMBER -> ^( SET ID NUMBER ) | ( 'SET' )? ID ASSIGN DECIMAL -> ^( SET ID DECIMAL ) )
+            int alt10 = 3;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0 == 56) )
+            if ( (LA10_0 == 56) )
             {
-                int LA9_1 = input.LA(2);
+                int LA10_1 = input.LA(2);
 
-                if ( (LA9_1 == ID) )
+                if ( (LA10_1 == ID) )
                 {
-                    int LA9_2 = input.LA(3);
+                    int LA10_2 = input.LA(3);
 
-                    if ( (LA9_2 == ASSIGN) )
+                    if ( (LA10_2 == ASSIGN) )
                     {
-                        int LA9_3 = input.LA(4);
+                        switch ( input.LA(4) ) 
+                        {
+                        case LITERAL:
+                        	{
+                            alt10 = 1;
+                            }
+                            break;
+                        case NUMBER:
+                        	{
+                            alt10 = 2;
+                            }
+                            break;
+                        case DECIMAL:
+                        	{
+                            alt10 = 3;
+                            }
+                            break;
+                        	default:
+                        	    NoViableAltException nvae_d10s3 =
+                        	        new NoViableAltException("", 10, 3, input);
 
-                        if ( (LA9_3 == LITERAL) )
-                        {
-                            alt9 = 1;
+                        	    throw nvae_d10s3;
                         }
-                        else if ( (LA9_3 == NUMBER) )
-                        {
-                            alt9 = 2;
-                        }
-                        else 
-                        {
-                            NoViableAltException nvae_d9s3 =
-                                new NoViableAltException("", 9, 3, input);
 
-                            throw nvae_d9s3;
-                        }
                     }
                     else 
                     {
-                        NoViableAltException nvae_d9s2 =
-                            new NoViableAltException("", 9, 2, input);
+                        NoViableAltException nvae_d10s2 =
+                            new NoViableAltException("", 10, 2, input);
 
-                        throw nvae_d9s2;
+                        throw nvae_d10s2;
                     }
                 }
                 else 
                 {
-                    NoViableAltException nvae_d9s1 =
-                        new NoViableAltException("", 9, 1, input);
+                    NoViableAltException nvae_d10s1 =
+                        new NoViableAltException("", 10, 1, input);
 
-                    throw nvae_d9s1;
+                    throw nvae_d10s1;
                 }
             }
-            else if ( (LA9_0 == ID) )
+            else if ( (LA10_0 == ID) )
             {
-                int LA9_2 = input.LA(2);
+                int LA10_2 = input.LA(2);
 
-                if ( (LA9_2 == ASSIGN) )
+                if ( (LA10_2 == ASSIGN) )
                 {
-                    int LA9_3 = input.LA(3);
+                    switch ( input.LA(3) ) 
+                    {
+                    case LITERAL:
+                    	{
+                        alt10 = 1;
+                        }
+                        break;
+                    case NUMBER:
+                    	{
+                        alt10 = 2;
+                        }
+                        break;
+                    case DECIMAL:
+                    	{
+                        alt10 = 3;
+                        }
+                        break;
+                    	default:
+                    	    NoViableAltException nvae_d10s3 =
+                    	        new NoViableAltException("", 10, 3, input);
 
-                    if ( (LA9_3 == LITERAL) )
-                    {
-                        alt9 = 1;
+                    	    throw nvae_d10s3;
                     }
-                    else if ( (LA9_3 == NUMBER) )
-                    {
-                        alt9 = 2;
-                    }
-                    else 
-                    {
-                        NoViableAltException nvae_d9s3 =
-                            new NoViableAltException("", 9, 3, input);
 
-                        throw nvae_d9s3;
-                    }
                 }
                 else 
                 {
-                    NoViableAltException nvae_d9s2 =
-                        new NoViableAltException("", 9, 2, input);
+                    NoViableAltException nvae_d10s2 =
+                        new NoViableAltException("", 10, 2, input);
 
-                    throw nvae_d9s2;
+                    throw nvae_d10s2;
                 }
             }
             else 
             {
-                NoViableAltException nvae_d9s0 =
-                    new NoViableAltException("", 9, 0, input);
+                NoViableAltException nvae_d10s0 =
+                    new NoViableAltException("", 10, 0, input);
 
-                throw nvae_d9s0;
+                throw nvae_d10s0;
             }
-            switch (alt9) 
+            switch (alt10) 
             {
                 case 1 :
                     // TT\\Template.g:92:4: ( 'SET' )? ID ASSIGN LITERAL
@@ -1028,6 +1051,71 @@ public partial class TemplateParser : Parser
                     	retval.Tree = root_0;retval.Tree = root_0;
                     }
                     break;
+                case 3 :
+                    // TT\\Template.g:94:4: ( 'SET' )? ID ASSIGN DECIMAL
+                    {
+                    	// TT\\Template.g:94:4: ( 'SET' )?
+                    	int alt9 = 2;
+                    	int LA9_0 = input.LA(1);
+
+                    	if ( (LA9_0 == 56) )
+                    	{
+                    	    alt9 = 1;
+                    	}
+                    	switch (alt9) 
+                    	{
+                    	    case 1 :
+                    	        // TT\\Template.g:94:4: 'SET'
+                    	        {
+                    	        	string_literal21=(IToken)Match(input,56,FOLLOW_56_in_setExpr628);  
+                    	        	stream_56.Add(string_literal21);
+
+
+                    	        }
+                    	        break;
+
+                    	}
+
+                    	ID22=(IToken)Match(input,ID,FOLLOW_ID_in_setExpr631);  
+                    	stream_ID.Add(ID22);
+
+                    	ASSIGN23=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_setExpr633);  
+                    	stream_ASSIGN.Add(ASSIGN23);
+
+                    	DECIMAL24=(IToken)Match(input,DECIMAL,FOLLOW_DECIMAL_in_setExpr635);  
+                    	stream_DECIMAL.Add(DECIMAL24);
+
+
+
+                    	// AST REWRITE
+                    	// elements:          DECIMAL, ID
+                    	// token labels:      
+                    	// rule labels:       retval
+                    	// token list labels: 
+                    	// rule list labels:  
+                    	// wildcard labels: 
+                    	retval.Tree = root_0;
+                    	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
+
+                    	root_0 = (CommonTree)adaptor.GetNilNode();
+                    	// 94:29: -> ^( SET ID DECIMAL )
+                    	{
+                    	    // TT\\Template.g:94:32: ^( SET ID DECIMAL )
+                    	    {
+                    	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
+                    	    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(SET, "SET"), root_1);
+
+                    	    adaptor.AddChild(root_1, stream_ID.NextNode());
+                    	    adaptor.AddChild(root_1, stream_DECIMAL.NextNode());
+
+                    	    adaptor.AddChild(root_0, root_1);
+                    	    }
+
+                    	}
+
+                    	retval.Tree = root_0;retval.Tree = root_0;
+                    }
+                    break;
 
             }
             retval.Stop = input.LT(-1);
@@ -1079,6 +1167,10 @@ public partial class TemplateParser : Parser
     public static readonly BitSet FOLLOW_ID_in_setExpr608 = new BitSet(new ulong[]{0x0010000000000000UL});
     public static readonly BitSet FOLLOW_ASSIGN_in_setExpr610 = new BitSet(new ulong[]{0x0000400000000000UL});
     public static readonly BitSet FOLLOW_NUMBER_in_setExpr612 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_56_in_setExpr628 = new BitSet(new ulong[]{0x0000200000000000UL});
+    public static readonly BitSet FOLLOW_ID_in_setExpr631 = new BitSet(new ulong[]{0x0010000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_setExpr633 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_DECIMAL_in_setExpr635 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }

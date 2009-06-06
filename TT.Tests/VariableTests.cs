@@ -62,5 +62,15 @@ namespace TT.Tests
             Expect(result, Is.EqualTo(Output("SET.number")));
             Expect(data["variable"], Is.EqualTo(5));
         }
+
+        [Test, Category("Unit")]
+        public void SetDecimalVariable()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("SET.decimal"), data);
+
+            Expect(result, Is.EqualTo(Output("SET.decimal")));
+            Expect(data["variable"], Is.EqualTo(42.95));
+        }
     }
 }
