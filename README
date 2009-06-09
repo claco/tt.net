@@ -12,3 +12,5 @@ WHAT'S WORKING?
   - implicit variable get [% variable %]
   - explicit variable get [% GET variable %]
   - variable fallback from Process(data) to Settings(variables)
+  - implicit variable set [% variable = x %], where x is string, number, decimal
+  - explicit variable set [% SET variable = x %], where x is string, number, decimal
