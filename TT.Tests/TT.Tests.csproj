@@ -86,6 +86,8 @@
   <ItemGroup>
     <None Include="templates\DEFAULT.decimal.output" />
     <None Include="templates\DEFAULT.decimal.source" />
+    <None Include="templates\DEFAULT.multiple.output" />
+    <None Include="templates\DEFAULT.multiple.source" />
     <None Include="templates\DEFAULT.number.output" />
     <None Include="templates\DEFAULT.number.source" />
   </ItemGroup>

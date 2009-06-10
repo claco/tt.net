@@ -91,6 +91,7 @@ namespace TT.Tests
 
             Expect(result, Is.EqualTo(Output("DEFAULT.literal")));
             Expect(data["variable"], Is.EqualTo("Hello World"));
+            Expect(data.Count, Is.EqualTo(1));
         }
 
         [Test, Category("Unit")]
@@ -131,6 +132,19 @@ namespace TT.Tests
 
             Expect(result, Is.EqualTo(Output("DEFAULT.literal")));
             Expect(data["variable"], Is.EqualTo("Exists"));
+        }
+
+        [Test, Category("Unit")]
+        public void DefaultMultipleVariables()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("DEFAULT.multiple"), data);
+
+            Expect(result, Is.EqualTo(Output("DEFAULT.multiple")));
+            Expect(data["foo"], Is.EqualTo("Hello World"));
+            Expect(data["bar"], Is.EqualTo(5));
+            Expect(data["baz"], Is.EqualTo(42.95));
+            Expect(data.Count, Is.EqualTo(3));
         }
 
         #endregion

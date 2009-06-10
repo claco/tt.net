@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-09 20:24:19
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-09 21:30:29
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -541,6 +541,11 @@ public partial class TemplateParser : Parser
             	{
                 switch ( input.LA(2) ) 
                 {
+                case LITERAL:
+                	{
+                    alt6 = 2;
+                    }
+                    break;
                 case ID:
                 	{
                     alt6 = 1;
@@ -549,11 +554,6 @@ public partial class TemplateParser : Parser
                 case ILITERAL:
                 	{
                     alt6 = 3;
-                    }
-                    break;
-                case LITERAL:
-                	{
-                    alt6 = 2;
                     }
                     break;
                 	default:
@@ -1169,7 +1169,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "defaultExpr"
-    // TT\\Template.g:98:1: defaultExpr : ( DEFAULT ID ASSIGN LITERAL -> ^( DEFAULT ID LITERAL ) | DEFAULT ID ASSIGN NUMBER -> ^( DEFAULT ID NUMBER ) | DEFAULT ID ASSIGN DECIMAL -> ^( DEFAULT ID DECIMAL ) );
+    // TT\\Template.g:98:1: defaultExpr : DEFAULT ( assignment )+ -> ( ^( DEFAULT assignment ) )+ ;
     public TemplateParser.defaultExpr_return defaultExpr() // throws RecognitionException [1]
     {   
         TemplateParser.defaultExpr_return retval = new TemplateParser.defaultExpr_return();
@@ -1178,122 +1178,232 @@ public partial class TemplateParser : Parser
         CommonTree root_0 = null;
 
         IToken DEFAULT26 = null;
-        IToken ID27 = null;
-        IToken ASSIGN28 = null;
-        IToken LITERAL29 = null;
-        IToken DEFAULT30 = null;
+        TemplateParser.assignment_return assignment27 = default(TemplateParser.assignment_return);
+
+
+        CommonTree DEFAULT26_tree=null;
+        RewriteRuleTokenStream stream_DEFAULT = new RewriteRuleTokenStream(adaptor,"token DEFAULT");
+        RewriteRuleSubtreeStream stream_assignment = new RewriteRuleSubtreeStream(adaptor,"rule assignment");
+        try 
+    	{
+            // TT\\Template.g:99:2: ( DEFAULT ( assignment )+ -> ( ^( DEFAULT assignment ) )+ )
+            // TT\\Template.g:99:4: DEFAULT ( assignment )+
+            {
+            	DEFAULT26=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr661);  
+            	stream_DEFAULT.Add(DEFAULT26);
+
+            	// TT\\Template.g:99:12: ( assignment )+
+            	int cnt11 = 0;
+            	do 
+            	{
+            	    int alt11 = 2;
+            	    int LA11_0 = input.LA(1);
+
+            	    if ( (LA11_0 == ID) )
+            	    {
+            	        alt11 = 1;
+            	    }
+
+
+            	    switch (alt11) 
+            		{
+            			case 1 :
+            			    // TT\\Template.g:99:13: assignment
+            			    {
+            			    	PushFollow(FOLLOW_assignment_in_defaultExpr664);
+            			    	assignment27 = assignment();
+            			    	state.followingStackPointer--;
+
+            			    	stream_assignment.Add(assignment27.Tree);
+
+            			    }
+            			    break;
+
+            			default:
+            			    if ( cnt11 >= 1 ) goto loop11;
+            		            EarlyExitException eee11 =
+            		                new EarlyExitException(11, input);
+            		            throw eee11;
+            	    }
+            	    cnt11++;
+            	} while (true);
+
+            	loop11:
+            		;	// Stops C# compiler whining that label 'loop11' has no statements
+
+
+
+            	// AST REWRITE
+            	// elements:          assignment, DEFAULT
+            	// token labels:      
+            	// rule labels:       retval
+            	// token list labels: 
+            	// rule list labels:  
+            	// wildcard labels: 
+            	retval.Tree = root_0;
+            	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
+
+            	root_0 = (CommonTree)adaptor.GetNilNode();
+            	// 99:26: -> ( ^( DEFAULT assignment ) )+
+            	{
+            	    if ( !(stream_assignment.HasNext() || stream_DEFAULT.HasNext()) ) {
+            	        throw new RewriteEarlyExitException();
+            	    }
+            	    while ( stream_assignment.HasNext() || stream_DEFAULT.HasNext() )
+            	    {
+            	        // TT\\Template.g:99:29: ^( DEFAULT assignment )
+            	        {
+            	        CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
+            	        root_1 = (CommonTree)adaptor.BecomeRoot(stream_DEFAULT.NextNode(), root_1);
+
+            	        adaptor.AddChild(root_1, stream_assignment.NextTree());
+
+            	        adaptor.AddChild(root_0, root_1);
+            	        }
+
+            	    }
+            	    stream_assignment.Reset();
+            	    stream_DEFAULT.Reset();
+
+            	}
+
+            	retval.Tree = root_0;retval.Tree = root_0;
+            }
+
+            retval.Stop = input.LT(-1);
+
+            	retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+    	// Conversion of the second argument necessary, but harmless
+    	retval.Tree = (CommonTree)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
+
+        }
+        finally 
+    	{
+        }
+        return retval;
+    }
+    // $ANTLR end "defaultExpr"
+
+    public class assignment_return : ParserRuleReturnScope
+    {
+        private CommonTree tree;
+        override public object Tree
+        {
+        	get { return tree; }
+        	set { tree = (CommonTree) value; }
+        }
+    };
+
+    // $ANTLR start "assignment"
+    // TT\\Template.g:102:1: assignment : ( ID ASSIGN LITERAL -> ID LITERAL | ID ASSIGN NUMBER -> ID NUMBER | ID ASSIGN DECIMAL -> ID DECIMAL );
+    public TemplateParser.assignment_return assignment() // throws RecognitionException [1]
+    {   
+        TemplateParser.assignment_return retval = new TemplateParser.assignment_return();
+        retval.Start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        IToken ID28 = null;
+        IToken ASSIGN29 = null;
+        IToken LITERAL30 = null;
         IToken ID31 = null;
         IToken ASSIGN32 = null;
         IToken NUMBER33 = null;
-        IToken DEFAULT34 = null;
-        IToken ID35 = null;
-        IToken ASSIGN36 = null;
-        IToken DECIMAL37 = null;
+        IToken ID34 = null;
+        IToken ASSIGN35 = null;
+        IToken DECIMAL36 = null;
 
-        CommonTree DEFAULT26_tree=null;
-        CommonTree ID27_tree=null;
-        CommonTree ASSIGN28_tree=null;
-        CommonTree LITERAL29_tree=null;
-        CommonTree DEFAULT30_tree=null;
+        CommonTree ID28_tree=null;
+        CommonTree ASSIGN29_tree=null;
+        CommonTree LITERAL30_tree=null;
         CommonTree ID31_tree=null;
         CommonTree ASSIGN32_tree=null;
         CommonTree NUMBER33_tree=null;
-        CommonTree DEFAULT34_tree=null;
-        CommonTree ID35_tree=null;
-        CommonTree ASSIGN36_tree=null;
-        CommonTree DECIMAL37_tree=null;
+        CommonTree ID34_tree=null;
+        CommonTree ASSIGN35_tree=null;
+        CommonTree DECIMAL36_tree=null;
         RewriteRuleTokenStream stream_LITERAL = new RewriteRuleTokenStream(adaptor,"token LITERAL");
         RewriteRuleTokenStream stream_DECIMAL = new RewriteRuleTokenStream(adaptor,"token DECIMAL");
         RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
-        RewriteRuleTokenStream stream_DEFAULT = new RewriteRuleTokenStream(adaptor,"token DEFAULT");
         RewriteRuleTokenStream stream_NUMBER = new RewriteRuleTokenStream(adaptor,"token NUMBER");
         RewriteRuleTokenStream stream_ASSIGN = new RewriteRuleTokenStream(adaptor,"token ASSIGN");
 
         try 
     	{
-            // TT\\Template.g:99:2: ( DEFAULT ID ASSIGN LITERAL -> ^( DEFAULT ID LITERAL ) | DEFAULT ID ASSIGN NUMBER -> ^( DEFAULT ID NUMBER ) | DEFAULT ID ASSIGN DECIMAL -> ^( DEFAULT ID DECIMAL ) )
-            int alt11 = 3;
-            int LA11_0 = input.LA(1);
+            // TT\\Template.g:103:2: ( ID ASSIGN LITERAL -> ID LITERAL | ID ASSIGN NUMBER -> ID NUMBER | ID ASSIGN DECIMAL -> ID DECIMAL )
+            int alt12 = 3;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0 == DEFAULT) )
+            if ( (LA12_0 == ID) )
             {
-                int LA11_1 = input.LA(2);
+                int LA12_1 = input.LA(2);
 
-                if ( (LA11_1 == ID) )
+                if ( (LA12_1 == ASSIGN) )
                 {
-                    int LA11_2 = input.LA(3);
-
-                    if ( (LA11_2 == ASSIGN) )
+                    switch ( input.LA(3) ) 
                     {
-                        switch ( input.LA(4) ) 
-                        {
-                        case LITERAL:
-                        	{
-                            alt11 = 1;
-                            }
-                            break;
-                        case NUMBER:
-                        	{
-                            alt11 = 2;
-                            }
-                            break;
-                        case DECIMAL:
-                        	{
-                            alt11 = 3;
-                            }
-                            break;
-                        	default:
-                        	    NoViableAltException nvae_d11s3 =
-                        	        new NoViableAltException("", 11, 3, input);
-
-                        	    throw nvae_d11s3;
+                    case LITERAL:
+                    	{
+                        alt12 = 1;
                         }
+                        break;
+                    case NUMBER:
+                    	{
+                        alt12 = 2;
+                        }
+                        break;
+                    case DECIMAL:
+                    	{
+                        alt12 = 3;
+                        }
+                        break;
+                    	default:
+                    	    NoViableAltException nvae_d12s2 =
+                    	        new NoViableAltException("", 12, 2, input);
 
+                    	    throw nvae_d12s2;
                     }
-                    else 
-                    {
-                        NoViableAltException nvae_d11s2 =
-                            new NoViableAltException("", 11, 2, input);
 
-                        throw nvae_d11s2;
-                    }
                 }
                 else 
                 {
-                    NoViableAltException nvae_d11s1 =
-                        new NoViableAltException("", 11, 1, input);
+                    NoViableAltException nvae_d12s1 =
+                        new NoViableAltException("", 12, 1, input);
 
-                    throw nvae_d11s1;
+                    throw nvae_d12s1;
                 }
             }
             else 
             {
-                NoViableAltException nvae_d11s0 =
-                    new NoViableAltException("", 11, 0, input);
+                NoViableAltException nvae_d12s0 =
+                    new NoViableAltException("", 12, 0, input);
 
-                throw nvae_d11s0;
+                throw nvae_d12s0;
             }
-            switch (alt11) 
+            switch (alt12) 
             {
                 case 1 :
-                    // TT\\Template.g:99:4: DEFAULT ID ASSIGN LITERAL
+                    // TT\\Template.g:103:4: ID ASSIGN LITERAL
                     {
-                    	DEFAULT26=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr662);  
-                    	stream_DEFAULT.Add(DEFAULT26);
+                    	ID28=(IToken)Match(input,ID,FOLLOW_ID_in_assignment686);  
+                    	stream_ID.Add(ID28);
 
-                    	ID27=(IToken)Match(input,ID,FOLLOW_ID_in_defaultExpr664);  
-                    	stream_ID.Add(ID27);
+                    	ASSIGN29=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment688);  
+                    	stream_ASSIGN.Add(ASSIGN29);
 
-                    	ASSIGN28=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_defaultExpr666);  
-                    	stream_ASSIGN.Add(ASSIGN28);
-
-                    	LITERAL29=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_defaultExpr668);  
-                    	stream_LITERAL.Add(LITERAL29);
+                    	LITERAL30=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_assignment690);  
+                    	stream_LITERAL.Add(LITERAL30);
 
 
 
                     	// AST REWRITE
-                    	// elements:          ID, LITERAL, DEFAULT
+                    	// elements:          LITERAL, ID
                     	// token labels:      
                     	// rule labels:       retval
                     	// token list labels: 
@@ -1303,18 +1413,10 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 99:30: -> ^( DEFAULT ID LITERAL )
+                    	// 103:22: -> ID LITERAL
                     	{
-                    	    // TT\\Template.g:99:33: ^( DEFAULT ID LITERAL )
-                    	    {
-                    	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
-                    	    root_1 = (CommonTree)adaptor.BecomeRoot(stream_DEFAULT.NextNode(), root_1);
-
-                    	    adaptor.AddChild(root_1, stream_ID.NextNode());
-                    	    adaptor.AddChild(root_1, stream_LITERAL.NextNode());
-
-                    	    adaptor.AddChild(root_0, root_1);
-                    	    }
+                    	    adaptor.AddChild(root_0, stream_ID.NextNode());
+                    	    adaptor.AddChild(root_0, stream_LITERAL.NextNode());
 
                     	}
 
@@ -1322,24 +1424,21 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 2 :
-                    // TT\\Template.g:100:4: DEFAULT ID ASSIGN NUMBER
+                    // TT\\Template.g:104:4: ID ASSIGN NUMBER
                     {
-                    	DEFAULT30=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr683);  
-                    	stream_DEFAULT.Add(DEFAULT30);
-
-                    	ID31=(IToken)Match(input,ID,FOLLOW_ID_in_defaultExpr685);  
+                    	ID31=(IToken)Match(input,ID,FOLLOW_ID_in_assignment701);  
                     	stream_ID.Add(ID31);
 
-                    	ASSIGN32=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_defaultExpr687);  
+                    	ASSIGN32=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment703);  
                     	stream_ASSIGN.Add(ASSIGN32);
 
-                    	NUMBER33=(IToken)Match(input,NUMBER,FOLLOW_NUMBER_in_defaultExpr689);  
+                    	NUMBER33=(IToken)Match(input,NUMBER,FOLLOW_NUMBER_in_assignment705);  
                     	stream_NUMBER.Add(NUMBER33);
 
 
 
                     	// AST REWRITE
-                    	// elements:          ID, NUMBER, DEFAULT
+                    	// elements:          ID, NUMBER
                     	// token labels:      
                     	// rule labels:       retval
                     	// token list labels: 
@@ -1349,18 +1448,10 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 100:30: -> ^( DEFAULT ID NUMBER )
+                    	// 104:22: -> ID NUMBER
                     	{
-                    	    // TT\\Template.g:100:33: ^( DEFAULT ID NUMBER )
-                    	    {
-                    	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
-                    	    root_1 = (CommonTree)adaptor.BecomeRoot(stream_DEFAULT.NextNode(), root_1);
-
-                    	    adaptor.AddChild(root_1, stream_ID.NextNode());
-                    	    adaptor.AddChild(root_1, stream_NUMBER.NextNode());
-
-                    	    adaptor.AddChild(root_0, root_1);
-                    	    }
+                    	    adaptor.AddChild(root_0, stream_ID.NextNode());
+                    	    adaptor.AddChild(root_0, stream_NUMBER.NextNode());
 
                     	}
 
@@ -1368,24 +1459,21 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 3 :
-                    // TT\\Template.g:101:4: DEFAULT ID ASSIGN DECIMAL
+                    // TT\\Template.g:105:4: ID ASSIGN DECIMAL
                     {
-                    	DEFAULT34=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr705);  
-                    	stream_DEFAULT.Add(DEFAULT34);
+                    	ID34=(IToken)Match(input,ID,FOLLOW_ID_in_assignment717);  
+                    	stream_ID.Add(ID34);
 
-                    	ID35=(IToken)Match(input,ID,FOLLOW_ID_in_defaultExpr707);  
-                    	stream_ID.Add(ID35);
+                    	ASSIGN35=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment719);  
+                    	stream_ASSIGN.Add(ASSIGN35);
 
-                    	ASSIGN36=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_defaultExpr709);  
-                    	stream_ASSIGN.Add(ASSIGN36);
-
-                    	DECIMAL37=(IToken)Match(input,DECIMAL,FOLLOW_DECIMAL_in_defaultExpr711);  
-                    	stream_DECIMAL.Add(DECIMAL37);
+                    	DECIMAL36=(IToken)Match(input,DECIMAL,FOLLOW_DECIMAL_in_assignment721);  
+                    	stream_DECIMAL.Add(DECIMAL36);
 
 
 
                     	// AST REWRITE
-                    	// elements:          DECIMAL, DEFAULT, ID
+                    	// elements:          DECIMAL, ID
                     	// token labels:      
                     	// rule labels:       retval
                     	// token list labels: 
@@ -1395,18 +1483,10 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 101:30: -> ^( DEFAULT ID DECIMAL )
+                    	// 105:22: -> ID DECIMAL
                     	{
-                    	    // TT\\Template.g:101:33: ^( DEFAULT ID DECIMAL )
-                    	    {
-                    	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
-                    	    root_1 = (CommonTree)adaptor.BecomeRoot(stream_DEFAULT.NextNode(), root_1);
-
-                    	    adaptor.AddChild(root_1, stream_ID.NextNode());
-                    	    adaptor.AddChild(root_1, stream_DECIMAL.NextNode());
-
-                    	    adaptor.AddChild(root_0, root_1);
-                    	    }
+                    	    adaptor.AddChild(root_0, stream_ID.NextNode());
+                    	    adaptor.AddChild(root_0, stream_DECIMAL.NextNode());
 
                     	}
 
@@ -1433,7 +1513,7 @@ public partial class TemplateParser : Parser
         }
         return retval;
     }
-    // $ANTLR end "defaultExpr"
+    // $ANTLR end "assignment"
 
     // Delegated rules
 
@@ -1469,18 +1549,17 @@ public partial class TemplateParser : Parser
     public static readonly BitSet FOLLOW_ID_in_setExpr636 = new BitSet(new ulong[]{0x0010000000000000UL});
     public static readonly BitSet FOLLOW_ASSIGN_in_setExpr638 = new BitSet(new ulong[]{0x0000800000000000UL});
     public static readonly BitSet FOLLOW_DECIMAL_in_setExpr640 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr662 = new BitSet(new ulong[]{0x0000200000000000UL});
-    public static readonly BitSet FOLLOW_ID_in_defaultExpr664 = new BitSet(new ulong[]{0x0010000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_defaultExpr666 = new BitSet(new ulong[]{0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_LITERAL_in_defaultExpr668 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr683 = new BitSet(new ulong[]{0x0000200000000000UL});
-    public static readonly BitSet FOLLOW_ID_in_defaultExpr685 = new BitSet(new ulong[]{0x0010000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_defaultExpr687 = new BitSet(new ulong[]{0x0000400000000000UL});
-    public static readonly BitSet FOLLOW_NUMBER_in_defaultExpr689 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr705 = new BitSet(new ulong[]{0x0000200000000000UL});
-    public static readonly BitSet FOLLOW_ID_in_defaultExpr707 = new BitSet(new ulong[]{0x0010000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_defaultExpr709 = new BitSet(new ulong[]{0x0000800000000000UL});
-    public static readonly BitSet FOLLOW_DECIMAL_in_defaultExpr711 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr661 = new BitSet(new ulong[]{0x0000200000000000UL});
+    public static readonly BitSet FOLLOW_assignment_in_defaultExpr664 = new BitSet(new ulong[]{0x0000200000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment686 = new BitSet(new ulong[]{0x0010000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment688 = new BitSet(new ulong[]{0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_LITERAL_in_assignment690 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment701 = new BitSet(new ulong[]{0x0010000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment703 = new BitSet(new ulong[]{0x0000400000000000UL});
+    public static readonly BitSet FOLLOW_NUMBER_in_assignment705 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment717 = new BitSet(new ulong[]{0x0010000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment719 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_DECIMAL_in_assignment721 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }

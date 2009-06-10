@@ -15,3 +15,9 @@ WHAT'S WORKING?
   - implicit variable set [% variable = x %], where x is string, number, decimal
   - explicit variable set [% SET variable = x %], where x is string, number, decimal
   - set defaults [% DEFAULT variable = x %], where x is string, number, decimal
+  - set multiple defaults in one block
+		[% DEFAULT
+			foo = 1
+			bar = 'baz'
+			baz = 2.34
+		%]

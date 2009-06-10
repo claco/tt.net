@@ -83,23 +83,23 @@ Print(GetVariable("<name>").ToString());<\n>
 >>
 
 setLiteralVariable(name, literal) ::= <<
-SetVariable("<name>", "<literal>");
+SetVariable("<name>", "<literal>");<\n>
 >>
 
 setNumericVariable(name, number) ::= <<
-SetVariable("<name>", <number>);
+SetVariable("<name>", <number>);<\n>
 >>
 
 setDecimalVariable(name, decimal) ::= <<
-SetVariable("<name>", Convert.ToDecimal(<decimal>));
+SetVariable("<name>", Convert.ToDecimal(<decimal>));<\n>
 >>
 
 setDefaultLiteralVariable(name, literal) ::= <<
-SetDefault("<name>", "<literal>");
+SetDefault("<name>", "<literal>");<\n>
 >>
 
 setDefaultNumericVariable(name, number) ::= <<
-SetDefault("<name>", <number>);
+SetDefault("<name>", <number>);<\n>
 >>
 
 setDefaultDecimalVariable(name, decimal) ::= <<
