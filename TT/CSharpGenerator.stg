@@ -40,6 +40,14 @@ class(statements) ::= <<
 			return null;
 		}
 		
+		public void SetDefault(string name, object value) {
+			if (name != null) {
+				if (_variables != null && (_variables.ContainsKey(name) == false || _variables[name] == null)) {
+					_variables[name] = value;
+				};
+			};
+		}
+		
 		public void SetVariable(string name, string value) {
 			if (name != null) {
 				if (_variables != null) {
@@ -84,4 +92,16 @@ SetVariable("<name>", <number>);
 
 setDecimalVariable(name, decimal) ::= <<
 SetVariable("<name>", Convert.ToDecimal(<decimal>));
+>>
+
+setDefaultLiteralVariable(name, literal) ::= <<
+SetDefault("<name>", "<literal>");
+>>
+
+setDefaultNumericVariable(name, number) ::= <<
+SetDefault("<name>", <number>);
+>>
+
+setDefaultDecimalVariable(name, decimal) ::= <<
+SetDefault("<name>", Convert.ToDecimal(<decimal>));
 >>

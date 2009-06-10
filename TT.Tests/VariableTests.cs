@@ -8,6 +8,8 @@ namespace TT.Tests
     [TestFixture]
     public class VariableTests : TestBase
     {
+        #region "GET"
+
         [Test, Category("Unit")]
         public void GetLiteralVariable()
         {
@@ -33,6 +35,10 @@ namespace TT.Tests
 
             Expect(result, Is.EqualTo(Output("GET.implied.variable")));
         }
+
+        #endregion
+
+        #region "SET"
 
         [Test, Category("Unit")]
         public void SetLiteralVariable()
@@ -72,5 +78,61 @@ namespace TT.Tests
             Expect(result, Is.EqualTo(Output("SET.decimal")));
             Expect(data["variable"], Is.EqualTo(42.95));
         }
+
+        #endregion
+
+        #region "DEFAULT"
+
+        [Test, Category("Unit")]
+        public void DefaultLiteralVariable()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("DEFAULT.literal"), data);
+
+            Expect(result, Is.EqualTo(Output("DEFAULT.literal")));
+            Expect(data["variable"], Is.EqualTo("Hello World"));
+        }
+
+        [Test, Category("Unit")]
+        public void DefaultNumberVariable()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("DEFAULT.number"), data);
+
+            Expect(result, Is.EqualTo(Output("DEFAULT.number")));
+            Expect(data["variable"], Is.EqualTo(5));
+        }
+
+        [Test, Category("Unit")]
+        public void DefaultDecimalVariable()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("DEFAULT.decimal"), data);
+
+            Expect(result, Is.EqualTo(Output("DEFAULT.decimal")));
+            Expect(data["variable"], Is.EqualTo(42.95));
+        }
+
+        [Test, Category("Unit")]
+        public void DefaultSetsWhenNull()
+        {
+            var data = new Dictionary<string, object>() { {"variable", null} };
+            var result = Template.Process(Source("DEFAULT.literal"), data);
+
+            Expect(result, Is.EqualTo(Output("DEFAULT.literal")));
+            Expect(data["variable"], Is.EqualTo("Hello World"));
+        }
+
+        [Test, Category("Unit")]
+        public void DefaultIgnoresNotNull()
+        {
+            var data = new Dictionary<string, object>() { { "variable", "Exists" } };
+            var result = Template.Process(Source("DEFAULT.literal"), data);
+
+            Expect(result, Is.EqualTo(Output("DEFAULT.literal")));
+            Expect(data["variable"], Is.EqualTo("Exists"));
+        }
+
+        #endregion
     }
 }

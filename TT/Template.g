@@ -80,6 +80,7 @@ block
 statement 
 	: getExpr
 	| setExpr
+	| defaultExpr
 	;
 
 getExpr
@@ -92,4 +93,10 @@ setExpr
 	: 'SET'? ID ASSIGN LITERAL -> ^(SET ID LITERAL)
 	| 'SET'? ID ASSIGN NUMBER  -> ^(SET ID NUMBER)
 	| 'SET'? ID ASSIGN DECIMAL -> ^(SET ID DECIMAL)
+	;
+	
+defaultExpr
+	: DEFAULT ID ASSIGN LITERAL -> ^(DEFAULT ID LITERAL)
+	| DEFAULT ID ASSIGN NUMBER  -> ^(DEFAULT ID NUMBER)
+	| DEFAULT ID ASSIGN DECIMAL -> ^(DEFAULT ID DECIMAL)
 	;

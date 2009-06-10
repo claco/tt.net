@@ -64,6 +64,8 @@
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="templates\DEFAULT.literal.source" />
+    <None Include="templates\DEFAULT.literal.output" />
     <None Include="templates\GET.implied.variable.output" />
     <None Include="templates\GET.implied.variable.source" />
     <None Include="templates\GET.literal.output" />
@@ -80,6 +82,12 @@
     <None Include="templates\SET.literal.source" />
     <None Include="templates\SET.number.output" />
     <None Include="templates\SET.number.source" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="templates\DEFAULT.decimal.output" />
+    <None Include="templates\DEFAULT.decimal.source" />
+    <None Include="templates\DEFAULT.number.output" />
+    <None Include="templates\DEFAULT.number.source" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
