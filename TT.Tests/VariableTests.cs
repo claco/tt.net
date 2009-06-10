@@ -79,6 +79,19 @@ namespace TT.Tests
             Expect(data["variable"], Is.EqualTo(42.95));
         }
 
+        [Test, Category("Unit")]
+        public void SetMultipleVariables()
+        {
+            var data = new Dictionary<string, object>();
+            var result = Template.Process(Source("SET.multiple"), data);
+
+            Expect(result, Is.EqualTo(Output("SET.multiple")));
+            Expect(data["foo"], Is.EqualTo("Hello World"));
+            Expect(data["bar"], Is.EqualTo(5));
+            Expect(data["baz"], Is.EqualTo(42.95));
+            Expect(data.Count, Is.EqualTo(3));
+        }
+
         #endregion
 
         #region "DEFAULT"

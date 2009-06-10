@@ -90,6 +90,8 @@
     <None Include="templates\DEFAULT.multiple.source" />
     <None Include="templates\DEFAULT.number.output" />
     <None Include="templates\DEFAULT.number.source" />
+    <None Include="templates\SET.multiple.output" />
+    <None Include="templates\SET.multiple.source" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

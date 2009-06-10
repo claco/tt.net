@@ -1,0 +1,5 @@
+﻿[% SET
+	foo = 'Hello World'
+	bar = 5
+	baz = 42.95
+%]
