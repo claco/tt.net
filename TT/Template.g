@@ -55,7 +55,7 @@ RETURN	:	'RETURN';
 STOP	:	'STOP';
 TAGS	:	'TAGS';
 COMMENTS:	'COMMENTS';
-ID	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_')*;
+ID	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 NUMBER	:	('0'..'9')+;
 DECIMAL	:	NUMBER '.' NUMBER;
 ADD	:	'+';

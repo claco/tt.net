@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-09 21:53:14
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-09 22:10:48
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -216,7 +216,7 @@ public partial class TemplateParser : Parser
             			case 1 :
             			    // TT\\Template.g:73:4: block
             			    {
-            			    	PushFollow(FOLLOW_block_in_document467);
+            			    	PushFollow(FOLLOW_block_in_document471);
             			    	block1 = block();
             			    	state.followingStackPointer--;
 
@@ -323,13 +323,13 @@ public partial class TemplateParser : Parser
             {
             	root_0 = (CommonTree)adaptor.GetNilNode();
 
-            	TSTART2=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_block488); 
-            	PushFollow(FOLLOW_statement_in_block491);
+            	TSTART2=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_block492); 
+            	PushFollow(FOLLOW_statement_in_block495);
             	statement3 = statement();
             	state.followingStackPointer--;
 
             	adaptor.AddChild(root_0, statement3.Tree);
-            	TSTOP4=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_block493); 
+            	TSTOP4=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_block497); 
 
             }
 
@@ -438,7 +438,7 @@ public partial class TemplateParser : Parser
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_getExpr_in_statement506);
+                    	PushFollow(FOLLOW_getExpr_in_statement510);
                     	getExpr5 = getExpr();
                     	state.followingStackPointer--;
 
@@ -451,7 +451,7 @@ public partial class TemplateParser : Parser
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_setExpr_in_statement511);
+                    	PushFollow(FOLLOW_setExpr_in_statement515);
                     	setExpr6 = setExpr();
                     	state.followingStackPointer--;
 
@@ -464,7 +464,7 @@ public partial class TemplateParser : Parser
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_defaultExpr_in_statement516);
+                    	PushFollow(FOLLOW_defaultExpr_in_statement520);
                     	defaultExpr7 = defaultExpr();
                     	state.followingStackPointer--;
 
@@ -605,7 +605,7 @@ public partial class TemplateParser : Parser
                     	    case 1 :
                     	        // TT\\Template.g:87:4: 'GET'
                     	        {
-                    	        	string_literal8=(IToken)Match(input,55,FOLLOW_55_in_getExpr527);  
+                    	        	string_literal8=(IToken)Match(input,55,FOLLOW_55_in_getExpr531);  
                     	        	stream_55.Add(string_literal8);
 
 
@@ -614,7 +614,7 @@ public partial class TemplateParser : Parser
 
                     	}
 
-                    	ID9=(IToken)Match(input,ID,FOLLOW_ID_in_getExpr530);  
+                    	ID9=(IToken)Match(input,ID,FOLLOW_ID_in_getExpr534);  
                     	stream_ID.Add(ID9);
 
 
@@ -663,7 +663,7 @@ public partial class TemplateParser : Parser
                     	    case 1 :
                     	        // TT\\Template.g:88:4: 'GET'
                     	        {
-                    	        	string_literal10=(IToken)Match(input,55,FOLLOW_55_in_getExpr549);  
+                    	        	string_literal10=(IToken)Match(input,55,FOLLOW_55_in_getExpr553);  
                     	        	stream_55.Add(string_literal10);
 
 
@@ -672,7 +672,7 @@ public partial class TemplateParser : Parser
 
                     	}
 
-                    	LITERAL11=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr552);  
+                    	LITERAL11=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr556);  
                     	stream_LITERAL.Add(LITERAL11);
 
 
@@ -721,7 +721,7 @@ public partial class TemplateParser : Parser
                     	    case 1 :
                     	        // TT\\Template.g:89:4: 'GET'
                     	        {
-                    	        	string_literal12=(IToken)Match(input,55,FOLLOW_55_in_getExpr566);  
+                    	        	string_literal12=(IToken)Match(input,55,FOLLOW_55_in_getExpr570);  
                     	        	stream_55.Add(string_literal12);
 
 
@@ -730,7 +730,7 @@ public partial class TemplateParser : Parser
 
                     	}
 
-                    	ILITERAL13=(IToken)Match(input,ILITERAL,FOLLOW_ILITERAL_in_getExpr569);  
+                    	ILITERAL13=(IToken)Match(input,ILITERAL,FOLLOW_ILITERAL_in_getExpr573);  
                     	stream_ILITERAL.Add(ILITERAL13);
 
 
@@ -829,7 +829,7 @@ public partial class TemplateParser : Parser
             	    case 1 :
             	        // TT\\Template.g:93:4: 'SET'
             	        {
-            	        	string_literal14=(IToken)Match(input,56,FOLLOW_56_in_setExpr588);  
+            	        	string_literal14=(IToken)Match(input,56,FOLLOW_56_in_setExpr592);  
             	        	stream_56.Add(string_literal14);
 
 
@@ -856,7 +856,7 @@ public partial class TemplateParser : Parser
             			case 1 :
             			    // TT\\Template.g:93:12: assignment
             			    {
-            			    	PushFollow(FOLLOW_assignment_in_setExpr592);
+            			    	PushFollow(FOLLOW_assignment_in_setExpr596);
             			    	assignment15 = assignment();
             			    	state.followingStackPointer--;
 
@@ -966,7 +966,7 @@ public partial class TemplateParser : Parser
             // TT\\Template.g:97:2: ( DEFAULT ( assignment )+ -> ( ^( DEFAULT assignment ) )+ )
             // TT\\Template.g:97:4: DEFAULT ( assignment )+
             {
-            	DEFAULT16=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr614);  
+            	DEFAULT16=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr618);  
             	stream_DEFAULT.Add(DEFAULT16);
 
             	// TT\\Template.g:97:12: ( assignment )+
@@ -987,7 +987,7 @@ public partial class TemplateParser : Parser
             			case 1 :
             			    // TT\\Template.g:97:13: assignment
             			    {
-            			    	PushFollow(FOLLOW_assignment_in_defaultExpr617);
+            			    	PushFollow(FOLLOW_assignment_in_defaultExpr621);
             			    	assignment17 = assignment();
             			    	state.followingStackPointer--;
 
@@ -1168,13 +1168,13 @@ public partial class TemplateParser : Parser
                 case 1 :
                     // TT\\Template.g:101:4: ID ASSIGN LITERAL
                     {
-                    	ID18=(IToken)Match(input,ID,FOLLOW_ID_in_assignment639);  
+                    	ID18=(IToken)Match(input,ID,FOLLOW_ID_in_assignment643);  
                     	stream_ID.Add(ID18);
 
-                    	ASSIGN19=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment641);  
+                    	ASSIGN19=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment645);  
                     	stream_ASSIGN.Add(ASSIGN19);
 
-                    	LITERAL20=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_assignment643);  
+                    	LITERAL20=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_assignment647);  
                     	stream_LITERAL.Add(LITERAL20);
 
 
@@ -1203,13 +1203,13 @@ public partial class TemplateParser : Parser
                 case 2 :
                     // TT\\Template.g:102:4: ID ASSIGN NUMBER
                     {
-                    	ID21=(IToken)Match(input,ID,FOLLOW_ID_in_assignment654);  
+                    	ID21=(IToken)Match(input,ID,FOLLOW_ID_in_assignment658);  
                     	stream_ID.Add(ID21);
 
-                    	ASSIGN22=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment656);  
+                    	ASSIGN22=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment660);  
                     	stream_ASSIGN.Add(ASSIGN22);
 
-                    	NUMBER23=(IToken)Match(input,NUMBER,FOLLOW_NUMBER_in_assignment658);  
+                    	NUMBER23=(IToken)Match(input,NUMBER,FOLLOW_NUMBER_in_assignment662);  
                     	stream_NUMBER.Add(NUMBER23);
 
 
@@ -1238,13 +1238,13 @@ public partial class TemplateParser : Parser
                 case 3 :
                     // TT\\Template.g:103:4: ID ASSIGN DECIMAL
                     {
-                    	ID24=(IToken)Match(input,ID,FOLLOW_ID_in_assignment670);  
+                    	ID24=(IToken)Match(input,ID,FOLLOW_ID_in_assignment674);  
                     	stream_ID.Add(ID24);
 
-                    	ASSIGN25=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment672);  
+                    	ASSIGN25=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment676);  
                     	stream_ASSIGN.Add(ASSIGN25);
 
-                    	DECIMAL26=(IToken)Match(input,DECIMAL,FOLLOW_DECIMAL_in_assignment674);  
+                    	DECIMAL26=(IToken)Match(input,DECIMAL,FOLLOW_DECIMAL_in_assignment678);  
                     	stream_DECIMAL.Add(DECIMAL26);
 
 
@@ -1301,32 +1301,32 @@ public partial class TemplateParser : Parser
 
  
 
-    public static readonly BitSet FOLLOW_block_in_document467 = new BitSet(new ulong[]{0x0000000000000202UL});
-    public static readonly BitSet FOLLOW_TSTART_in_block488 = new BitSet(new ulong[]{0x0180200000016000UL});
-    public static readonly BitSet FOLLOW_statement_in_block491 = new BitSet(new ulong[]{0x0000000000000400UL});
-    public static readonly BitSet FOLLOW_TSTOP_in_block493 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_getExpr_in_statement506 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_setExpr_in_statement511 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_defaultExpr_in_statement516 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_55_in_getExpr527 = new BitSet(new ulong[]{0x0000200000000000UL});
-    public static readonly BitSet FOLLOW_ID_in_getExpr530 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_55_in_getExpr549 = new BitSet(new ulong[]{0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_LITERAL_in_getExpr552 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_55_in_getExpr566 = new BitSet(new ulong[]{0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_ILITERAL_in_getExpr569 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_56_in_setExpr588 = new BitSet(new ulong[]{0x0100200000000000UL});
-    public static readonly BitSet FOLLOW_assignment_in_setExpr592 = new BitSet(new ulong[]{0x0100200000000002UL});
-    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr614 = new BitSet(new ulong[]{0x0100200000000000UL});
-    public static readonly BitSet FOLLOW_assignment_in_defaultExpr617 = new BitSet(new ulong[]{0x0100200000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_assignment639 = new BitSet(new ulong[]{0x0010000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_assignment641 = new BitSet(new ulong[]{0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_LITERAL_in_assignment643 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_assignment654 = new BitSet(new ulong[]{0x0010000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_assignment656 = new BitSet(new ulong[]{0x0000400000000000UL});
-    public static readonly BitSet FOLLOW_NUMBER_in_assignment658 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_assignment670 = new BitSet(new ulong[]{0x0010000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_assignment672 = new BitSet(new ulong[]{0x0000800000000000UL});
-    public static readonly BitSet FOLLOW_DECIMAL_in_assignment674 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_block_in_document471 = new BitSet(new ulong[]{0x0000000000000202UL});
+    public static readonly BitSet FOLLOW_TSTART_in_block492 = new BitSet(new ulong[]{0x0180200000016000UL});
+    public static readonly BitSet FOLLOW_statement_in_block495 = new BitSet(new ulong[]{0x0000000000000400UL});
+    public static readonly BitSet FOLLOW_TSTOP_in_block497 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_getExpr_in_statement510 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_setExpr_in_statement515 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_defaultExpr_in_statement520 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_55_in_getExpr531 = new BitSet(new ulong[]{0x0000200000000000UL});
+    public static readonly BitSet FOLLOW_ID_in_getExpr534 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_55_in_getExpr553 = new BitSet(new ulong[]{0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_LITERAL_in_getExpr556 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_55_in_getExpr570 = new BitSet(new ulong[]{0x0000000000002000UL});
+    public static readonly BitSet FOLLOW_ILITERAL_in_getExpr573 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_56_in_setExpr592 = new BitSet(new ulong[]{0x0100200000000000UL});
+    public static readonly BitSet FOLLOW_assignment_in_setExpr596 = new BitSet(new ulong[]{0x0100200000000002UL});
+    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr618 = new BitSet(new ulong[]{0x0100200000000000UL});
+    public static readonly BitSet FOLLOW_assignment_in_defaultExpr621 = new BitSet(new ulong[]{0x0100200000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment643 = new BitSet(new ulong[]{0x0010000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment645 = new BitSet(new ulong[]{0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_LITERAL_in_assignment647 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment658 = new BitSet(new ulong[]{0x0010000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment660 = new BitSet(new ulong[]{0x0000400000000000UL});
+    public static readonly BitSet FOLLOW_NUMBER_in_assignment662 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment674 = new BitSet(new ulong[]{0x0010000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment676 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_DECIMAL_in_assignment678 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }
