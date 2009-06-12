@@ -105,3 +105,9 @@ SetDefault("<name>", <number>);<\n>
 setDefaultDecimalVariable(name, decimal) ::= <<
 SetDefault("<name>", Convert.ToDecimal(<decimal>));
 >>
+
+ifVariableStatement(name, statement) ::= <<
+if (GetVariable("<name>") != null) {
+	<statement>
+};<\n>
+>>

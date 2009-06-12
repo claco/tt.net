@@ -18,6 +18,11 @@ statement
 	: getExpr -> {$getExpr.st}
 	| setExpr -> {$setExpr.st}
 	| defaultExpr -> {$defaultExpr.st}
+	| ifStatement -> {$ifStatement.st}
+	;
+
+ifStatement
+	: ^(IF ID statement) -> ifVariableStatement(name={$ID.text}, statement={$statement.st})
 	;
 
 getExpr

@@ -33,14 +33,7 @@ namespace TT
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine(template);
             template = string.Concat("[%'", template.Replace("[%", "'^^][%").Replace("%]", "%][%'").Replace("'^^]", "'%]"), "'%]");
-            if (template.Substring(0, 6) == "[%''%]")
-            {
-                template = template.Substring(6, template.Length - 6);
-            }
-            if (template.Substring(template.Length - 6, 6) == "[%''%]")
-            {
-                template = template.Substring(0, template.Length - 6);
-            }
+            template = template.Replace("[%''%]", "");
             Console.WriteLine("--------------------------------------------");
             Console.WriteLine(template);
             Console.WriteLine("--------------------------------------------");

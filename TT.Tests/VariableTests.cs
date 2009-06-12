@@ -161,5 +161,18 @@ namespace TT.Tests
         }
 
         #endregion
+
+        #region "IF"
+
+        [Test, Category("Unit")]
+        public void IfVariable()
+        {
+            var data = new Dictionary<string, object> { { "variable", "Hello World" } };
+            var result = Template.Process(Source("IF.variable"), data);
+
+            Expect(result, Is.EqualTo(Output("IF.variable")));
+        }
+
+        #endregion
     }
 }

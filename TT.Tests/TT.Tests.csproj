@@ -90,6 +90,8 @@
     <None Include="templates\DEFAULT.multiple.source" />
     <None Include="templates\DEFAULT.number.output" />
     <None Include="templates\DEFAULT.number.source" />
+    <None Include="templates\IF.variable.output" />
+    <None Include="templates\IF.variable.source" />
     <None Include="templates\SET.multiple.output" />
     <None Include="templates\SET.multiple.source" />
   </ItemGroup>

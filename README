@@ -27,3 +27,4 @@ WHAT'S WORKING?
 			bar = 'baz'
 			baz = 2.34
 		%]
+  - basic if statement  [% IF variable %]  [% variable %]   [% END %]

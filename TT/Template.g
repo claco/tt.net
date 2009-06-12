@@ -55,6 +55,7 @@ RETURN	:	'RETURN';
 STOP	:	'STOP';
 TAGS	:	'TAGS';
 COMMENTS:	'COMMENTS';
+END	:	'END';
 ID	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 NUMBER	:	('0'..'9')+;
 DECIMAL	:	NUMBER '.' NUMBER;
@@ -81,6 +82,11 @@ statement
 	: getExpr
 	| setExpr
 	| defaultExpr
+	| ifStatement
+	;
+
+ifStatement
+	: IF ID TSTOP? TSTART? statement TSTOP? TSTART? END -> ^(IF ID statement)
 	;
 
 getExpr
