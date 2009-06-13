@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.IO;
+using System.Collections.ObjectModel;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
@@ -158,19 +158,6 @@ namespace TT.Tests
             Expect(data["bar"], Is.EqualTo(5));
             Expect(data["baz"], Is.EqualTo(42.95));
             Expect(data.Count, Is.EqualTo(3));
-        }
-
-        #endregion
-
-        #region "IF"
-
-        [Test, Category("Unit")]
-        public void IfVariable()
-        {
-            var data = new Dictionary<string, object> { { "variable", "Hello World" } };
-            var result = Template.Process(Source("IF.variable"), data);
-
-            Expect(result, Is.EqualTo(Output("IF.variable")));
         }
 
         #endregion

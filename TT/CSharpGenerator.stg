@@ -4,6 +4,7 @@ class(statements) ::= <<
 	using TT;
 	using System;
 	using System.IO;
+	using System.Collections;
 	using System.Collections.Generic;
 
 	public class x {
@@ -109,5 +110,14 @@ SetDefault("<name>", Convert.ToDecimal(<decimal>));
 ifVariableStatement(name, statement) ::= <<
 if (GetVariable("<name>") != null) {
 	<statement>
+};<\n>
+>>
+
+forEachLoop(iterator, variable, statement) ::= <<
+if (GetVariable("<variable>") != null) {
+	foreach (object <iterator> in (IEnumerable) GetVariable("<variable>")) {
+		_variables["<iterator>"] = i;
+		<statement>
+	};
 };<\n>
 >>

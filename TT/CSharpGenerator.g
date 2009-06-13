@@ -19,10 +19,15 @@ statement
 	| setExpr -> {$setExpr.st}
 	| defaultExpr -> {$defaultExpr.st}
 	| ifStatement -> {$ifStatement.st}
+	| forEachLoop -> {$forEachLoop.st}
 	;
 
 ifStatement
 	: ^(IF ID statement) -> ifVariableStatement(name={$ID.text}, statement={$statement.st})
+	;
+
+forEachLoop
+	: ^(FOREACH ITERATOR=ID VARIABLE=ID statement) -> forEachLoop(iterator={$ITERATOR.text}, variable={$VARIABLE.text}, statement={$statement.st})
 	;
 
 getExpr

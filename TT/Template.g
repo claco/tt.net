@@ -56,6 +56,7 @@ STOP	:	'STOP';
 TAGS	:	'TAGS';
 COMMENTS:	'COMMENTS';
 END	:	'END';
+IN	:	'IN';
 ID	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 NUMBER	:	('0'..'9')+;
 DECIMAL	:	NUMBER '.' NUMBER;
@@ -83,10 +84,15 @@ statement
 	| setExpr
 	| defaultExpr
 	| ifStatement
+	| forEachLoop
 	;
 
 ifStatement
 	: IF ID TSTOP? TSTART? statement TSTOP? TSTART? END -> ^(IF ID statement)
+	;
+
+forEachLoop
+	: FOREACH ID IN ID TSTOP? TSTART? statement TSTOP? TSTART? END -> ^(FOREACH ID ID statement)
 	;
 
 getExpr

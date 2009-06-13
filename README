@@ -28,3 +28,4 @@ WHAT'S WORKING?
 			baz = 2.34
 		%]
   - basic if statement  [% IF variable %]  [% variable %]   [% END %]
+  - basic foreach statment  [% FOREACH i IN variable %]   [% i %]   [% END %]

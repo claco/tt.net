@@ -1,4 +1,4 @@
-// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-11 21:44:37
+// $ANTLR 3.1.3 Mar 18, 2009 10:09:25 TT\\Template.g 2009-06-12 20:20:15
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -68,6 +68,7 @@ public partial class TemplateParser : Parser
 		"TAGS", 
 		"COMMENTS", 
 		"END", 
+		"IN", 
 		"ID", 
 		"NUMBER", 
 		"DECIMAL", 
@@ -84,22 +85,23 @@ public partial class TemplateParser : Parser
 
     public const int WHILE = 23;
     public const int CASE = 29;
-    public const int CHAR = 55;
+    public const int CHAR = 56;
     public const int RAWPERL = 34;
-    public const int SUB = 50;
-    public const int ID = 46;
+    public const int SUB = 51;
+    public const int ID = 47;
     public const int EOF = -1;
     public const int TSTART = 9;
     public const int IF = 24;
-    public const int T__56 = 56;
     public const int QUOTE = 11;
     public const int TSTOP = 10;
     public const int T__57 = 57;
     public const int FINAL = 38;
+    public const int T__58 = 58;
+    public const int IN = 46;
     public const int COMMENTS = 44;
     public const int INSERT = 17;
     public const int DOCUMENT = 7;
-    public const int EQUAL = 54;
+    public const int EQUAL = 55;
     public const int INCLUDE = 19;
     public const int RETURN = 41;
     public const int GET = 4;
@@ -107,31 +109,31 @@ public partial class TemplateParser : Parser
     public const int LAST = 40;
     public const int UNLESS = 25;
     public const int ILITERAL = 13;
-    public const int ADD = 49;
+    public const int ADD = 50;
     public const int SWITCH = 28;
     public const int DEFAULT = 16;
     public const int ELSE = 27;
-    public const int NUMBER = 47;
+    public const int NUMBER = 48;
     public const int TAGS = 43;
     public const int STOP = 42;
     public const int LITERAL = 14;
     public const int SET = 5;
-    public const int MULT = 51;
+    public const int MULT = 52;
     public const int SQUOTE = 12;
     public const int WRAPPER = 20;
     public const int PRINT = 6;
     public const int TRY = 35;
     public const int PERL = 33;
     public const int WS = 8;
-    public const int DECIMAL = 48;
+    public const int DECIMAL = 49;
     public const int BLOCK = 21;
-    public const int ASSIGN = 53;
+    public const int ASSIGN = 54;
     public const int FILTER = 31;
     public const int FOREACH = 22;
     public const int CALL = 15;
     public const int ELSIF = 26;
     public const int USE = 32;
-    public const int DIV = 52;
+    public const int DIV = 53;
     public const int END = 45;
     public const int PROCESS = 18;
     public const int CATCH = 37;
@@ -184,7 +186,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "document"
-    // TT\\Template.g:73:1: document : ( block )* -> ^( DOCUMENT ( block )* ) ;
+    // TT\\Template.g:74:1: document : ( block )* -> ^( DOCUMENT ( block )* ) ;
     public TemplateParser.document_return document() // throws RecognitionException [1]
     {   
         TemplateParser.document_return retval = new TemplateParser.document_return();
@@ -198,10 +200,10 @@ public partial class TemplateParser : Parser
         RewriteRuleSubtreeStream stream_block = new RewriteRuleSubtreeStream(adaptor,"rule block");
         try 
     	{
-            // TT\\Template.g:74:2: ( ( block )* -> ^( DOCUMENT ( block )* ) )
-            // TT\\Template.g:74:4: ( block )*
+            // TT\\Template.g:75:2: ( ( block )* -> ^( DOCUMENT ( block )* ) )
+            // TT\\Template.g:75:4: ( block )*
             {
-            	// TT\\Template.g:74:4: ( block )*
+            	// TT\\Template.g:75:4: ( block )*
             	do 
             	{
             	    int alt1 = 2;
@@ -216,9 +218,9 @@ public partial class TemplateParser : Parser
             	    switch (alt1) 
             		{
             			case 1 :
-            			    // TT\\Template.g:74:4: block
+            			    // TT\\Template.g:75:4: block
             			    {
-            			    	PushFollow(FOLLOW_block_in_document478);
+            			    	PushFollow(FOLLOW_block_in_document485);
             			    	block1 = block();
             			    	state.followingStackPointer--;
 
@@ -248,14 +250,14 @@ public partial class TemplateParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (CommonTree)adaptor.GetNilNode();
-            	// 74:11: -> ^( DOCUMENT ( block )* )
+            	// 75:11: -> ^( DOCUMENT ( block )* )
             	{
-            	    // TT\\Template.g:74:14: ^( DOCUMENT ( block )* )
+            	    // TT\\Template.g:75:14: ^( DOCUMENT ( block )* )
             	    {
             	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
             	    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(DOCUMENT, "DOCUMENT"), root_1);
 
-            	    // TT\\Template.g:74:25: ( block )*
+            	    // TT\\Template.g:75:25: ( block )*
             	    while ( stream_block.HasNext() )
             	    {
             	        adaptor.AddChild(root_1, stream_block.NextTree());
@@ -302,7 +304,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "block"
-    // TT\\Template.g:77:1: block : TSTART statement TSTOP ;
+    // TT\\Template.g:78:1: block : TSTART statement TSTOP ;
     public TemplateParser.block_return block() // throws RecognitionException [1]
     {   
         TemplateParser.block_return retval = new TemplateParser.block_return();
@@ -320,18 +322,18 @@ public partial class TemplateParser : Parser
 
         try 
     	{
-            // TT\\Template.g:78:2: ( TSTART statement TSTOP )
-            // TT\\Template.g:78:4: TSTART statement TSTOP
+            // TT\\Template.g:79:2: ( TSTART statement TSTOP )
+            // TT\\Template.g:79:4: TSTART statement TSTOP
             {
             	root_0 = (CommonTree)adaptor.GetNilNode();
 
-            	TSTART2=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_block499); 
-            	PushFollow(FOLLOW_statement_in_block502);
+            	TSTART2=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_block506); 
+            	PushFollow(FOLLOW_statement_in_block509);
             	statement3 = statement();
             	state.followingStackPointer--;
 
             	adaptor.AddChild(root_0, statement3.Tree);
-            	TSTOP4=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_block504); 
+            	TSTOP4=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_block511); 
 
             }
 
@@ -366,7 +368,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "statement"
-    // TT\\Template.g:81:1: statement : ( getExpr | setExpr | defaultExpr | ifStatement );
+    // TT\\Template.g:82:1: statement : ( getExpr | setExpr | defaultExpr | ifStatement | forEachLoop );
     public TemplateParser.statement_return statement() // throws RecognitionException [1]
     {   
         TemplateParser.statement_return retval = new TemplateParser.statement_return();
@@ -382,17 +384,19 @@ public partial class TemplateParser : Parser
 
         TemplateParser.ifStatement_return ifStatement8 = default(TemplateParser.ifStatement_return);
 
+        TemplateParser.forEachLoop_return forEachLoop9 = default(TemplateParser.forEachLoop_return);
+
 
 
         try 
     	{
-            // TT\\Template.g:82:2: ( getExpr | setExpr | defaultExpr | ifStatement )
-            int alt2 = 4;
+            // TT\\Template.g:83:2: ( getExpr | setExpr | defaultExpr | ifStatement | forEachLoop )
+            int alt2 = 5;
             switch ( input.LA(1) ) 
             {
             case ILITERAL:
             case LITERAL:
-            case 56:
+            case 57:
             	{
                 alt2 = 1;
                 }
@@ -418,7 +422,7 @@ public partial class TemplateParser : Parser
                 }
                 }
                 break;
-            case 57:
+            case 58:
             	{
                 alt2 = 2;
                 }
@@ -433,6 +437,11 @@ public partial class TemplateParser : Parser
                 alt2 = 4;
                 }
                 break;
+            case FOREACH:
+            	{
+                alt2 = 5;
+                }
+                break;
             	default:
             	    NoViableAltException nvae_d2s0 =
             	        new NoViableAltException("", 2, 0, input);
@@ -443,11 +452,11 @@ public partial class TemplateParser : Parser
             switch (alt2) 
             {
                 case 1 :
-                    // TT\\Template.g:82:4: getExpr
+                    // TT\\Template.g:83:4: getExpr
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_getExpr_in_statement517);
+                    	PushFollow(FOLLOW_getExpr_in_statement524);
                     	getExpr5 = getExpr();
                     	state.followingStackPointer--;
 
@@ -456,11 +465,11 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 2 :
-                    // TT\\Template.g:83:4: setExpr
+                    // TT\\Template.g:84:4: setExpr
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_setExpr_in_statement522);
+                    	PushFollow(FOLLOW_setExpr_in_statement529);
                     	setExpr6 = setExpr();
                     	state.followingStackPointer--;
 
@@ -469,11 +478,11 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 3 :
-                    // TT\\Template.g:84:4: defaultExpr
+                    // TT\\Template.g:85:4: defaultExpr
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_defaultExpr_in_statement527);
+                    	PushFollow(FOLLOW_defaultExpr_in_statement534);
                     	defaultExpr7 = defaultExpr();
                     	state.followingStackPointer--;
 
@@ -482,15 +491,28 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 4 :
-                    // TT\\Template.g:85:4: ifStatement
+                    // TT\\Template.g:86:4: ifStatement
                     {
                     	root_0 = (CommonTree)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_ifStatement_in_statement532);
+                    	PushFollow(FOLLOW_ifStatement_in_statement539);
                     	ifStatement8 = ifStatement();
                     	state.followingStackPointer--;
 
                     	adaptor.AddChild(root_0, ifStatement8.Tree);
+
+                    }
+                    break;
+                case 5 :
+                    // TT\\Template.g:87:4: forEachLoop
+                    {
+                    	root_0 = (CommonTree)adaptor.GetNilNode();
+
+                    	PushFollow(FOLLOW_forEachLoop_in_statement544);
+                    	forEachLoop9 = forEachLoop();
+                    	state.followingStackPointer--;
+
+                    	adaptor.AddChild(root_0, forEachLoop9.Tree);
 
                     }
                     break;
@@ -527,7 +549,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "ifStatement"
-    // TT\\Template.g:88:1: ifStatement : IF ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END -> ^( IF ID statement ) ;
+    // TT\\Template.g:90:1: ifStatement : IF ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END -> ^( IF ID statement ) ;
     public TemplateParser.ifStatement_return ifStatement() // throws RecognitionException [1]
     {   
         TemplateParser.ifStatement_return retval = new TemplateParser.ifStatement_return();
@@ -535,23 +557,23 @@ public partial class TemplateParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken IF9 = null;
-        IToken ID10 = null;
-        IToken TSTOP11 = null;
-        IToken TSTART12 = null;
-        IToken TSTOP14 = null;
-        IToken TSTART15 = null;
-        IToken END16 = null;
-        TemplateParser.statement_return statement13 = default(TemplateParser.statement_return);
+        IToken IF10 = null;
+        IToken ID11 = null;
+        IToken TSTOP12 = null;
+        IToken TSTART13 = null;
+        IToken TSTOP15 = null;
+        IToken TSTART16 = null;
+        IToken END17 = null;
+        TemplateParser.statement_return statement14 = default(TemplateParser.statement_return);
 
 
-        CommonTree IF9_tree=null;
-        CommonTree ID10_tree=null;
-        CommonTree TSTOP11_tree=null;
-        CommonTree TSTART12_tree=null;
-        CommonTree TSTOP14_tree=null;
-        CommonTree TSTART15_tree=null;
-        CommonTree END16_tree=null;
+        CommonTree IF10_tree=null;
+        CommonTree ID11_tree=null;
+        CommonTree TSTOP12_tree=null;
+        CommonTree TSTART13_tree=null;
+        CommonTree TSTOP15_tree=null;
+        CommonTree TSTART16_tree=null;
+        CommonTree END17_tree=null;
         RewriteRuleTokenStream stream_TSTOP = new RewriteRuleTokenStream(adaptor,"token TSTOP");
         RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleTokenStream stream_END = new RewriteRuleTokenStream(adaptor,"token END");
@@ -560,16 +582,16 @@ public partial class TemplateParser : Parser
         RewriteRuleSubtreeStream stream_statement = new RewriteRuleSubtreeStream(adaptor,"rule statement");
         try 
     	{
-            // TT\\Template.g:89:2: ( IF ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END -> ^( IF ID statement ) )
-            // TT\\Template.g:89:4: IF ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END
+            // TT\\Template.g:91:2: ( IF ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END -> ^( IF ID statement ) )
+            // TT\\Template.g:91:4: IF ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END
             {
-            	IF9=(IToken)Match(input,IF,FOLLOW_IF_in_ifStatement543);  
-            	stream_IF.Add(IF9);
+            	IF10=(IToken)Match(input,IF,FOLLOW_IF_in_ifStatement555);  
+            	stream_IF.Add(IF10);
 
-            	ID10=(IToken)Match(input,ID,FOLLOW_ID_in_ifStatement545);  
-            	stream_ID.Add(ID10);
+            	ID11=(IToken)Match(input,ID,FOLLOW_ID_in_ifStatement557);  
+            	stream_ID.Add(ID11);
 
-            	// TT\\Template.g:89:10: ( TSTOP )?
+            	// TT\\Template.g:91:10: ( TSTOP )?
             	int alt3 = 2;
             	int LA3_0 = input.LA(1);
 
@@ -580,10 +602,10 @@ public partial class TemplateParser : Parser
             	switch (alt3) 
             	{
             	    case 1 :
-            	        // TT\\Template.g:89:10: TSTOP
+            	        // TT\\Template.g:91:10: TSTOP
             	        {
-            	        	TSTOP11=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_ifStatement547);  
-            	        	stream_TSTOP.Add(TSTOP11);
+            	        	TSTOP12=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_ifStatement559);  
+            	        	stream_TSTOP.Add(TSTOP12);
 
 
             	        }
@@ -591,7 +613,7 @@ public partial class TemplateParser : Parser
 
             	}
 
-            	// TT\\Template.g:89:17: ( TSTART )?
+            	// TT\\Template.g:91:17: ( TSTART )?
             	int alt4 = 2;
             	int LA4_0 = input.LA(1);
 
@@ -602,10 +624,10 @@ public partial class TemplateParser : Parser
             	switch (alt4) 
             	{
             	    case 1 :
-            	        // TT\\Template.g:89:17: TSTART
+            	        // TT\\Template.g:91:17: TSTART
             	        {
-            	        	TSTART12=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_ifStatement550);  
-            	        	stream_TSTART.Add(TSTART12);
+            	        	TSTART13=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_ifStatement562);  
+            	        	stream_TSTART.Add(TSTART13);
 
 
             	        }
@@ -613,12 +635,12 @@ public partial class TemplateParser : Parser
 
             	}
 
-            	PushFollow(FOLLOW_statement_in_ifStatement553);
-            	statement13 = statement();
+            	PushFollow(FOLLOW_statement_in_ifStatement565);
+            	statement14 = statement();
             	state.followingStackPointer--;
 
-            	stream_statement.Add(statement13.Tree);
-            	// TT\\Template.g:89:35: ( TSTOP )?
+            	stream_statement.Add(statement14.Tree);
+            	// TT\\Template.g:91:35: ( TSTOP )?
             	int alt5 = 2;
             	int LA5_0 = input.LA(1);
 
@@ -629,10 +651,10 @@ public partial class TemplateParser : Parser
             	switch (alt5) 
             	{
             	    case 1 :
-            	        // TT\\Template.g:89:35: TSTOP
+            	        // TT\\Template.g:91:35: TSTOP
             	        {
-            	        	TSTOP14=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_ifStatement555);  
-            	        	stream_TSTOP.Add(TSTOP14);
+            	        	TSTOP15=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_ifStatement567);  
+            	        	stream_TSTOP.Add(TSTOP15);
 
 
             	        }
@@ -640,7 +662,7 @@ public partial class TemplateParser : Parser
 
             	}
 
-            	// TT\\Template.g:89:42: ( TSTART )?
+            	// TT\\Template.g:91:42: ( TSTART )?
             	int alt6 = 2;
             	int LA6_0 = input.LA(1);
 
@@ -651,10 +673,10 @@ public partial class TemplateParser : Parser
             	switch (alt6) 
             	{
             	    case 1 :
-            	        // TT\\Template.g:89:42: TSTART
+            	        // TT\\Template.g:91:42: TSTART
             	        {
-            	        	TSTART15=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_ifStatement558);  
-            	        	stream_TSTART.Add(TSTART15);
+            	        	TSTART16=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_ifStatement570);  
+            	        	stream_TSTART.Add(TSTART16);
 
 
             	        }
@@ -662,8 +684,8 @@ public partial class TemplateParser : Parser
 
             	}
 
-            	END16=(IToken)Match(input,END,FOLLOW_END_in_ifStatement561);  
-            	stream_END.Add(END16);
+            	END17=(IToken)Match(input,END,FOLLOW_END_in_ifStatement573);  
+            	stream_END.Add(END17);
 
 
 
@@ -678,9 +700,9 @@ public partial class TemplateParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (CommonTree)adaptor.GetNilNode();
-            	// 89:54: -> ^( IF ID statement )
+            	// 91:54: -> ^( IF ID statement )
             	{
-            	    // TT\\Template.g:89:57: ^( IF ID statement )
+            	    // TT\\Template.g:91:57: ^( IF ID statement )
             	    {
             	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
             	    root_1 = (CommonTree)adaptor.BecomeRoot(stream_IF.NextNode(), root_1);
@@ -716,6 +738,218 @@ public partial class TemplateParser : Parser
     }
     // $ANTLR end "ifStatement"
 
+    public class forEachLoop_return : ParserRuleReturnScope
+    {
+        private CommonTree tree;
+        override public object Tree
+        {
+        	get { return tree; }
+        	set { tree = (CommonTree) value; }
+        }
+    };
+
+    // $ANTLR start "forEachLoop"
+    // TT\\Template.g:94:1: forEachLoop : FOREACH ID IN ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END -> ^( FOREACH ID ID statement ) ;
+    public TemplateParser.forEachLoop_return forEachLoop() // throws RecognitionException [1]
+    {   
+        TemplateParser.forEachLoop_return retval = new TemplateParser.forEachLoop_return();
+        retval.Start = input.LT(1);
+
+        CommonTree root_0 = null;
+
+        IToken FOREACH18 = null;
+        IToken ID19 = null;
+        IToken IN20 = null;
+        IToken ID21 = null;
+        IToken TSTOP22 = null;
+        IToken TSTART23 = null;
+        IToken TSTOP25 = null;
+        IToken TSTART26 = null;
+        IToken END27 = null;
+        TemplateParser.statement_return statement24 = default(TemplateParser.statement_return);
+
+
+        CommonTree FOREACH18_tree=null;
+        CommonTree ID19_tree=null;
+        CommonTree IN20_tree=null;
+        CommonTree ID21_tree=null;
+        CommonTree TSTOP22_tree=null;
+        CommonTree TSTART23_tree=null;
+        CommonTree TSTOP25_tree=null;
+        CommonTree TSTART26_tree=null;
+        CommonTree END27_tree=null;
+        RewriteRuleTokenStream stream_TSTOP = new RewriteRuleTokenStream(adaptor,"token TSTOP");
+        RewriteRuleTokenStream stream_FOREACH = new RewriteRuleTokenStream(adaptor,"token FOREACH");
+        RewriteRuleTokenStream stream_IN = new RewriteRuleTokenStream(adaptor,"token IN");
+        RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
+        RewriteRuleTokenStream stream_END = new RewriteRuleTokenStream(adaptor,"token END");
+        RewriteRuleTokenStream stream_TSTART = new RewriteRuleTokenStream(adaptor,"token TSTART");
+        RewriteRuleSubtreeStream stream_statement = new RewriteRuleSubtreeStream(adaptor,"rule statement");
+        try 
+    	{
+            // TT\\Template.g:95:2: ( FOREACH ID IN ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END -> ^( FOREACH ID ID statement ) )
+            // TT\\Template.g:95:4: FOREACH ID IN ID ( TSTOP )? ( TSTART )? statement ( TSTOP )? ( TSTART )? END
+            {
+            	FOREACH18=(IToken)Match(input,FOREACH,FOLLOW_FOREACH_in_forEachLoop594);  
+            	stream_FOREACH.Add(FOREACH18);
+
+            	ID19=(IToken)Match(input,ID,FOLLOW_ID_in_forEachLoop596);  
+            	stream_ID.Add(ID19);
+
+            	IN20=(IToken)Match(input,IN,FOLLOW_IN_in_forEachLoop598);  
+            	stream_IN.Add(IN20);
+
+            	ID21=(IToken)Match(input,ID,FOLLOW_ID_in_forEachLoop600);  
+            	stream_ID.Add(ID21);
+
+            	// TT\\Template.g:95:21: ( TSTOP )?
+            	int alt7 = 2;
+            	int LA7_0 = input.LA(1);
+
+            	if ( (LA7_0 == TSTOP) )
+            	{
+            	    alt7 = 1;
+            	}
+            	switch (alt7) 
+            	{
+            	    case 1 :
+            	        // TT\\Template.g:95:21: TSTOP
+            	        {
+            	        	TSTOP22=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_forEachLoop602);  
+            	        	stream_TSTOP.Add(TSTOP22);
+
+
+            	        }
+            	        break;
+
+            	}
+
+            	// TT\\Template.g:95:28: ( TSTART )?
+            	int alt8 = 2;
+            	int LA8_0 = input.LA(1);
+
+            	if ( (LA8_0 == TSTART) )
+            	{
+            	    alt8 = 1;
+            	}
+            	switch (alt8) 
+            	{
+            	    case 1 :
+            	        // TT\\Template.g:95:28: TSTART
+            	        {
+            	        	TSTART23=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_forEachLoop605);  
+            	        	stream_TSTART.Add(TSTART23);
+
+
+            	        }
+            	        break;
+
+            	}
+
+            	PushFollow(FOLLOW_statement_in_forEachLoop608);
+            	statement24 = statement();
+            	state.followingStackPointer--;
+
+            	stream_statement.Add(statement24.Tree);
+            	// TT\\Template.g:95:46: ( TSTOP )?
+            	int alt9 = 2;
+            	int LA9_0 = input.LA(1);
+
+            	if ( (LA9_0 == TSTOP) )
+            	{
+            	    alt9 = 1;
+            	}
+            	switch (alt9) 
+            	{
+            	    case 1 :
+            	        // TT\\Template.g:95:46: TSTOP
+            	        {
+            	        	TSTOP25=(IToken)Match(input,TSTOP,FOLLOW_TSTOP_in_forEachLoop610);  
+            	        	stream_TSTOP.Add(TSTOP25);
+
+
+            	        }
+            	        break;
+
+            	}
+
+            	// TT\\Template.g:95:53: ( TSTART )?
+            	int alt10 = 2;
+            	int LA10_0 = input.LA(1);
+
+            	if ( (LA10_0 == TSTART) )
+            	{
+            	    alt10 = 1;
+            	}
+            	switch (alt10) 
+            	{
+            	    case 1 :
+            	        // TT\\Template.g:95:53: TSTART
+            	        {
+            	        	TSTART26=(IToken)Match(input,TSTART,FOLLOW_TSTART_in_forEachLoop613);  
+            	        	stream_TSTART.Add(TSTART26);
+
+
+            	        }
+            	        break;
+
+            	}
+
+            	END27=(IToken)Match(input,END,FOLLOW_END_in_forEachLoop616);  
+            	stream_END.Add(END27);
+
+
+
+            	// AST REWRITE
+            	// elements:          ID, statement, ID, FOREACH
+            	// token labels:      
+            	// rule labels:       retval
+            	// token list labels: 
+            	// rule list labels:  
+            	// wildcard labels: 
+            	retval.Tree = root_0;
+            	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
+
+            	root_0 = (CommonTree)adaptor.GetNilNode();
+            	// 95:65: -> ^( FOREACH ID ID statement )
+            	{
+            	    // TT\\Template.g:95:68: ^( FOREACH ID ID statement )
+            	    {
+            	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
+            	    root_1 = (CommonTree)adaptor.BecomeRoot(stream_FOREACH.NextNode(), root_1);
+
+            	    adaptor.AddChild(root_1, stream_ID.NextNode());
+            	    adaptor.AddChild(root_1, stream_ID.NextNode());
+            	    adaptor.AddChild(root_1, stream_statement.NextTree());
+
+            	    adaptor.AddChild(root_0, root_1);
+            	    }
+
+            	}
+
+            	retval.Tree = root_0;retval.Tree = root_0;
+            }
+
+            retval.Stop = input.LT(-1);
+
+            	retval.Tree = (CommonTree)adaptor.RulePostProcessing(root_0);
+            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+    	// Conversion of the second argument necessary, but harmless
+    	retval.Tree = (CommonTree)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
+
+        }
+        finally 
+    	{
+        }
+        return retval;
+    }
+    // $ANTLR end "forEachLoop"
+
     public class getExpr_return : ParserRuleReturnScope
     {
         private CommonTree tree;
@@ -727,7 +961,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "getExpr"
-    // TT\\Template.g:92:1: getExpr : ( ( 'GET' )? ID -> ^( GET ID ) | ( 'GET' )? LITERAL -> ^( GET LITERAL ) | ( 'GET' )? ILITERAL -> ^( GET ILITERAL ) );
+    // TT\\Template.g:98:1: getExpr : ( ( 'GET' )? ID -> ^( GET ID ) | ( 'GET' )? LITERAL -> ^( GET LITERAL ) | ( 'GET' )? ILITERAL -> ^( GET ILITERAL ) );
     public TemplateParser.getExpr_return getExpr() // throws RecognitionException [1]
     {   
         TemplateParser.getExpr_return retval = new TemplateParser.getExpr_return();
@@ -735,100 +969,100 @@ public partial class TemplateParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken string_literal17 = null;
-        IToken ID18 = null;
-        IToken string_literal19 = null;
-        IToken LITERAL20 = null;
-        IToken string_literal21 = null;
-        IToken ILITERAL22 = null;
+        IToken string_literal28 = null;
+        IToken ID29 = null;
+        IToken string_literal30 = null;
+        IToken LITERAL31 = null;
+        IToken string_literal32 = null;
+        IToken ILITERAL33 = null;
 
-        CommonTree string_literal17_tree=null;
-        CommonTree ID18_tree=null;
-        CommonTree string_literal19_tree=null;
-        CommonTree LITERAL20_tree=null;
-        CommonTree string_literal21_tree=null;
-        CommonTree ILITERAL22_tree=null;
+        CommonTree string_literal28_tree=null;
+        CommonTree ID29_tree=null;
+        CommonTree string_literal30_tree=null;
+        CommonTree LITERAL31_tree=null;
+        CommonTree string_literal32_tree=null;
+        CommonTree ILITERAL33_tree=null;
         RewriteRuleTokenStream stream_LITERAL = new RewriteRuleTokenStream(adaptor,"token LITERAL");
-        RewriteRuleTokenStream stream_56 = new RewriteRuleTokenStream(adaptor,"token 56");
+        RewriteRuleTokenStream stream_57 = new RewriteRuleTokenStream(adaptor,"token 57");
         RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleTokenStream stream_ILITERAL = new RewriteRuleTokenStream(adaptor,"token ILITERAL");
 
         try 
     	{
-            // TT\\Template.g:93:2: ( ( 'GET' )? ID -> ^( GET ID ) | ( 'GET' )? LITERAL -> ^( GET LITERAL ) | ( 'GET' )? ILITERAL -> ^( GET ILITERAL ) )
-            int alt10 = 3;
+            // TT\\Template.g:99:2: ( ( 'GET' )? ID -> ^( GET ID ) | ( 'GET' )? LITERAL -> ^( GET LITERAL ) | ( 'GET' )? ILITERAL -> ^( GET ILITERAL ) )
+            int alt14 = 3;
             switch ( input.LA(1) ) 
             {
-            case 56:
+            case 57:
             	{
                 switch ( input.LA(2) ) 
                 {
-                case LITERAL:
+                case ID:
                 	{
-                    alt10 = 2;
+                    alt14 = 1;
                     }
                     break;
                 case ILITERAL:
                 	{
-                    alt10 = 3;
+                    alt14 = 3;
                     }
                     break;
-                case ID:
+                case LITERAL:
                 	{
-                    alt10 = 1;
+                    alt14 = 2;
                     }
                     break;
                 	default:
-                	    NoViableAltException nvae_d10s1 =
-                	        new NoViableAltException("", 10, 1, input);
+                	    NoViableAltException nvae_d14s1 =
+                	        new NoViableAltException("", 14, 1, input);
 
-                	    throw nvae_d10s1;
+                	    throw nvae_d14s1;
                 }
 
                 }
                 break;
             case ID:
             	{
-                alt10 = 1;
+                alt14 = 1;
                 }
                 break;
             case LITERAL:
             	{
-                alt10 = 2;
+                alt14 = 2;
                 }
                 break;
             case ILITERAL:
             	{
-                alt10 = 3;
+                alt14 = 3;
                 }
                 break;
             	default:
-            	    NoViableAltException nvae_d10s0 =
-            	        new NoViableAltException("", 10, 0, input);
+            	    NoViableAltException nvae_d14s0 =
+            	        new NoViableAltException("", 14, 0, input);
 
-            	    throw nvae_d10s0;
+            	    throw nvae_d14s0;
             }
 
-            switch (alt10) 
+            switch (alt14) 
             {
                 case 1 :
-                    // TT\\Template.g:93:4: ( 'GET' )? ID
+                    // TT\\Template.g:99:4: ( 'GET' )? ID
                     {
-                    	// TT\\Template.g:93:4: ( 'GET' )?
-                    	int alt7 = 2;
-                    	int LA7_0 = input.LA(1);
+                    	// TT\\Template.g:99:4: ( 'GET' )?
+                    	int alt11 = 2;
+                    	int LA11_0 = input.LA(1);
 
-                    	if ( (LA7_0 == 56) )
+                    	if ( (LA11_0 == 57) )
                     	{
-                    	    alt7 = 1;
+                    	    alt11 = 1;
                     	}
-                    	switch (alt7) 
+                    	switch (alt11) 
                     	{
                     	    case 1 :
-                    	        // TT\\Template.g:93:4: 'GET'
+                    	        // TT\\Template.g:99:4: 'GET'
                     	        {
-                    	        	string_literal17=(IToken)Match(input,56,FOLLOW_56_in_getExpr582);  
-                    	        	stream_56.Add(string_literal17);
+                    	        	string_literal28=(IToken)Match(input,57,FOLLOW_57_in_getExpr639);  
+                    	        	stream_57.Add(string_literal28);
 
 
                     	        }
@@ -836,8 +1070,8 @@ public partial class TemplateParser : Parser
 
                     	}
 
-                    	ID18=(IToken)Match(input,ID,FOLLOW_ID_in_getExpr585);  
-                    	stream_ID.Add(ID18);
+                    	ID29=(IToken)Match(input,ID,FOLLOW_ID_in_getExpr642);  
+                    	stream_ID.Add(ID29);
 
 
 
@@ -852,9 +1086,9 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 93:20: -> ^( GET ID )
+                    	// 99:20: -> ^( GET ID )
                     	{
-                    	    // TT\\Template.g:93:23: ^( GET ID )
+                    	    // TT\\Template.g:99:23: ^( GET ID )
                     	    {
                     	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
                     	    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(GET, "GET"), root_1);
@@ -870,23 +1104,23 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 2 :
-                    // TT\\Template.g:94:4: ( 'GET' )? LITERAL
+                    // TT\\Template.g:100:4: ( 'GET' )? LITERAL
                     {
-                    	// TT\\Template.g:94:4: ( 'GET' )?
-                    	int alt8 = 2;
-                    	int LA8_0 = input.LA(1);
+                    	// TT\\Template.g:100:4: ( 'GET' )?
+                    	int alt12 = 2;
+                    	int LA12_0 = input.LA(1);
 
-                    	if ( (LA8_0 == 56) )
+                    	if ( (LA12_0 == 57) )
                     	{
-                    	    alt8 = 1;
+                    	    alt12 = 1;
                     	}
-                    	switch (alt8) 
+                    	switch (alt12) 
                     	{
                     	    case 1 :
-                    	        // TT\\Template.g:94:4: 'GET'
+                    	        // TT\\Template.g:100:4: 'GET'
                     	        {
-                    	        	string_literal19=(IToken)Match(input,56,FOLLOW_56_in_getExpr604);  
-                    	        	stream_56.Add(string_literal19);
+                    	        	string_literal30=(IToken)Match(input,57,FOLLOW_57_in_getExpr661);  
+                    	        	stream_57.Add(string_literal30);
 
 
                     	        }
@@ -894,8 +1128,8 @@ public partial class TemplateParser : Parser
 
                     	}
 
-                    	LITERAL20=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr607);  
-                    	stream_LITERAL.Add(LITERAL20);
+                    	LITERAL31=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_getExpr664);  
+                    	stream_LITERAL.Add(LITERAL31);
 
 
 
@@ -910,9 +1144,9 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 94:20: -> ^( GET LITERAL )
+                    	// 100:20: -> ^( GET LITERAL )
                     	{
-                    	    // TT\\Template.g:94:23: ^( GET LITERAL )
+                    	    // TT\\Template.g:100:23: ^( GET LITERAL )
                     	    {
                     	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
                     	    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(GET, "GET"), root_1);
@@ -928,23 +1162,23 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 3 :
-                    // TT\\Template.g:95:4: ( 'GET' )? ILITERAL
+                    // TT\\Template.g:101:4: ( 'GET' )? ILITERAL
                     {
-                    	// TT\\Template.g:95:4: ( 'GET' )?
-                    	int alt9 = 2;
-                    	int LA9_0 = input.LA(1);
+                    	// TT\\Template.g:101:4: ( 'GET' )?
+                    	int alt13 = 2;
+                    	int LA13_0 = input.LA(1);
 
-                    	if ( (LA9_0 == 56) )
+                    	if ( (LA13_0 == 57) )
                     	{
-                    	    alt9 = 1;
+                    	    alt13 = 1;
                     	}
-                    	switch (alt9) 
+                    	switch (alt13) 
                     	{
                     	    case 1 :
-                    	        // TT\\Template.g:95:4: 'GET'
+                    	        // TT\\Template.g:101:4: 'GET'
                     	        {
-                    	        	string_literal21=(IToken)Match(input,56,FOLLOW_56_in_getExpr621);  
-                    	        	stream_56.Add(string_literal21);
+                    	        	string_literal32=(IToken)Match(input,57,FOLLOW_57_in_getExpr678);  
+                    	        	stream_57.Add(string_literal32);
 
 
                     	        }
@@ -952,8 +1186,8 @@ public partial class TemplateParser : Parser
 
                     	}
 
-                    	ILITERAL22=(IToken)Match(input,ILITERAL,FOLLOW_ILITERAL_in_getExpr624);  
-                    	stream_ILITERAL.Add(ILITERAL22);
+                    	ILITERAL33=(IToken)Match(input,ILITERAL,FOLLOW_ILITERAL_in_getExpr681);  
+                    	stream_ILITERAL.Add(ILITERAL33);
 
 
 
@@ -968,9 +1202,9 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 95:20: -> ^( GET ILITERAL )
+                    	// 101:20: -> ^( GET ILITERAL )
                     	{
-                    	    // TT\\Template.g:95:23: ^( GET ILITERAL )
+                    	    // TT\\Template.g:101:23: ^( GET ILITERAL )
                     	    {
                     	    CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
                     	    root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(GET, "GET"), root_1);
@@ -1018,7 +1252,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "setExpr"
-    // TT\\Template.g:98:1: setExpr : ( 'SET' )? ( assignment )+ -> ( ^( SET assignment ) )+ ;
+    // TT\\Template.g:104:1: setExpr : ( 'SET' )? ( assignment )+ -> ( ^( SET assignment ) )+ ;
     public TemplateParser.setExpr_return setExpr() // throws RecognitionException [1]
     {   
         TemplateParser.setExpr_return retval = new TemplateParser.setExpr_return();
@@ -1026,33 +1260,33 @@ public partial class TemplateParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken string_literal23 = null;
-        TemplateParser.assignment_return assignment24 = default(TemplateParser.assignment_return);
+        IToken string_literal34 = null;
+        TemplateParser.assignment_return assignment35 = default(TemplateParser.assignment_return);
 
 
-        CommonTree string_literal23_tree=null;
-        RewriteRuleTokenStream stream_57 = new RewriteRuleTokenStream(adaptor,"token 57");
+        CommonTree string_literal34_tree=null;
+        RewriteRuleTokenStream stream_58 = new RewriteRuleTokenStream(adaptor,"token 58");
         RewriteRuleSubtreeStream stream_assignment = new RewriteRuleSubtreeStream(adaptor,"rule assignment");
         try 
     	{
-            // TT\\Template.g:99:2: ( ( 'SET' )? ( assignment )+ -> ( ^( SET assignment ) )+ )
-            // TT\\Template.g:99:4: ( 'SET' )? ( assignment )+
+            // TT\\Template.g:105:2: ( ( 'SET' )? ( assignment )+ -> ( ^( SET assignment ) )+ )
+            // TT\\Template.g:105:4: ( 'SET' )? ( assignment )+
             {
-            	// TT\\Template.g:99:4: ( 'SET' )?
-            	int alt11 = 2;
-            	int LA11_0 = input.LA(1);
+            	// TT\\Template.g:105:4: ( 'SET' )?
+            	int alt15 = 2;
+            	int LA15_0 = input.LA(1);
 
-            	if ( (LA11_0 == 57) )
+            	if ( (LA15_0 == 58) )
             	{
-            	    alt11 = 1;
+            	    alt15 = 1;
             	}
-            	switch (alt11) 
+            	switch (alt15) 
             	{
             	    case 1 :
-            	        // TT\\Template.g:99:4: 'SET'
+            	        // TT\\Template.g:105:4: 'SET'
             	        {
-            	        	string_literal23=(IToken)Match(input,57,FOLLOW_57_in_setExpr643);  
-            	        	stream_57.Add(string_literal23);
+            	        	string_literal34=(IToken)Match(input,58,FOLLOW_58_in_setExpr700);  
+            	        	stream_58.Add(string_literal34);
 
 
             	        }
@@ -1060,44 +1294,44 @@ public partial class TemplateParser : Parser
 
             	}
 
-            	// TT\\Template.g:99:11: ( assignment )+
-            	int cnt12 = 0;
+            	// TT\\Template.g:105:11: ( assignment )+
+            	int cnt16 = 0;
             	do 
             	{
-            	    int alt12 = 2;
-            	    int LA12_0 = input.LA(1);
+            	    int alt16 = 2;
+            	    int LA16_0 = input.LA(1);
 
-            	    if ( (LA12_0 == ID) )
+            	    if ( (LA16_0 == ID) )
             	    {
-            	        alt12 = 1;
+            	        alt16 = 1;
             	    }
 
 
-            	    switch (alt12) 
+            	    switch (alt16) 
             		{
             			case 1 :
-            			    // TT\\Template.g:99:12: assignment
+            			    // TT\\Template.g:105:12: assignment
             			    {
-            			    	PushFollow(FOLLOW_assignment_in_setExpr647);
-            			    	assignment24 = assignment();
+            			    	PushFollow(FOLLOW_assignment_in_setExpr704);
+            			    	assignment35 = assignment();
             			    	state.followingStackPointer--;
 
-            			    	stream_assignment.Add(assignment24.Tree);
+            			    	stream_assignment.Add(assignment35.Tree);
 
             			    }
             			    break;
 
             			default:
-            			    if ( cnt12 >= 1 ) goto loop12;
-            		            EarlyExitException eee12 =
-            		                new EarlyExitException(12, input);
-            		            throw eee12;
+            			    if ( cnt16 >= 1 ) goto loop16;
+            		            EarlyExitException eee16 =
+            		                new EarlyExitException(16, input);
+            		            throw eee16;
             	    }
-            	    cnt12++;
+            	    cnt16++;
             	} while (true);
 
-            	loop12:
-            		;	// Stops C# compiler whining that label 'loop12' has no statements
+            	loop16:
+            		;	// Stops C# compiler whining that label 'loop16' has no statements
 
 
 
@@ -1112,14 +1346,14 @@ public partial class TemplateParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (CommonTree)adaptor.GetNilNode();
-            	// 99:25: -> ( ^( SET assignment ) )+
+            	// 105:25: -> ( ^( SET assignment ) )+
             	{
             	    if ( !(stream_assignment.HasNext()) ) {
             	        throw new RewriteEarlyExitException();
             	    }
             	    while ( stream_assignment.HasNext() )
             	    {
-            	        // TT\\Template.g:99:28: ^( SET assignment )
+            	        // TT\\Template.g:105:28: ^( SET assignment )
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
             	        root_1 = (CommonTree)adaptor.BecomeRoot((CommonTree)adaptor.Create(SET, "SET"), root_1);
@@ -1168,7 +1402,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "defaultExpr"
-    // TT\\Template.g:102:1: defaultExpr : DEFAULT ( assignment )+ -> ( ^( DEFAULT assignment ) )+ ;
+    // TT\\Template.g:108:1: defaultExpr : DEFAULT ( assignment )+ -> ( ^( DEFAULT assignment ) )+ ;
     public TemplateParser.defaultExpr_return defaultExpr() // throws RecognitionException [1]
     {   
         TemplateParser.defaultExpr_return retval = new TemplateParser.defaultExpr_return();
@@ -1176,59 +1410,59 @@ public partial class TemplateParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken DEFAULT25 = null;
-        TemplateParser.assignment_return assignment26 = default(TemplateParser.assignment_return);
+        IToken DEFAULT36 = null;
+        TemplateParser.assignment_return assignment37 = default(TemplateParser.assignment_return);
 
 
-        CommonTree DEFAULT25_tree=null;
+        CommonTree DEFAULT36_tree=null;
         RewriteRuleTokenStream stream_DEFAULT = new RewriteRuleTokenStream(adaptor,"token DEFAULT");
         RewriteRuleSubtreeStream stream_assignment = new RewriteRuleSubtreeStream(adaptor,"rule assignment");
         try 
     	{
-            // TT\\Template.g:103:2: ( DEFAULT ( assignment )+ -> ( ^( DEFAULT assignment ) )+ )
-            // TT\\Template.g:103:4: DEFAULT ( assignment )+
+            // TT\\Template.g:109:2: ( DEFAULT ( assignment )+ -> ( ^( DEFAULT assignment ) )+ )
+            // TT\\Template.g:109:4: DEFAULT ( assignment )+
             {
-            	DEFAULT25=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr669);  
-            	stream_DEFAULT.Add(DEFAULT25);
+            	DEFAULT36=(IToken)Match(input,DEFAULT,FOLLOW_DEFAULT_in_defaultExpr726);  
+            	stream_DEFAULT.Add(DEFAULT36);
 
-            	// TT\\Template.g:103:12: ( assignment )+
-            	int cnt13 = 0;
+            	// TT\\Template.g:109:12: ( assignment )+
+            	int cnt17 = 0;
             	do 
             	{
-            	    int alt13 = 2;
-            	    int LA13_0 = input.LA(1);
+            	    int alt17 = 2;
+            	    int LA17_0 = input.LA(1);
 
-            	    if ( (LA13_0 == ID) )
+            	    if ( (LA17_0 == ID) )
             	    {
-            	        alt13 = 1;
+            	        alt17 = 1;
             	    }
 
 
-            	    switch (alt13) 
+            	    switch (alt17) 
             		{
             			case 1 :
-            			    // TT\\Template.g:103:13: assignment
+            			    // TT\\Template.g:109:13: assignment
             			    {
-            			    	PushFollow(FOLLOW_assignment_in_defaultExpr672);
-            			    	assignment26 = assignment();
+            			    	PushFollow(FOLLOW_assignment_in_defaultExpr729);
+            			    	assignment37 = assignment();
             			    	state.followingStackPointer--;
 
-            			    	stream_assignment.Add(assignment26.Tree);
+            			    	stream_assignment.Add(assignment37.Tree);
 
             			    }
             			    break;
 
             			default:
-            			    if ( cnt13 >= 1 ) goto loop13;
-            		            EarlyExitException eee13 =
-            		                new EarlyExitException(13, input);
-            		            throw eee13;
+            			    if ( cnt17 >= 1 ) goto loop17;
+            		            EarlyExitException eee17 =
+            		                new EarlyExitException(17, input);
+            		            throw eee17;
             	    }
-            	    cnt13++;
+            	    cnt17++;
             	} while (true);
 
-            	loop13:
-            		;	// Stops C# compiler whining that label 'loop13' has no statements
+            	loop17:
+            		;	// Stops C# compiler whining that label 'loop17' has no statements
 
 
 
@@ -1243,14 +1477,14 @@ public partial class TemplateParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (CommonTree)adaptor.GetNilNode();
-            	// 103:26: -> ( ^( DEFAULT assignment ) )+
+            	// 109:26: -> ( ^( DEFAULT assignment ) )+
             	{
             	    if ( !(stream_DEFAULT.HasNext() || stream_assignment.HasNext()) ) {
             	        throw new RewriteEarlyExitException();
             	    }
             	    while ( stream_DEFAULT.HasNext() || stream_assignment.HasNext() )
             	    {
-            	        // TT\\Template.g:103:29: ^( DEFAULT assignment )
+            	        // TT\\Template.g:109:29: ^( DEFAULT assignment )
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.GetNilNode();
             	        root_1 = (CommonTree)adaptor.BecomeRoot(stream_DEFAULT.NextNode(), root_1);
@@ -1300,7 +1534,7 @@ public partial class TemplateParser : Parser
     };
 
     // $ANTLR start "assignment"
-    // TT\\Template.g:106:1: assignment : ( ID ASSIGN LITERAL -> ID LITERAL | ID ASSIGN NUMBER -> ID NUMBER | ID ASSIGN DECIMAL -> ID DECIMAL );
+    // TT\\Template.g:112:1: assignment : ( ID ASSIGN LITERAL -> ID LITERAL | ID ASSIGN NUMBER -> ID NUMBER | ID ASSIGN DECIMAL -> ID DECIMAL );
     public TemplateParser.assignment_return assignment() // throws RecognitionException [1]
     {   
         TemplateParser.assignment_return retval = new TemplateParser.assignment_return();
@@ -1308,25 +1542,25 @@ public partial class TemplateParser : Parser
 
         CommonTree root_0 = null;
 
-        IToken ID27 = null;
-        IToken ASSIGN28 = null;
-        IToken LITERAL29 = null;
-        IToken ID30 = null;
-        IToken ASSIGN31 = null;
-        IToken NUMBER32 = null;
-        IToken ID33 = null;
-        IToken ASSIGN34 = null;
-        IToken DECIMAL35 = null;
+        IToken ID38 = null;
+        IToken ASSIGN39 = null;
+        IToken LITERAL40 = null;
+        IToken ID41 = null;
+        IToken ASSIGN42 = null;
+        IToken NUMBER43 = null;
+        IToken ID44 = null;
+        IToken ASSIGN45 = null;
+        IToken DECIMAL46 = null;
 
-        CommonTree ID27_tree=null;
-        CommonTree ASSIGN28_tree=null;
-        CommonTree LITERAL29_tree=null;
-        CommonTree ID30_tree=null;
-        CommonTree ASSIGN31_tree=null;
-        CommonTree NUMBER32_tree=null;
-        CommonTree ID33_tree=null;
-        CommonTree ASSIGN34_tree=null;
-        CommonTree DECIMAL35_tree=null;
+        CommonTree ID38_tree=null;
+        CommonTree ASSIGN39_tree=null;
+        CommonTree LITERAL40_tree=null;
+        CommonTree ID41_tree=null;
+        CommonTree ASSIGN42_tree=null;
+        CommonTree NUMBER43_tree=null;
+        CommonTree ID44_tree=null;
+        CommonTree ASSIGN45_tree=null;
+        CommonTree DECIMAL46_tree=null;
         RewriteRuleTokenStream stream_LITERAL = new RewriteRuleTokenStream(adaptor,"token LITERAL");
         RewriteRuleTokenStream stream_DECIMAL = new RewriteRuleTokenStream(adaptor,"token DECIMAL");
         RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
@@ -1335,69 +1569,69 @@ public partial class TemplateParser : Parser
 
         try 
     	{
-            // TT\\Template.g:107:2: ( ID ASSIGN LITERAL -> ID LITERAL | ID ASSIGN NUMBER -> ID NUMBER | ID ASSIGN DECIMAL -> ID DECIMAL )
-            int alt14 = 3;
-            int LA14_0 = input.LA(1);
+            // TT\\Template.g:113:2: ( ID ASSIGN LITERAL -> ID LITERAL | ID ASSIGN NUMBER -> ID NUMBER | ID ASSIGN DECIMAL -> ID DECIMAL )
+            int alt18 = 3;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA14_0 == ID) )
+            if ( (LA18_0 == ID) )
             {
-                int LA14_1 = input.LA(2);
+                int LA18_1 = input.LA(2);
 
-                if ( (LA14_1 == ASSIGN) )
+                if ( (LA18_1 == ASSIGN) )
                 {
                     switch ( input.LA(3) ) 
                     {
                     case LITERAL:
                     	{
-                        alt14 = 1;
+                        alt18 = 1;
                         }
                         break;
                     case NUMBER:
                     	{
-                        alt14 = 2;
+                        alt18 = 2;
                         }
                         break;
                     case DECIMAL:
                     	{
-                        alt14 = 3;
+                        alt18 = 3;
                         }
                         break;
                     	default:
-                    	    NoViableAltException nvae_d14s2 =
-                    	        new NoViableAltException("", 14, 2, input);
+                    	    NoViableAltException nvae_d18s2 =
+                    	        new NoViableAltException("", 18, 2, input);
 
-                    	    throw nvae_d14s2;
+                    	    throw nvae_d18s2;
                     }
 
                 }
                 else 
                 {
-                    NoViableAltException nvae_d14s1 =
-                        new NoViableAltException("", 14, 1, input);
+                    NoViableAltException nvae_d18s1 =
+                        new NoViableAltException("", 18, 1, input);
 
-                    throw nvae_d14s1;
+                    throw nvae_d18s1;
                 }
             }
             else 
             {
-                NoViableAltException nvae_d14s0 =
-                    new NoViableAltException("", 14, 0, input);
+                NoViableAltException nvae_d18s0 =
+                    new NoViableAltException("", 18, 0, input);
 
-                throw nvae_d14s0;
+                throw nvae_d18s0;
             }
-            switch (alt14) 
+            switch (alt18) 
             {
                 case 1 :
-                    // TT\\Template.g:107:4: ID ASSIGN LITERAL
+                    // TT\\Template.g:113:4: ID ASSIGN LITERAL
                     {
-                    	ID27=(IToken)Match(input,ID,FOLLOW_ID_in_assignment694);  
-                    	stream_ID.Add(ID27);
+                    	ID38=(IToken)Match(input,ID,FOLLOW_ID_in_assignment751);  
+                    	stream_ID.Add(ID38);
 
-                    	ASSIGN28=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment696);  
-                    	stream_ASSIGN.Add(ASSIGN28);
+                    	ASSIGN39=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment753);  
+                    	stream_ASSIGN.Add(ASSIGN39);
 
-                    	LITERAL29=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_assignment698);  
-                    	stream_LITERAL.Add(LITERAL29);
+                    	LITERAL40=(IToken)Match(input,LITERAL,FOLLOW_LITERAL_in_assignment755);  
+                    	stream_LITERAL.Add(LITERAL40);
 
 
 
@@ -1412,7 +1646,7 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 107:22: -> ID LITERAL
+                    	// 113:22: -> ID LITERAL
                     	{
                     	    adaptor.AddChild(root_0, stream_ID.NextNode());
                     	    adaptor.AddChild(root_0, stream_LITERAL.NextNode());
@@ -1423,16 +1657,16 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 2 :
-                    // TT\\Template.g:108:4: ID ASSIGN NUMBER
+                    // TT\\Template.g:114:4: ID ASSIGN NUMBER
                     {
-                    	ID30=(IToken)Match(input,ID,FOLLOW_ID_in_assignment709);  
-                    	stream_ID.Add(ID30);
+                    	ID41=(IToken)Match(input,ID,FOLLOW_ID_in_assignment766);  
+                    	stream_ID.Add(ID41);
 
-                    	ASSIGN31=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment711);  
-                    	stream_ASSIGN.Add(ASSIGN31);
+                    	ASSIGN42=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment768);  
+                    	stream_ASSIGN.Add(ASSIGN42);
 
-                    	NUMBER32=(IToken)Match(input,NUMBER,FOLLOW_NUMBER_in_assignment713);  
-                    	stream_NUMBER.Add(NUMBER32);
+                    	NUMBER43=(IToken)Match(input,NUMBER,FOLLOW_NUMBER_in_assignment770);  
+                    	stream_NUMBER.Add(NUMBER43);
 
 
 
@@ -1447,7 +1681,7 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 108:22: -> ID NUMBER
+                    	// 114:22: -> ID NUMBER
                     	{
                     	    adaptor.AddChild(root_0, stream_ID.NextNode());
                     	    adaptor.AddChild(root_0, stream_NUMBER.NextNode());
@@ -1458,21 +1692,21 @@ public partial class TemplateParser : Parser
                     }
                     break;
                 case 3 :
-                    // TT\\Template.g:109:4: ID ASSIGN DECIMAL
+                    // TT\\Template.g:115:4: ID ASSIGN DECIMAL
                     {
-                    	ID33=(IToken)Match(input,ID,FOLLOW_ID_in_assignment725);  
-                    	stream_ID.Add(ID33);
+                    	ID44=(IToken)Match(input,ID,FOLLOW_ID_in_assignment782);  
+                    	stream_ID.Add(ID44);
 
-                    	ASSIGN34=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment727);  
-                    	stream_ASSIGN.Add(ASSIGN34);
+                    	ASSIGN45=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment784);  
+                    	stream_ASSIGN.Add(ASSIGN45);
 
-                    	DECIMAL35=(IToken)Match(input,DECIMAL,FOLLOW_DECIMAL_in_assignment729);  
-                    	stream_DECIMAL.Add(DECIMAL35);
+                    	DECIMAL46=(IToken)Match(input,DECIMAL,FOLLOW_DECIMAL_in_assignment786);  
+                    	stream_DECIMAL.Add(DECIMAL46);
 
 
 
                     	// AST REWRITE
-                    	// elements:          ID, DECIMAL
+                    	// elements:          DECIMAL, ID
                     	// token labels:      
                     	// rule labels:       retval
                     	// token list labels: 
@@ -1482,7 +1716,7 @@ public partial class TemplateParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (CommonTree)adaptor.GetNilNode();
-                    	// 109:22: -> ID DECIMAL
+                    	// 115:22: -> ID DECIMAL
                     	{
                     	    adaptor.AddChild(root_0, stream_ID.NextNode());
                     	    adaptor.AddChild(root_0, stream_DECIMAL.NextNode());
@@ -1523,41 +1757,52 @@ public partial class TemplateParser : Parser
 
  
 
-    public static readonly BitSet FOLLOW_block_in_document478 = new BitSet(new ulong[]{0x0000000000000202UL});
-    public static readonly BitSet FOLLOW_TSTART_in_block499 = new BitSet(new ulong[]{0x0300400001016000UL});
-    public static readonly BitSet FOLLOW_statement_in_block502 = new BitSet(new ulong[]{0x0000000000000400UL});
-    public static readonly BitSet FOLLOW_TSTOP_in_block504 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_getExpr_in_statement517 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_setExpr_in_statement522 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_defaultExpr_in_statement527 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ifStatement_in_statement532 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_IF_in_ifStatement543 = new BitSet(new ulong[]{0x0000400000000000UL});
-    public static readonly BitSet FOLLOW_ID_in_ifStatement545 = new BitSet(new ulong[]{0x0300400001016600UL});
-    public static readonly BitSet FOLLOW_TSTOP_in_ifStatement547 = new BitSet(new ulong[]{0x0300400001016200UL});
-    public static readonly BitSet FOLLOW_TSTART_in_ifStatement550 = new BitSet(new ulong[]{0x0300400001016000UL});
-    public static readonly BitSet FOLLOW_statement_in_ifStatement553 = new BitSet(new ulong[]{0x0000200000000600UL});
-    public static readonly BitSet FOLLOW_TSTOP_in_ifStatement555 = new BitSet(new ulong[]{0x0000200000000200UL});
-    public static readonly BitSet FOLLOW_TSTART_in_ifStatement558 = new BitSet(new ulong[]{0x0000200000000000UL});
-    public static readonly BitSet FOLLOW_END_in_ifStatement561 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_56_in_getExpr582 = new BitSet(new ulong[]{0x0000400000000000UL});
-    public static readonly BitSet FOLLOW_ID_in_getExpr585 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_56_in_getExpr604 = new BitSet(new ulong[]{0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_LITERAL_in_getExpr607 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_56_in_getExpr621 = new BitSet(new ulong[]{0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_ILITERAL_in_getExpr624 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_57_in_setExpr643 = new BitSet(new ulong[]{0x0200400000000000UL});
-    public static readonly BitSet FOLLOW_assignment_in_setExpr647 = new BitSet(new ulong[]{0x0200400000000002UL});
-    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr669 = new BitSet(new ulong[]{0x0200400000000000UL});
-    public static readonly BitSet FOLLOW_assignment_in_defaultExpr672 = new BitSet(new ulong[]{0x0200400000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_assignment694 = new BitSet(new ulong[]{0x0020000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_assignment696 = new BitSet(new ulong[]{0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_LITERAL_in_assignment698 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_assignment709 = new BitSet(new ulong[]{0x0020000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_assignment711 = new BitSet(new ulong[]{0x0000800000000000UL});
-    public static readonly BitSet FOLLOW_NUMBER_in_assignment713 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_assignment725 = new BitSet(new ulong[]{0x0020000000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_assignment727 = new BitSet(new ulong[]{0x0001000000000000UL});
-    public static readonly BitSet FOLLOW_DECIMAL_in_assignment729 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_block_in_document485 = new BitSet(new ulong[]{0x0000000000000202UL});
+    public static readonly BitSet FOLLOW_TSTART_in_block506 = new BitSet(new ulong[]{0x0600800001416000UL});
+    public static readonly BitSet FOLLOW_statement_in_block509 = new BitSet(new ulong[]{0x0000000000000400UL});
+    public static readonly BitSet FOLLOW_TSTOP_in_block511 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_getExpr_in_statement524 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_setExpr_in_statement529 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_defaultExpr_in_statement534 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ifStatement_in_statement539 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_forEachLoop_in_statement544 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_IF_in_ifStatement555 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_ID_in_ifStatement557 = new BitSet(new ulong[]{0x0600800001416600UL});
+    public static readonly BitSet FOLLOW_TSTOP_in_ifStatement559 = new BitSet(new ulong[]{0x0600800001416200UL});
+    public static readonly BitSet FOLLOW_TSTART_in_ifStatement562 = new BitSet(new ulong[]{0x0600800001416000UL});
+    public static readonly BitSet FOLLOW_statement_in_ifStatement565 = new BitSet(new ulong[]{0x0000200000000600UL});
+    public static readonly BitSet FOLLOW_TSTOP_in_ifStatement567 = new BitSet(new ulong[]{0x0000200000000200UL});
+    public static readonly BitSet FOLLOW_TSTART_in_ifStatement570 = new BitSet(new ulong[]{0x0000200000000000UL});
+    public static readonly BitSet FOLLOW_END_in_ifStatement573 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_FOREACH_in_forEachLoop594 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_ID_in_forEachLoop596 = new BitSet(new ulong[]{0x0000400000000000UL});
+    public static readonly BitSet FOLLOW_IN_in_forEachLoop598 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_ID_in_forEachLoop600 = new BitSet(new ulong[]{0x0600800001416600UL});
+    public static readonly BitSet FOLLOW_TSTOP_in_forEachLoop602 = new BitSet(new ulong[]{0x0600800001416200UL});
+    public static readonly BitSet FOLLOW_TSTART_in_forEachLoop605 = new BitSet(new ulong[]{0x0600800001416000UL});
+    public static readonly BitSet FOLLOW_statement_in_forEachLoop608 = new BitSet(new ulong[]{0x0000200000000600UL});
+    public static readonly BitSet FOLLOW_TSTOP_in_forEachLoop610 = new BitSet(new ulong[]{0x0000200000000200UL});
+    public static readonly BitSet FOLLOW_TSTART_in_forEachLoop613 = new BitSet(new ulong[]{0x0000200000000000UL});
+    public static readonly BitSet FOLLOW_END_in_forEachLoop616 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_57_in_getExpr639 = new BitSet(new ulong[]{0x0000800000000000UL});
+    public static readonly BitSet FOLLOW_ID_in_getExpr642 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_57_in_getExpr661 = new BitSet(new ulong[]{0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_LITERAL_in_getExpr664 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_57_in_getExpr678 = new BitSet(new ulong[]{0x0000000000002000UL});
+    public static readonly BitSet FOLLOW_ILITERAL_in_getExpr681 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_58_in_setExpr700 = new BitSet(new ulong[]{0x0400800000000000UL});
+    public static readonly BitSet FOLLOW_assignment_in_setExpr704 = new BitSet(new ulong[]{0x0400800000000002UL});
+    public static readonly BitSet FOLLOW_DEFAULT_in_defaultExpr726 = new BitSet(new ulong[]{0x0400800000000000UL});
+    public static readonly BitSet FOLLOW_assignment_in_defaultExpr729 = new BitSet(new ulong[]{0x0400800000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment751 = new BitSet(new ulong[]{0x0040000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment753 = new BitSet(new ulong[]{0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_LITERAL_in_assignment755 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment766 = new BitSet(new ulong[]{0x0040000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment768 = new BitSet(new ulong[]{0x0001000000000000UL});
+    public static readonly BitSet FOLLOW_NUMBER_in_assignment770 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_assignment782 = new BitSet(new ulong[]{0x0040000000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_assignment784 = new BitSet(new ulong[]{0x0002000000000000UL});
+    public static readonly BitSet FOLLOW_DECIMAL_in_assignment786 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }

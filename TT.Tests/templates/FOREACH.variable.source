@@ -1,0 +1,1 @@
+﻿[% FOREACH i IN variable %][% i %][% END %]
